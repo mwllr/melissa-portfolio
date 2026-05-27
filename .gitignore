@@ -1,0 +1,13 @@
+.DS_Store
+*.log
+
+# Local editor state
+.vscode/
+.idea/
+
+# Future build outputs
+node_modules/
+dist/
+build/
+.next/
+out/
