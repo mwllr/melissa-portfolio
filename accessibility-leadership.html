@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accessibility Leadership | Melissa Waller</title>
     <meta name="description" content="Accessibility leadership work by Melissa Waller, including governance, QA systems, WCAG implementation, and organizational enablement.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
     <link rel="stylesheet" href="styles/site.css">
   </head>
   <body>
@@ -12,22 +21,32 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="index.html">Melissa Waller</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="selected-work.html">Selected Work</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select-accessibility">Dark mode</label>
+            <select id="theme-select-accessibility" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <nav class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="selected-work.html">Selected Work</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
     <main id="main">
       <section class="page-hero" aria-labelledby="accessibility-title">
         <div class="section-inner">
-          <p class="section-kicker">Accessibility Leadership</p>
           <h1 id="accessibility-title">Accessibility works best when it becomes part of the system.</h1>
           <p class="lede">I help organizations move from individual accessibility fixes toward durable operating models: standards, patterns, reviews, training, and governance that teams can use repeatedly.</p>
         </div>
@@ -71,10 +90,18 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <p>&copy; 2026 Melissa Waller</p>
-        <p><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></p>
-        <p><a href="https://www.linkedin.com/in/melissa-waller-61b48827">LinkedIn</a></p>
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
       </div>
     </footer>
+    <script src="scripts/theme.js"></script>
   </body>
 </html>

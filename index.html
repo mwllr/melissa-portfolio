@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Melissa Waller | Accessibility, Enablement, and Systems Thinking</title>
     <meta name="description" content="Melissa Waller helps organizations work better through accessibility, enablement, operational design, and systems thinking.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
     <link rel="stylesheet" href="styles/site.css">
   </head>
   <body>
@@ -12,27 +21,38 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="index.html">Melissa Waller</a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
-            <li><a href="selected-work.html">Selected Work</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select">Dark mode</label>
+            <select id="theme-select" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <nav class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="index.html" aria-current="page">Home</a></li>
+              <li><a href="selected-work.html">Selected Work</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
     <main id="main">
       <section class="hero" aria-labelledby="home-title">
         <div class="section-inner">
-          <h1 id="home-title">Helping organizations work better through accessibility, enablement, and systems thinking.</h1>
-          <p class="lede">I build scalable frameworks, training practices, and operational systems that help teams create clearer, more inclusive digital experiences.</p>
+          <h1 id="home-title">Helping organizations work better through inclusive design, enablement, and systems thinking.</h1>
+          <p class="lede">I love building things! This includes scalable frameworks, training practices, and operational systems that help teams create clearer, more inclusive digital experiences.</p>
           <div class="prose compact-copy">
             <p>My work sits at the intersection of:</p>
-            <ul class="theme-list">
-              <li>accessibility leadership</li>
+            <ul>
+              <li>inclusive design leadership</li>
               <li>organizational enablement</li>
               <li>UX operations</li>
               <li>communication strategy</li>
@@ -42,7 +62,8 @@
             <p>Over the last decade, I have helped teams improve quality, reduce friction, scale knowledge, and build more sustainable ways of working across higher education and enterprise environments.</p>
           </div>
           <div class="action-row">
-            <a class="button" href="selected-work.html">View Selected Work</a>
+            <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
+            <a class="button secondary" href="resume.html">View Resume</a>
           </div>
         </div>
       </section>
@@ -52,8 +73,8 @@
           <h2 id="focus-title">What I Focus On</h2>
           <div class="summary-grid">
             <article class="card">
-              <h3>Accessibility Leadership</h3>
-              <p>Building scalable accessibility practices that move beyond compliance and help teams create better experiences for more people.</p>
+              <h3>Inclusive Design and Accessibility Leadership</h3>
+              <p>Building scalable design and accessibility practices that move beyond compliance and help teams create better experiences for more people.</p>
             </article>
             <article class="card">
               <h3>Team Enablement</h3>
@@ -78,7 +99,7 @@
             <p>I am most energized by the work happening behind the scenes: the systems, communication patterns, and operational structures that influence how teams function every day.</p>
             <p>That includes:</p>
             <ul>
-              <li>scaling accessibility knowledge across teams</li>
+              <li>scaling inclusive design and accessibility knowledge across teams</li>
               <li>building operational clarity</li>
               <li>improving cross-functional collaboration</li>
               <li>developing governance and review systems</li>
@@ -119,8 +140,8 @@
         <div class="section-inner">
           <h2 id="about-preview-title">About Melissa</h2>
           <div class="prose">
-            <p>I am a UX and accessibility leader with a background in graphic design, systems thinking, and organizational enablement.</p>
-            <p>My career has evolved from visual design into leading accessibility initiatives, operational improvements, training systems, and cross-functional collaboration practices that help teams work more effectively together.</p>
+            <p>I am an inclusive design and accessibility leader with a background in graphic design, systems thinking, and organizational enablement.</p>
+            <p>My career has evolved from visual design into leading inclusive design and accessibility initiatives, operational improvements, training systems, and cross-functional collaboration practices that help teams work more effectively together.</p>
             <p>I care deeply about creating experiences, and organizations, that are more thoughtful, inclusive, sustainable, and human-centered.</p>
           </div>
           <div class="action-row">
@@ -149,7 +170,7 @@
             <p>I would love to hear from you.</p>
           </div>
           <div class="action-row">
-            <a class="button" href="contact.html">Contact Melissa</a>
+            <a class="button" href="#contact">Contact Melissa</a>
           </div>
         </div>
       </section>
@@ -157,10 +178,18 @@
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <p>&copy; 2026 Melissa Waller</p>
-        <p><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></p>
-        <p><a href="https://www.linkedin.com/in/melissa-waller-61b48827">LinkedIn</a></p>
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
       </div>
     </footer>
+    <script src="scripts/theme.js"></script>
   </body>
 </html>
