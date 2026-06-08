@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>University-Wide Design System, Prototypes, and Web Components | Melissa Waller</title>
+    <meta name="description" content="A selected work project by Melissa Waller about building a shared design system, accessibility framework, and governance model across a decentralized university environment.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">Melissa Waller</a>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select-university-design-system">Dark mode</label>
+            <select id="theme-select-university-design-system" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../selected-work.html" aria-current="page">Selected Work</a></li>
+              <li><a href="../resume.html">Resume</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="page-hero">
+          <div class="section-inner">
+            <p><a href="../selected-work.html">Back to Selected Work</a></p>
+            <p class="eyebrow">University of Illinois · 2020-2023</p>
+            <h1>University-Wide Design System, Prototypes, and Web Components</h1>
+            <p class="lede">Building a shared design system, accessibility framework, and governance model across a decentralized university environment.</p>
+          </div>
+        </header>
+
+        <section class="content-section section-band" aria-labelledby="challenge-title">
+          <div class="section-inner prose">
+            <h2 id="challenge-title">Challenge</h2>
+            <p>The University of Illinois consisted of hundreds of public-facing websites managed independently by colleges, departments, and units across campus.</p>
+            <p>As a result, branding was inconsistent, accessibility practices varied widely, design patterns were duplicated, development teams often solved the same problems multiple times, and prospective students encountered different experiences depending on which website they visited.</p>
+            <p>University leadership wanted to strengthen brand consistency while improving accessibility and creating a more cohesive experience across campus websites.</p>
+            <p>The challenge was not simply creating a design system. It was creating a solution that multiple colleges, technical teams, and content owners would willingly adopt.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="approach-title">
+          <div class="section-inner prose">
+            <h2 id="approach-title">Approach</h2>
+            <p>I joined an initial cross-campus working group that brought together designers, developers, accessibility specialists, information architects, and university stakeholders.</p>
+            <p>What began as a design initiative quickly evolved into a broader effort focused on governance, collaboration, accessibility, and shared ownership.</p>
+            <p>Over time, I became a leader within the initiative, helping establish processes, coordinate working groups, develop accessibility guidance, and support implementation across campus.</p>
+            <p>The team focused on creating:</p>
+            <ul>
+              <li>Shared design patterns</li>
+              <li>Reusable web components</li>
+              <li>Accessibility standards</li>
+              <li>Design documentation</li>
+              <li>Cross-campus governance processes</li>
+              <li>Education and training opportunities</li>
+            </ul>
+            <p>The goal was to create a common foundation that could support multiple content management systems while reducing duplication and improving quality.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="created-title">
+          <div class="section-inner prose">
+            <h2 id="created-title">What Was Created</h2>
+            <h3>Shared Design System</h3>
+            <p>A centralized design system that documented UI patterns, page layouts, components, typography, color standards, and interaction behaviors.</p>
+            <p>The system evolved from Adobe XD into a more scalable Figma-based workflow as adoption expanded.</p>
+
+            <h3>Reusable Web Components</h3>
+            <p>A growing library of shared components that could be implemented across multiple platforms, including cards, call-to-action modules, feature components, navigation patterns, content layouts, and interactive elements.</p>
+            <p>The component approach helped teams move faster while maintaining consistency.</p>
+
+            <h3>Accessibility Standards</h3>
+            <p>Accessibility was embedded into the system from the beginning rather than treated as a final review step.</p>
+            <p>Particular attention was given to color contrast requirements, component accessibility, content structure, WCAG compliance guidance, and design documentation.</p>
+            <p>One notable challenge involved balancing accessibility requirements with the university's highly recognizable Illini Orange brand color. To address this, we developed documentation, approved color combinations, and educational resources that helped designers make accessible decisions while maintaining brand integrity.</p>
+
+            <h3>Governance and Collaboration</h3>
+            <p>The initiative expanded into a campus-wide governance model through the Web Implementation Guidelines Group (WIGG).</p>
+            <p>I helped establish and support a structure that connected UX, design, accessibility, component development, Drupal teams, WordPress teams, and campus stakeholders.</p>
+            <p>This created a shared process for proposing, reviewing, prioritizing, and releasing improvements across the ecosystem.</p>
+
+            <h3>Education and Enablement</h3>
+            <p>Creating standards was only part of the solution. Adoption required helping others build new skills.</p>
+            <p>To support this effort, I created and delivered accessibility presentations, design workshops, documentation, office hours, reference materials, and campus presentations.</p>
+            <p>The focus was helping teams understand not only what to do, but why it mattered.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="outcomes-title">
+          <div class="section-inner prose">
+            <h2 id="outcomes-title">Outcomes</h2>
+            <p>While the system continued evolving after the initial launch, the effort established a foundation for:</p>
+            <ul>
+              <li>More consistent university branding</li>
+              <li>Improved accessibility practices</li>
+              <li>Shared design and development standards</li>
+              <li>Reduced duplication across teams</li>
+              <li>Stronger collaboration between colleges and units</li>
+              <li>Greater awareness of inclusive design practices</li>
+            </ul>
+            <p>The initiative also grew from a small working group into a large cross-campus community focused on improving the quality of public-facing digital experiences.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="role-title">
+          <div class="section-inner prose">
+            <h2 id="role-title">My Role</h2>
+            <p>Throughout the project I contributed in multiple capacities as the initiative evolved.</p>
+            <h3>Design</h3>
+            <ul>
+              <li>UI design</li>
+              <li>Design systems</li>
+              <li>Prototyping</li>
+              <li>Pattern libraries</li>
+            </ul>
+            <h3>Accessibility</h3>
+            <ul>
+              <li>WCAG guidance</li>
+              <li>Accessibility reviews</li>
+              <li>Documentation</li>
+              <li>Training</li>
+            </ul>
+            <h3>Leadership</h3>
+            <ul>
+              <li>Working group leadership</li>
+              <li>Cross-team coordination</li>
+              <li>Governance development</li>
+              <li>Stakeholder communication</li>
+            </ul>
+            <h3>Operations</h3>
+            <ul>
+              <li>Project management</li>
+              <li>Process development</li>
+              <li>Release coordination</li>
+              <li>Adoption support</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="takeaways-title">
+          <div class="section-inner prose">
+            <h2 id="takeaways-title">Key Takeaways</h2>
+            <p>This project taught me that successful systems are rarely just design systems.</p>
+            <p>Creating reusable components was important, but the larger challenge was helping people work together, align around standards, and adopt new ways of working.</p>
+            <p>Many of the leadership, accessibility, governance, and enablement practices I use today can be traced back to lessons learned during this initiative.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="ask-title">
+          <div class="section-inner prose">
+            <h2 id="ask-title">Ask Me About</h2>
+            <ul>
+              <li>Building a design system in a decentralized organization</li>
+              <li>Accessibility governance at scale</li>
+              <li>Balancing branding and accessibility requirements</li>
+              <li>Creating communities of practice</li>
+              <li>Influencing without formal authority</li>
+              <li>Leading volunteer-based initiatives</li>
+              <li>Driving adoption of shared standards</li>
+              <li>Cross-functional collaboration across large organizations</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="../scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>

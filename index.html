@@ -14,6 +14,7 @@
         } catch (error) {}
       })();
     </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="styles/site.css">
   </head>
   <body>
@@ -31,9 +32,16 @@
             </select>
             <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
           </div>
-          <nav class="site-nav" aria-label="Primary navigation">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
-              <li><a href="index.html" aria-current="page">Home</a></li>
               <li><a href="selected-work.html">Selected Work</a></li>
               <li><a href="resume.html">Resume</a></li>
               <li><a href="about.html">About</a></li>
@@ -47,19 +55,10 @@
     <main id="main">
       <section class="hero" aria-labelledby="home-title">
         <div class="section-inner">
-          <h1 id="home-title">Helping organizations work better through inclusive design, enablement, and systems thinking.</h1>
-          <p class="lede">I love building things! This includes scalable frameworks, training practices, and operational systems that help teams create clearer, more inclusive digital experiences.</p>
+          <h1 id="home-title">Helping organizations work better through inclusive design, operational excellence, and systems thinking.</h1>
+          <p class="lede">I build scalable frameworks, accessibility programs, training systems, and operational practices that help teams create better digital experiences and work more effectively together.</p>
           <div class="prose compact-copy">
-            <p>My work sits at the intersection of:</p>
-            <ul>
-              <li>inclusive design leadership</li>
-              <li>organizational enablement</li>
-              <li>UX operations</li>
-              <li>communication strategy</li>
-              <li>design systems</li>
-              <li>AI-assisted workflows</li>
-            </ul>
-            <p>Over the last decade, I have helped teams improve quality, reduce friction, scale knowledge, and build more sustainable ways of working across higher education and enterprise environments.</p>
+            <p>My work sits at the intersection of inclusive design, organizational enablement, operational excellence, and emerging AI-assisted workflows.</p>
           </div>
           <div class="action-row">
             <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
@@ -68,23 +67,27 @@
         </div>
       </section>
 
-      <section class="content-section" aria-labelledby="focus-title">
+      <section class="content-section rail-section" aria-labelledby="focus-title">
         <div class="section-inner">
-          <h2 id="focus-title">What I Focus On</h2>
-          <div class="summary-grid">
+          <h2 id="focus-title">My Focus</h2>
+          <div class="summary-grid focus-grid">
             <article class="card">
+              <i class="ph ph-shield-check focus-card-icon" aria-hidden="true"></i>
               <h3>Inclusive Design and Accessibility Leadership</h3>
               <p>Building scalable design and accessibility practices that move beyond compliance and help teams create better experiences for more people.</p>
             </article>
             <article class="card">
+              <i class="ph ph-users-three focus-card-icon" aria-hidden="true"></i>
               <h3>Team Enablement</h3>
               <p>Creating guidance, training, workflows, and shared systems that help teams build confidence and improve execution.</p>
             </article>
             <article class="card">
+              <i class="ph ph-squares-four focus-card-icon" aria-hidden="true"></i>
               <h3>Operational Design</h3>
               <p>Improving how teams collaborate, communicate, document, review, and scale digital work across organizations.</p>
             </article>
             <article class="card">
+              <i class="ph ph-share-network focus-card-icon" aria-hidden="true"></i>
               <h3>Systems Thinking</h3>
               <p>Designing frameworks and governance models that make quality more repeatable, sustainable, and easier to maintain.</p>
             </article>
@@ -92,21 +95,49 @@
         </div>
       </section>
 
-      <section class="content-section section-band" aria-labelledby="how-title">
+      <section class="content-section section-band rail-section" aria-labelledby="numbers-title">
         <div class="section-inner">
-          <h2 id="how-title">How I Help Organizations Work Better</h2>
+          <h2 id="numbers-title">Areas of Impact</h2>
+          <div class="summary-grid impact-grid">
+            <article class="card">
+              <h3>70+ Designers Supported</h3>
+              <p>Provided accessibility guidance, training, mentorship, and enablement resources across enterprise UX teams.</p>
+            </article>
+            <article class="card">
+              <h3>Accessibility Program Leadership</h3>
+              <p>Established scalable accessibility practices, governance processes, and review workflows across multiple product teams.</p>
+            </article>
+            <article class="card">
+              <h3>Embedded Accessibility in Design Operations</h3>
+              <p>Integrated WCAG 2.2 standards, design reviews, documentation, and quality checkpoints into everyday design workflows.</p>
+            </article>
+            <article class="card">
+              <h3>Cross-Functional Collaboration</h3>
+              <p>Partnered with design, product, engineering, content, and business stakeholders to improve delivery quality and team alignment.</p>
+            </article>
+            <article class="card">
+              <h3>Higher Education and Enterprise Experience</h3>
+              <p>Led digital experience, accessibility, training, and operational initiatives across both higher education and enterprise organizations.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="why-title">
+        <div class="section-inner">
+          <h2 id="why-title">Improving the Systems Behind the Work</h2>
           <div class="prose">
-            <p>I am most energized by the work happening behind the scenes: the systems, communication patterns, and operational structures that influence how teams function every day.</p>
-            <p>That includes:</p>
+            <p>The biggest challenges organizations face are rarely caused by a lack of talent.</p>
+            <p>More often, teams struggle because knowledge is difficult to find, processes are inconsistent, accessibility is addressed too late, or collaboration breaks down across functions.</p>
+            <p>My work focuses on creating the systems, guidance, and operational structures that help teams move faster, make better decisions, and deliver higher-quality experiences.</p>
+            <p>This work often includes:</p>
             <ul>
-              <li>scaling inclusive design and accessibility knowledge across teams</li>
-              <li>building operational clarity</li>
-              <li>improving cross-functional collaboration</li>
-              <li>developing governance and review systems</li>
-              <li>mentoring and coaching designers</li>
-              <li>creating training and enablement resources</li>
-              <li>simplifying complex workflows</li>
-              <li>helping organizations adapt to evolving technology and AI</li>
+              <li>Accessibility and inclusive design programs</li>
+              <li>Training and capability building</li>
+              <li>Governance and review frameworks</li>
+              <li>Design and UX operations</li>
+              <li>Cross-functional alignment</li>
+              <li>AI-assisted quality and review workflows</li>
             </ul>
             <p>The best systems often feel invisible when they work well.</p>
             <p>That is the kind of work I love building.</p>
@@ -114,43 +145,49 @@
         </div>
       </section>
 
-      <section class="content-section" aria-labelledby="selected-work-title">
+      <section class="content-section section-band rail-section" aria-labelledby="selected-work-title">
         <div class="section-inner">
-          <h2 id="selected-work-title">Selected Work Preview</h2>
+          <h2 id="selected-work-title">Selected Work</h2>
           <div class="prose">
-            <p>A collection of leadership initiatives, accessibility programs, operational systems, and UX work focused on improving organizational capability and digital experience quality.</p>
-            <p>Featured topics include:</p>
+            <p>Examples of accessibility leadership, organizational enablement, operational design, and scalable systems built to improve quality and help teams work more effectively.</p>
+            <h3>Featured Work</h3>
             <ul>
-              <li>accessibility governance</li>
-              <li>design systems</li>
-              <li>focus state accessibility improvements</li>
-              <li>AI-assisted UX governance concepts</li>
-              <li>operational enablement</li>
-              <li>developer collaboration workflows</li>
-              <li>scalable review systems</li>
+              <li>Building Accessibility Capability at Scale</li>
+              <li>Accessibility Governance and Design Quality Systems</li>
+              <li>Focus State Accessibility Improvements</li>
+              <li>AI-Assisted UX Governance Concepts</li>
+              <li>Operational Enablement and Team Training</li>
+              <li>Developer Collaboration and Review Workflows</li>
             </ul>
           </div>
           <div class="action-row">
-            <a class="button" href="selected-work.html">Explore Selected Work</a>
+            <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
           </div>
         </div>
       </section>
 
-      <section class="content-section section-band" aria-labelledby="about-preview-title">
+      <section class="content-section rail-section" aria-labelledby="about-preview-title">
         <div class="section-inner">
           <h2 id="about-preview-title">About Melissa</h2>
-          <div class="prose">
-            <p>I am an inclusive design and accessibility leader with a background in graphic design, systems thinking, and organizational enablement.</p>
-            <p>My career has evolved from visual design into leading inclusive design and accessibility initiatives, operational improvements, training systems, and cross-functional collaboration practices that help teams work more effectively together.</p>
-            <p>I care deeply about creating experiences, and organizations, that are more thoughtful, inclusive, sustainable, and human-centered.</p>
-          </div>
-          <div class="action-row">
-            <a class="button secondary" href="about.html">Learn More About Me</a>
+          <div class="about-preview">
+            <div>
+              <div class="prose">
+                <figure class="about-preview-image">
+                  <img src="public/images/about/mw-headshot-gray.png" alt="Melissa Waller smiling in a gray-toned professional headshot.">
+                </figure>
+                <p>I started my career in graphic design, where I learned how thoughtful communication and visual clarity can shape people’s experiences.</p>
+                <p>Over time, my work expanded beyond designing interfaces into improving the systems behind them. Today, I focus on helping organizations scale accessibility, strengthen collaboration, build team capability, and create more sustainable ways of working.</p>
+                <p>Whether I am developing training programs, creating governance frameworks, mentoring designers, or improving operational processes, I am motivated by the same goal: helping people do their best work and creating better experiences for the people they serve.</p>
+              </div>
+              <div class="action-row">
+                <a class="button secondary" href="about.html">Learn More About Me</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="content-section" aria-labelledby="resume-preview-title">
+      <section class="content-section section-band rail-section" aria-labelledby="resume-preview-title">
         <div class="section-inner">
           <h2 id="resume-preview-title">Resume</h2>
           <div class="prose">
@@ -171,6 +208,8 @@
         </div>
         <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
           <h2 id="footer-contact-title">Contact</h2>
+          <p>Interested in discussing accessibility leadership, organizational enablement, design operations, or future opportunities?</p>
+          <p>I’d love to connect.</p>
           <ul>
             <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
             <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
@@ -178,6 +217,6 @@
         </section>
       </div>
     </footer>
-    <script src="scripts/theme.js"></script>
+    <script src="scripts/theme.js?v=responsive-menu"></script>
   </body>
 </html>

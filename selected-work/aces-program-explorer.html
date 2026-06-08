@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ACES Program Explorer | Melissa Waller</title>
+    <meta name="description" content="A selected work project by Melissa Waller about designing a scalable program discovery experience for the College of ACES.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">Melissa Waller</a>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select-aces-program-explorer">Dark mode</label>
+            <select id="theme-select-aces-program-explorer" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../selected-work.html" aria-current="page">Selected Work</a></li>
+              <li><a href="../resume.html">Resume</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="page-hero">
+          <div class="section-inner">
+            <p><a href="../selected-work.html">Back to Selected Work</a></p>
+            <p class="eyebrow">College of Agricultural, Consumer and Environmental Sciences (ACES) · 2022-2023</p>
+            <h1>ACES Program Explorer</h1>
+            <p class="lede">Designing a scalable program discovery experience that helped prospective students explore academic opportunities with confidence.</p>
+          </div>
+        </header>
+
+        <section class="content-section section-band" aria-labelledby="challenge-title">
+          <div class="section-inner prose">
+            <h2 id="challenge-title">Challenge</h2>
+            <p>The College of ACES offered an expanding collection of majors, minors, certificates, and academic programs. Over time, the existing presentation evolved into a long list of options organized primarily by degree type.</p>
+            <p>As the number of offerings grew, several challenges emerged:</p>
+            <ul>
+              <li>Too many choices created decision paralysis.</li>
+              <li>Users had no way to filter or sort programs.</li>
+              <li>Program discovery relied heavily on browsing long lists.</li>
+              <li>Navigation was especially difficult on mobile devices.</li>
+              <li>"Learn More" interactions frequently sent users away from the main experience.</li>
+            </ul>
+            <p>The college needed a more intuitive way for prospective students and families to explore programs and identify areas aligned with their interests.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="approach-title">
+          <div class="section-inner prose">
+            <h2 id="approach-title">Approach</h2>
+            <p>Rather than treating the problem as a simple redesign, I approached it as an information discovery challenge.</p>
+            <p>The project combined user research, information architecture, content strategy, accessibility, and interaction design to create a more flexible experience that could grow as new programs were added.</p>
+            <p>Working closely with content strategists, developers, recruiters, advisors, and stakeholders, we focused on helping users answer a fundamental question:</p>
+            <blockquote class="quote-callout">
+              <p>What programs fit my interests?</p>
+            </blockquote>
+            <p>The result was a searchable, filterable experience built around how prospective students think rather than how academic departments are organized.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="created-title">
+          <div class="section-inner prose">
+            <h2 id="created-title">What Was Created</h2>
+            <h3>Program Discovery Experience</h3>
+            <p>A responsive program explorer that allowed users to browse academic offerings, filter by areas of interest, sort results, explore related programs, and access detailed program information.</p>
+            <p>The design was built to support both desktop and mobile experiences while remaining scalable for future growth.</p>
+
+            <h3>Information Architecture</h3>
+            <p>A significant portion of the project focused on organizing content in a way that matched user expectations.</p>
+            <p>Research and testing informed program naming conventions, topic categories, department associations, search terminology, and navigation structure.</p>
+            <p>Several rounds of testing helped refine category labels and terminology to improve discoverability and reduce confusion.</p>
+
+            <h3>Content Strategy</h3>
+            <p>To reduce maintenance overhead and improve consistency, the experience was designed around a shared data structure.</p>
+            <p>This allowed the same program information to be displayed in multiple formats without duplicating content.</p>
+            <p>Benefits included simplified content management, improved consistency, easier updates, and greater flexibility for future enhancements.</p>
+
+            <h3>Accessibility-First Design</h3>
+            <p>Accessibility considerations were incorporated from the beginning of the project rather than added later.</p>
+            <p>Key considerations included WCAG 2.1 AA compliance, accessible color contrast, keyboard navigation, focus management, screen reader optimization, responsive typography, meaningful image descriptions, and reduced reliance on animation.</p>
+            <p>User testing revealed opportunities to further simplify navigation for assistive technology users. One notable improvement was treating each program card as a single interactive element, reducing screen reader verbosity and improving efficiency.</p>
+
+            <h3>Research and Testing</h3>
+            <p>User research played a significant role throughout the project.</p>
+            <p>Methods included Optimal Workshop testing, tree testing, card sorting exercises, stakeholder workshops, recruiter and advisor interviews, and prototype testing.</p>
+            <p>The team gathered feedback from prospective students, parents, college recruiters, academic advisors, department leaders, and campus stakeholders.</p>
+            <p>The research helped validate navigation structures, category labels, and content organization before implementation.</p>
+
+            <h3>Collaboration and Feedback</h3>
+            <p>A key part of the process involved bringing stakeholders into the design process.</p>
+            <p>Department representatives participated in workshops and card-sorting activities that helped shape the final information architecture.</p>
+            <p>This collaborative approach not only improved the solution but also increased stakeholder buy-in and support during implementation.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="outcomes-title">
+          <div class="section-inner prose">
+            <h2 id="outcomes-title">Outcomes</h2>
+            <p>The new Program Explorer transformed a growing collection of academic offerings into a more approachable and discoverable experience.</p>
+            <p>The project established a scalable framework that could evolve alongside the college's expanding portfolio of programs.</p>
+            <p>Benefits included:</p>
+            <ul>
+              <li>Improved program discoverability</li>
+              <li>More intuitive navigation</li>
+              <li>Better support for mobile users</li>
+              <li>Increased accessibility</li>
+              <li>Stronger alignment between user expectations and content organization</li>
+              <li>A more sustainable content management model</li>
+            </ul>
+            <p>The project also reinforced the value of validating assumptions through research before committing to navigation and categorization decisions.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="role-title">
+          <div class="section-inner prose">
+            <h2 id="role-title">My Role</h2>
+            <h3>Experience Design</h3>
+            <ul>
+              <li>UX design</li>
+              <li>User journey mapping</li>
+              <li>Information architecture</li>
+              <li>Interaction design</li>
+              <li>Prototyping</li>
+            </ul>
+            <h3>Research</h3>
+            <ul>
+              <li>User testing</li>
+              <li>Tree testing</li>
+              <li>Card sorting</li>
+              <li>Stakeholder interviews</li>
+              <li>Research synthesis</li>
+            </ul>
+            <h3>Accessibility</h3>
+            <ul>
+              <li>WCAG compliance</li>
+              <li>Accessibility reviews</li>
+              <li>Inclusive design</li>
+              <li>Screen reader considerations</li>
+            </ul>
+            <h3>Delivery</h3>
+            <ul>
+              <li>Project management</li>
+              <li>Cross-functional collaboration</li>
+              <li>Developer partnership</li>
+              <li>Content strategy support</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="takeaways-title">
+          <div class="section-inner prose">
+            <h2 id="takeaways-title">Key Takeaways</h2>
+            <p>This project reinforced that finding information is often a bigger challenge than presenting information.</p>
+            <p>The most important design decisions were not visual. They were organizational.</p>
+            <p>By combining research, accessibility, content strategy, and information architecture, we created an experience that helped users move from "I don't know what I want to study" to "I can see which programs fit my interests."</p>
+            <p>It also demonstrated how user research can challenge internal assumptions and lead to better navigation structures that reflect how people actually think.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="ask-title">
+          <div class="section-inner prose">
+            <h2 id="ask-title">Ask Me About</h2>
+            <ul>
+              <li>Information architecture for large content ecosystems</li>
+              <li>Tree testing and card sorting</li>
+              <li>Designing discovery experiences</li>
+              <li>Accessibility-first UX design</li>
+              <li>Content strategy and structured content</li>
+              <li>Research-driven navigation decisions</li>
+              <li>Building consensus among stakeholders</li>
+              <li>Designing for prospective student recruitment experiences</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="../scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>

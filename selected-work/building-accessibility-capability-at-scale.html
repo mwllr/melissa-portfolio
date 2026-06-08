@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Building Accessibility Capability at Scale | Melissa Waller</title>
+    <meta name="description" content="A sample work project by Melissa Waller about building accessibility capability at scale through training, guidance, review support, and reusable learning systems.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">Melissa Waller</a>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select-capability">Dark mode</label>
+            <select id="theme-select-capability" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../selected-work.html" aria-current="page">Selected Work</a></li>
+              <li><a href="../resume.html">Resume</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="page-hero">
+          <div class="section-inner">
+            <p><a href="../selected-work.html">Back to Selected Work</a></p>
+            <h1>Building Accessibility Capability at Scale</h1>
+          </div>
+        </header>
+
+        <section class="content-section section-band" aria-labelledby="challenge-title">
+          <div class="section-inner prose">
+            <h2 id="challenge-title">Challenge</h2>
+            <p>When I joined the UX organization, accessibility knowledge varied widely across the team. Designers were encountering many of the same issues during reviews, including color contrast problems, inconsistent use of components, and accessibility considerations that were being addressed too late in the design process.</p>
+            <p>As the team's primary accessibility resource, I quickly realized that answering questions one at a time would not scale. The organization needed a sustainable way to build accessibility knowledge, improve design quality, and reduce dependence on a single subject matter expert.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="approach-title">
+          <div class="section-inner prose">
+            <h2 id="approach-title">Approach</h2>
+            <p>Rather than treating accessibility as a one-time training effort, I focused on building organizational capability.</p>
+            <p>I started by analyzing recurring accessibility defects, design review findings, and feedback from designers and stakeholders. From there, I developed a structured learning approach that focused on practical skills designers could immediately apply in their work.</p>
+            <p>The program combined:</p>
+            <ul>
+              <li>Live training sessions</li>
+              <li>Hands-on Figma exercises</li>
+              <li>Real product examples</li>
+              <li>Job aids and checklists</li>
+              <li>Documentation and reference materials</li>
+              <li>Design review support</li>
+              <li>Feedback surveys and continuous improvement</li>
+            </ul>
+            <p>The goal was not simply awareness. The goal was behavior change.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="created-title">
+          <div class="section-inner prose">
+            <h2 id="created-title">What Was Created</h2>
+            <ul>
+              <li>Multi-session accessibility learning program</li>
+              <li>Accessibility guidance and documentation hub</li>
+              <li>Review checklists and job aids</li>
+              <li>Accessibility annotation examples</li>
+              <li>Design review support process</li>
+              <li>Practical exercises based on real product work</li>
+              <li>Reusable resources for ongoing learning</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="outcomes-title">
+          <div class="section-inner prose">
+            <h2 id="outcomes-title">Outcomes</h2>
+            <ul>
+              <li>Expanded accessibility education from an initial group of 16 designers to approximately 70 designers across teams</li>
+              <li>Increased accessibility awareness and confidence among designers</li>
+              <li>Improved consistency during design reviews and handoff</li>
+              <li>Reduced reliance on a single accessibility specialist</li>
+              <li>Embedded accessibility earlier in the design process</li>
+              <li>Created a foundation for ongoing accessibility capability development</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="ask-title">
+          <div class="section-inner prose">
+            <h2 id="ask-title">Ask Me About</h2>
+            <ul>
+              <li>Designing learning experiences for adult learners</li>
+              <li>Turning recurring defects into training opportunities</li>
+              <li>Scaling knowledge across distributed teams</li>
+              <li>Measuring behavior change beyond training attendance</li>
+              <li>Building accessibility into everyday design workflows</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="../scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>

@@ -31,9 +31,16 @@
             </select>
             <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
           </div>
-          <nav class="site-nav" aria-label="Primary navigation">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
-              <li><a href="index.html">Home</a></li>
               <li><a href="selected-work.html">Selected Work</a></li>
               <li><a href="resume.html">Resume</a></li>
               <li><a href="about.html" aria-current="page">About</a></li>
@@ -48,19 +55,21 @@
       <section class="page-hero" aria-labelledby="about-title">
         <div class="section-inner">
           <h1 id="about-title">About</h1>
+          <p class="lede">Creative roots. Systems mind. Deep care for how people learn, collaborate, and grow.</p>
         </div>
       </section>
 
       <section class="content-section section-band" aria-labelledby="farm-title">
         <div class="section-inner story-layout">
           <div class="prose">
-            <h2 id="farm-title">Growing Up on the Farm</h2>
+            <h2 id="farm-title">Before Design, There Was the Farm</h2>
             <p>I grew up on a small u-pick farm in central Illinois.</p>
             <p>Every summer revolved around:</p>
             <ul>
               <li>Strawberries <em>(mmmm the sweet smell of the ripe strawberry patch)</em></li>
               <li>Blueberries</li>
               <li>Red raspberries</li>
+              <li>Showing customers where to pick each day</li>
               <li>Early mornings</li>
               <li>Constant problem-solving</li>
               <li>Figuring things out as a family</li>
@@ -77,7 +86,7 @@
           </div>
           <figure class="story-image">
             <img src="public/images/about/melissa-strawberries-farm.jpg" alt="Melissa as a child holding strawberries on the family farm." width="800" height="566">
-            <figcaption>Growing up on a small u-pick farm in central Illinois.</figcaption>
+            <figcaption>My first unofficial role in marketing: family farm poster child.</figcaption>
           </figure>
         </div>
       </section>
@@ -89,7 +98,7 @@
             <p>As my career evolved, I found myself increasingly drawn to the bigger picture behind design.</p>
             <p>Not just:</p>
             <ul>
-              <li>What something looked like</li>
+              <li>What something looked like (although that is still important)</li>
               <li>But how it worked</li>
               <li>How teams collaborated</li>
               <li>How systems scaled</li>
@@ -115,7 +124,7 @@
             <p>Working at the University of Illinois, I always knew digital experiences needed to be accessible and meet WCAG standards, but early on, I mostly saw accessibility as a requirement rather than something I deeply understood.</p>
             <p>That changed during my time at the university.</p>
             <p>I had the opportunity to work on projects alongside some incredible disability advocates and accessibility leaders at the university. The University of Illinois has long been recognized as a leader in accessibility and disability inclusion, and being surrounded by people who genuinely cared about creating equitable experiences completely changed how I thought about design.</p>
-            <p>Something clicked for me.</p>
+            <p>Something really clicked for me.</p>
             <p>Accessibility stopped feeling like a checklist and started feeling like a much bigger design responsibility:</p>
             <ul>
               <li>Reducing friction</li>
@@ -128,9 +137,9 @@
             <p>I earned my CPACC certification and eventually began leading accessibility initiatives at scale - building training programs, governance models, QA systems, workflows, and operational standards across enterprise UX organizations.</p>
             <p>Today, accessibility remains a major part of my work, but I see it as part of a broader philosophy around inclusive design, communication, and systems thinking. What I enjoy most is helping teams move beyond compliance and toward building experiences that genuinely work better for more people.</p>
           </div>
-          <figure class="image-placeholder">
-            <div aria-hidden="true"></div>
-            <figcaption>Image placeholder: accessibility, inclusive design, or campus work.</figcaption>
+          <figure class="story-image">
+            <img src="public/images/about/mw-student-alec-presentation.jpg" alt="Melissa standing with a student beside a classroom display showing a presentation about print versus digital communication." width="800" height="754">
+            <figcaption>Helping students connect communication choices to real digital experiences.</figcaption>
           </figure>
         </div>
       </section>
@@ -192,6 +201,6 @@
         </section>
       </div>
     </footer>
-    <script src="scripts/theme.js"></script>
+    <script src="scripts/theme.js?v=responsive-menu"></script>
   </body>
 </html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Housing Website Accessibility &amp; Design Feedback | Melissa Waller</title>
+    <meta name="description" content="A selected work project by Melissa Waller about using accessibility reviews and design feedback to improve a University Housing website and build long-term accessibility awareness.">
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("melissa-theme") === "dark") {
+            document.documentElement.dataset.theme = "dark";
+          }
+        } catch (error) {}
+      })();
+    </script>
+    <link rel="stylesheet" href="../styles/site.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">Melissa Waller</a>
+        <div class="header-menu">
+          <div class="theme-setting">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <label for="theme-select-housing-feedback">Dark mode</label>
+            <select id="theme-select-housing-feedback" class="theme-select" data-theme-select>
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
+          </div>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="../selected-work.html" aria-current="page">Selected Work</a></li>
+              <li><a href="../resume.html">Resume</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="page-hero">
+          <div class="section-inner">
+            <p><a href="../selected-work.html">Back to Selected Work</a></p>
+            <p class="eyebrow">University Housing · 2023</p>
+            <h1>Housing Website Accessibility &amp; Design Feedback</h1>
+            <p class="lede">Using accessibility reviews and design feedback to improve digital experiences while building long-term accessibility awareness.</p>
+          </div>
+        </header>
+
+        <section class="content-section section-band" aria-labelledby="challenge-title">
+          <div class="section-inner prose">
+            <h2 id="challenge-title">Challenge</h2>
+            <p>A campus unit launched a new website using the shared Illinois Drupal template while also introducing custom content types and design modifications.</p>
+            <p>Although the implementation met many project goals, several accessibility and usability issues were unintentionally introduced during customization.</p>
+            <p>Common challenges included:</p>
+            <ul>
+              <li>Accessibility violations introduced through custom code</li>
+              <li>Design patterns that deviated from established standards</li>
+              <li>Inconsistent interactive states</li>
+              <li>Reduced usability for keyboard and assistive technology users</li>
+              <li>Missed opportunities to align with accessibility best practices</li>
+            </ul>
+            <p>The goal was not simply to identify issues, but to help the team understand why the issues mattered and how they could avoid similar problems in the future.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="approach-title">
+          <div class="section-inner prose">
+            <h2 id="approach-title">Approach</h2>
+            <p>Rather than providing a list of defects, I approached the review as an educational opportunity.</p>
+            <p>Each finding was documented using visual examples, accessibility standards, and practical recommendations that connected technical requirements to user impact.</p>
+            <p>The feedback was designed to be actionable, approachable, and easy to implement.</p>
+            <p>Whenever possible, recommendations focused on helping teams build accessibility considerations into their process rather than treating accessibility as a final review activity.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="created-title">
+          <div class="section-inner prose">
+            <h2 id="created-title">What Was Created</h2>
+            <h3>Accessibility Review</h3>
+            <p>A detailed review of the website that evaluated color contrast, focus states, keyboard navigation, interactive elements, heading structure, link behavior, visual hierarchy, and WCAG compliance considerations.</p>
+
+            <h3>Visual Documentation</h3>
+            <p>To make feedback easier to understand, I created annotated screenshots that clearly identified the issue, why it mattered, relevant accessibility guidance, and recommended improvements.</p>
+            <p>The visual format helped stakeholders quickly understand both the problem and the proposed solution.</p>
+
+            <h3>Standards-Based Recommendations</h3>
+            <p>Each recommendation was connected to established accessibility standards and best practices.</p>
+            <p>This helped teams move beyond simply fixing a defect and provided context for future decision-making.</p>
+            <p>Documentation included WCAG references, design recommendations, interaction guidance, and implementation considerations.</p>
+
+            <h3>Future-Focused Guidance</h3>
+            <p>The review was structured to support future projects as well as the immediate remediation effort.</p>
+            <p>By documenting patterns and recurring issues, the team gained resources they could reference during future design and development work.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="outcomes-title">
+          <div class="section-inner prose">
+            <h2 id="outcomes-title">Outcomes</h2>
+            <p>The review helped identify accessibility and usability improvements while reinforcing the importance of accessible design practices.</p>
+            <p>Benefits included:</p>
+            <ul>
+              <li>Increased awareness of accessibility requirements</li>
+              <li>Improved understanding of WCAG standards</li>
+              <li>Clear remediation guidance</li>
+              <li>Better alignment with design system standards</li>
+              <li>Stronger foundation for future accessibility efforts</li>
+            </ul>
+            <p>The project also demonstrated how accessibility reviews can serve as both a quality assurance activity and a teaching opportunity.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="role-title">
+          <div class="section-inner prose">
+            <h2 id="role-title">My Role</h2>
+            <h3>Accessibility</h3>
+            <ul>
+              <li>Accessibility evaluation</li>
+              <li>WCAG review</li>
+              <li>Design assessment</li>
+              <li>Usability analysis</li>
+            </ul>
+            <h3>Documentation</h3>
+            <ul>
+              <li>Annotated specifications</li>
+              <li>Accessibility guidance</li>
+              <li>Recommendation reports</li>
+              <li>Standards mapping</li>
+            </ul>
+            <h3>Communication</h3>
+            <ul>
+              <li>Stakeholder feedback</li>
+              <li>Design consultation</li>
+              <li>Accessibility education</li>
+              <li>Best practice recommendations</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="takeaways-title">
+          <div class="section-inner prose">
+            <h2 id="takeaways-title">Key Takeaways</h2>
+            <p>One of the most effective ways to scale accessibility is through education.</p>
+            <p>While identifying issues is important, helping teams understand how and why accessibility problems occur creates longer-lasting improvements.</p>
+            <p>This project reinforced the value of pairing accessibility expertise with clear communication, practical guidance, and a collaborative approach to problem solving.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="ask-title">
+          <div class="section-inner prose">
+            <h2 id="ask-title">Ask Me About</h2>
+            <ul>
+              <li>Conducting accessibility reviews</li>
+              <li>Translating WCAG requirements into actionable guidance</li>
+              <li>Communicating accessibility findings to stakeholders</li>
+              <li>Accessibility governance</li>
+              <li>Design system compliance</li>
+              <li>Building accessibility awareness through feedback</li>
+              <li>Using accessibility reviews as a teaching tool</li>
+              <li>Balancing standards with practical implementation realities</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-meta">
+          <p>&copy; 2026 Melissa Waller</p>
+        </div>
+        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title">Contact</h2>
+          <ul>
+            <li><a href="mailto:mwallerbiz@gmail.com">mwallerbiz@gmail.com</a></li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><span class="linkedin-mark" aria-hidden="true">in</span><span>LinkedIn</span></a></li>
+          </ul>
+        </section>
+      </div>
+    </footer>
+    <script src="../scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>
