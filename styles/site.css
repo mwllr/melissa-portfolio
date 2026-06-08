@@ -683,10 +683,10 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   justify-content: center;
   border: 2px solid var(--color-action);
   border-radius: var(--radius-sm);
-  padding: 0.62rem 1rem;
+  padding: 0.25rem 1rem;
   background: var(--color-action);
   color: var(--color-action-text);
-  font-size: 1.1875rem;
+  font-size: var(--text-md);
   font-weight: 700;
   text-decoration: none;
 }
