@@ -593,10 +593,29 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 .eyebrow {
   margin-block-end: var(--space-3);
   color: var(--color-secondary-contrast);
-  font-size: var(--text-xs);
+  font-size: max(var(--text-xs), 0.75rem);
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
+}
+
+.hero-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-3);
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: var(--space-3);
+}
+
+.hero-meta-row .eyebrow,
+.hero-meta-row .work-tags {
+  margin-block: 0;
+}
+
+.hero-meta-row .work-tags {
+  justify-content: flex-end;
+  margin-inline-start: auto;
 }
 
 .lede {
@@ -883,6 +902,14 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   margin: var(--space-5) 0 0;
   padding: 0;
   list-style: none;
+}
+
+.rail-section .work-list {
+  margin-block-start: 0;
+}
+
+.rail-section .work-list li:first-child {
+  padding-block-start: 0;
 }
 
 .work-list li {
