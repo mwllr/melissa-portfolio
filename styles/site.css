@@ -593,7 +593,7 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 .eyebrow {
   margin-block-end: var(--space-3);
   color: var(--color-secondary-contrast);
-  font-size: max(var(--text-xs), 0.75rem);
+  font-size: max(var(--text-xs), 0.8125rem);
   font-weight: 800;
   letter-spacing: 0;
   text-transform: uppercase;
