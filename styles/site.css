@@ -513,6 +513,7 @@ main {
 }
 
 .hero .lede,
+.hero .hero-focus,
 .hero .prose p,
 .hero .prose li {
   color: rgba(255, 255, 255, 0.86);
@@ -605,9 +606,15 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 }
 
 .hero .lede,
+.hero .hero-focus,
 .hero .compact-copy,
 .hero .action-row {
   max-width: var(--measure);
+}
+
+.hero-focus {
+  margin-block: 0 var(--space-4);
+  font-size: var(--text-md);
 }
 
 .hero-grid {
@@ -806,32 +813,64 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   background: transparent;
 }
 
-[aria-labelledby="work-areas-title"] .work-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+[aria-labelledby="work-areas-title"] .work-card-link {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  color: var(--color-text);
+  text-decoration: none;
 }
 
-[aria-labelledby="work-areas-title"] .card h3 {
-  line-height: 1.35;
+[aria-labelledby="work-areas-title"] .work-card-link:hover,
+[aria-labelledby="work-areas-title"] .work-card-link:focus-visible {
+  border-color: var(--color-secondary-contrast);
+  color: var(--color-text);
+  box-shadow: inset 0 0 0 2px var(--color-secondary-contrast);
+}
+
+[aria-labelledby="work-areas-title"] .work-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 [aria-labelledby="work-areas-title"] .card p {
   margin-block-end: 0;
 }
 
-[aria-labelledby="work-areas-title"] .card h3 a,
-.work-list h3 a {
+[aria-labelledby="work-areas-title"] .card h3,
+.work-list h3 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--space-3);
+  align-items: center;
   color: var(--color-primary);
+  line-height: 1.35;
+}
+
+.work-list-link {
+  display: block;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.work-list-link:hover h3,
+.work-list-link:focus-visible h3 {
+  color: var(--color-secondary-contrast);
+}
+
+.work-list-link:hover .work-link-title,
+.work-list-link:focus-visible .work-link-title {
   text-decoration-line: underline;
-  text-decoration-thickness: 0.08em;
+  text-decoration-thickness: 0.14em;
   text-underline-offset: 0.18em;
 }
 
-[aria-labelledby="work-areas-title"] .card h3 a:hover,
-[aria-labelledby="work-areas-title"] .card h3 a:focus-visible,
-.work-list h3 a:hover,
-.work-list h3 a:focus-visible {
-  color: var(--color-secondary-contrast);
-  text-decoration-thickness: 0.14em;
+.work-chevron {
+  justify-self: end;
+  color: currentColor;
+  font-family: var(--font-sans);
+  font-size: 1.15em;
+  font-weight: 600;
+  line-height: 1;
 }
 
 .compact-work-grid .card p {
