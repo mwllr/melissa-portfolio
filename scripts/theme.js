@@ -4,6 +4,7 @@
   var selects = document.querySelectorAll("[data-theme-select]");
   var statusMessages = document.querySelectorAll("[data-theme-status]");
   var navToggles = document.querySelectorAll("[data-nav-toggle]");
+  var copyButtons = document.querySelectorAll("[data-copy-value]");
 
   function isDark() {
     return root.dataset.theme === "dark";
@@ -69,6 +70,46 @@
         });
       });
     }
+  });
+
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+
+    return new Promise(function (resolve, reject) {
+      var input = document.createElement("textarea");
+      input.value = text;
+      input.setAttribute("readonly", "");
+      input.style.position = "fixed";
+      input.style.top = "-9999px";
+      document.body.appendChild(input);
+      input.select();
+
+      try {
+        document.execCommand("copy") ? resolve() : reject();
+      } catch (error) {
+        reject(error);
+      } finally {
+        document.body.removeChild(input);
+      }
+    });
+  }
+
+  copyButtons.forEach(function (button) {
+    var defaultLabel = button.getAttribute("aria-label") || "Copy";
+
+    button.addEventListener("click", function () {
+      copyText(button.dataset.copyValue).then(function () {
+        button.dataset.copied = "true";
+        button.setAttribute("aria-label", "Copied email address");
+
+        window.setTimeout(function () {
+          delete button.dataset.copied;
+          button.setAttribute("aria-label", defaultLabel);
+        }, 2000);
+      });
+    });
   });
 
   updateControls();
