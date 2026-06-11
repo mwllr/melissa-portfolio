@@ -182,15 +182,23 @@ a:hover {
   font: inherit;
   line-height: inherit;
   text-align: left;
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.18em;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .copy-email:hover,
 .copy-email:focus-visible {
   color: var(--color-link-hover);
+}
+
+.copy-email-text {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.copy-email:hover .copy-email-text,
+.copy-email:focus-visible .copy-email-text {
   text-decoration-thickness: 0.14em;
 }
 
@@ -201,6 +209,7 @@ a:hover {
 .copy-email .ph {
   font-size: 1.05em;
   line-height: 1;
+  text-decoration: none;
 }
 
 a:focus-visible,
@@ -1565,6 +1574,18 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
+  text-decoration: none;
+}
+
+.social-link span {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+.social-link:hover span,
+.social-link:focus-visible span {
+  text-decoration-thickness: 0.14em;
 }
 
 .linkedin-mark {
@@ -1574,6 +1595,7 @@ textarea {
   color: currentColor;
   font-size: 1.25rem;
   line-height: 1;
+  text-decoration: none;
 }
 
 .footer-inner {
