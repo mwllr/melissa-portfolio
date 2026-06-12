@@ -2,36 +2,140 @@
 
 ## Purpose
 
-This site uses a small local design system to make portfolio decisions traceable to reusable guidance rather than page-specific styling.
+This site uses a lightweight design system so new pages, case studies, and portfolio experiments can stay visually consistent without relying on page-specific styling decisions.
 
-## Token Layer
+The goal is not to create maximum abstraction. The goal is to make the current visual language reusable, understandable, and easy to extend.
 
-- Color: neutral enterprise surfaces, accessible text contrast, action blue, teal accent, and explicit success, warning, error, and focus states.
-- Typography: system sans stack, constrained measure, clear heading scale, and no viewport-based body text scaling.
-- Spacing: eight reusable spacing tokens modeled after component and layout rhythm rather than ad hoc margins.
-- Borders and radius: restrained card and panel styling, with no nested card patterns.
-- Motion: reduced-motion media query disables animation and smooth scrolling for users who request less motion.
+## Token Structure
 
-Influence: Carbon for disciplined token reuse and enterprise polish; USWDS for accessible state colors and focus behavior; adapter framework for traceable token categories.
+The token layer is organized in five parts:
 
-## Component Layer
+### 1. Brand Tokens
 
-- Navigation: semantic landmarks, descriptive links, visible current state, and keyboard focus.
-- Buttons: primary and secondary variants, native button for form submission, links for navigation.
-- Cards and panels: reusable summary, metadata, and status containers.
-- Metadata tags: short, scan-friendly labels for role, scope, status, and topic.
-- Forms: persistent labels, field help text, browser validation, and support for `aria-invalid` custom error states.
-- Work summaries: consistent cards for context, capability area, outcomes, and organizational value.
+These are the raw palette values that define Melissa's visual identity.
 
-Influence: Carbon for component structure and action hierarchy; USWDS for forms, focus, and plain-language content; adapter framework for pattern governance.
+- `--color-primary`, `--color-secondary`, `--color-secondary-contrast`
+- `--color-slate`, `--color-sage`, `--color-driftwood`, `--color-coral`
+- `--color-soft-aqua`, `--color-charcoal`, `--color-stone`
+- `--color-warm-linen`, `--color-mist`
 
-## Accessibility Layer
+Use these when creating or revising semantic tokens. Do not use them directly in component rules unless a component is intentionally tied to brand expression.
 
-- Landmarks: header, nav, main, section, aside, and footer are used consistently.
-- Heading order: each page starts with one `h1`, followed by ordered section headings.
-- Keyboard behavior: links, buttons, inputs, and textarea preserve visible focus.
-- Forms: labels are visible and help text is programmatically associated with fields.
-- Reduced motion: global media query respects `prefers-reduced-motion`.
-- Responsive behavior: grids collapse to one column, sticky sidebars become static, and tables support horizontal scroll on small screens.
+### 2. Semantic Tokens
 
-Influence: USWDS for inclusive interaction expectations and WCAG A/AA practicality; adapter framework for repeatable accessibility guidance.
+These map the brand palette to interface meaning.
+
+- Surfaces: `--color-page`, `--color-surface`, `--color-surface-alt`, `--color-card`, `--color-header-bg`, `--color-footer-bg`
+- Text: `--color-ink`, `--color-text`, `--color-muted`
+- Interaction: `--color-link`, `--color-link-hover`, `--color-action`, `--color-action-hover`
+- States: `--color-warning`, `--color-error`, `--color-success`, `--color-focus`
+- Structure: `--color-border`, `--color-border-strong`, `--color-accent`, `--color-accent-soft`
+
+Use semantic tokens by default in shared rules.
+
+### 3. Typography Tokens
+
+Typography is defined both by scale and by role.
+
+- Fonts: `--font-heading`, `--font-sans`, `--font-mono`
+- Scale: `--text-xs` through `--text-3xl`
+- Roles: `--type-body`, `--type-lede`, `--type-kicker`, `--type-card-title`, `--type-compact-card-title`, `--type-section-title`, `--type-page-title`, `--type-nav`
+
+Use role tokens when styling components. Reserve raw size tokens for defining the role layer or for rare one-off exceptions.
+
+### 4. Layout Tokens
+
+These tokens control rhythm and width.
+
+- Spacing: `--space-1` through `--space-8`
+- Shape: `--radius-sm`, `--radius-md`
+- Content width: `--layout-site-width`, `--layout-text-measure`
+- Sidebars and media: `--layout-sidebar-width-sm` through `--layout-sidebar-width-xl`, `--layout-media-width-sm`, `--layout-media-width-md`
+- Grids: `--layout-card-grid-min`, `--layout-compact-card-min`, `--layout-compact-card-max`
+- Positioning: `--layout-content-gap`, `--layout-sticky-offset`, `--layout-form-max`
+
+If a width or gap appears in multiple components, it should usually become a layout token.
+
+### 5. Component Tokens
+
+These capture repeated treatments for shared patterns.
+
+- Cards and panels: `--component-card-*`, `--component-panel-*`
+- Tags: `--component-tag-*`, `--component-work-tag-text`
+- Buttons and controls: `--control-height`, `--component-button-*`, `--component-input-*`, `--component-theme-select-*`
+- Menus and shadows: `--component-menu-*`, `--component-shadow-subtle`
+- Content patterns: `--component-callout-*`, `--component-table-*`, `--component-opportunity-bg`, `--component-roadmap-bg`, `--component-value-flow-bg`
+
+Use component tokens when a treatment should stay consistent even if the underlying semantic tokens change later.
+
+## Theme Behavior
+
+Light and dark mode should override semantic and component tokens, not rewrite component rules from scratch.
+
+That means:
+
+- Color changes belong in `:root[data-theme="dark"]`
+- Shared component selectors should continue using semantic or component tokens
+- Dark mode fixes should prefer token remapping over one-off selector patches
+
+## Component Guidance
+
+### Cards
+
+- Standard cards use `--component-card-bg`, `--component-card-border`, and `--component-card-padding`
+- Compact cards use `--component-card-padding-compact`
+- Focus cards may override background via scoped tokens, but should keep the shared card shell
+
+### Tags
+
+- Base tag styling should come from the shared tag tokens
+- Category-specific tag colors should use the `--tag-*` token pairs
+- New portfolio categories should add a new token pair before adding a new tag class
+
+### Buttons and Inputs
+
+- Use `--control-height` for tap-target consistency across buttons, menu toggles, and nav controls
+- Buttons should use shared component padding and radius tokens
+- Inputs and selects should use the shared input/select background and border tokens
+
+### Content Sections
+
+- Full-width content sections may use wider heading measures
+- Sidebar and rail layouts should keep headings constrained
+- Case-study-specific patterns like value flows, opportunity cards, roadmaps, and quotes should still pull from shared component tokens rather than ad hoc colors
+
+## Usage Rules
+
+- Prefer semantic tokens over raw brand values in component rules.
+- Prefer component tokens over semantic tokens when a pattern repeats across multiple components.
+- Add a new token when a value is repeated with the same meaning, not merely the same number.
+- Avoid introducing one-off hard-coded colors for new work pages.
+- Avoid duplicating spacing or width values that already exist in the layout token layer.
+
+## What Still Counts As Acceptable Hard-Coding
+
+Some values are still okay to leave inline when they are truly local:
+
+- Small icon-specific sizing
+- Single-use art-direction widths
+- Highly specific pseudo-element offsets
+- Rare content-measure exceptions that do not indicate a reusable pattern
+
+If a value starts repeating, promote it.
+
+## Accessibility Expectations
+
+- All text and controls must meet accessible contrast targets in both themes
+- Focus styles should remain visible across cards, menus, forms, and dark mode
+- Responsive changes should collapse structure without changing meaning
+- Reusable patterns should preserve keyboard usability and readable hierarchy
+
+## Extension Checklist
+
+Before adding a new section or page:
+
+1. Choose semantic and component tokens first.
+2. Reuse an existing layout pattern if one already fits.
+3. Promote repeated new values into tokens.
+4. Check both light and dark themes.
+5. Confirm the new pattern still reads as part of the same portfolio system.
