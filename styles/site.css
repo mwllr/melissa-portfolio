@@ -1044,6 +1044,23 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   margin-block-end: 0;
 }
 
+.contact-list a,
+.contact-list .copy-email {
+  color: var(--color-secondary-contrast);
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible,
+.contact-list .copy-email:hover,
+.contact-list .copy-email:focus-visible {
+  color: var(--color-secondary-contrast);
+}
+
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  text-decoration-thickness: 0.14em;
+}
+
 .focus-grid {
   align-items: stretch;
   margin-block-start: 0;
