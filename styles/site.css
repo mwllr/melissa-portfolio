@@ -1302,6 +1302,42 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   color: var(--color-text);
 }
 
+.work-figure {
+  margin: var(--space-6) 0 0;
+}
+
+.work-figure img {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  box-shadow: var(--component-shadow-subtle);
+}
+
+.logo-figure img {
+  max-width: 22rem;
+  padding: var(--space-6);
+}
+
+.work-figure figcaption {
+  max-width: 42rem;
+  margin-block-start: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.work-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--layout-card-grid-min)), 1fr));
+  gap: var(--space-5);
+  margin-block-start: var(--space-5);
+}
+
+.work-gallery .work-figure {
+  margin: 0;
+}
+
 .presentation-list h3 {
   margin-block-start: var(--space-7);
   border-block-start: 1px solid var(--color-border);

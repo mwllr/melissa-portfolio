@@ -8,7 +8,6 @@ Melissa Waller builds scalable accessibility and UX systems that improve how org
 
 - Home
 - About
-- Accessibility Leadership
 - Selected Work
 - Resume
 - Contact

@@ -20,6 +20,7 @@ Open `index.html` in a browser.
 ```plaintext
 03-portfolio-site/
 +-- app/
++-- archive/
 +-- components/
 +-- content/
 +-- public/
@@ -27,7 +28,6 @@ Open `index.html` in a browser.
 +-- lib/
 +-- index.html
 +-- about.html
-+-- accessibility-leadership.html
 +-- selected-work.html
 +-- resume.html
 +-- contact.html
