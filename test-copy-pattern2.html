@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Copy email pattern test</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <style>
+    :root {
+      color-scheme: light;
+      --color-primary: #012042;
+      --color-secondary: #3c6c78;
+      --color-secondary-contrast: #35616c;
+      --color-charcoal: #232c31;
+      --color-stone: #807975;
+      --color-warm-linen: #e5d1b8;
+      --color-mist: #f3f0ec;
+      --color-white: #fffaf4;
+      --color-footer-bg: #020d1b;
+      --color-footer-text: #f3f0ec;
+      --color-footer-hover: #9fd4df;
+      --color-border: rgba(1, 32, 66, 0.18);
+      --color-border-strong: rgba(1, 32, 66, 0.34);
+      --color-focus: #b96734;
+      --shadow: 0 12px 28px rgba(1, 32, 66, 0.08);
+      --site-width: 56.25rem;
+      --page-gutter: clamp(1rem, 4vw, 3rem);
+      --layout-site-width: var(--site-width);
+      --control-height: 2.75rem;
+      --component-button-radius: 0.25rem;
+      --component-button-padding-inline: 1rem;
+      --component-button-padding-block: 0.25rem;
+      --component-button-hover-text: var(--color-mist);
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --text-sm: 0.8rem;
+      --text-lg: 1.25rem;
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap");
+
+    * {
+      box-sizing: border-box;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 3px;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top right, rgba(151, 177, 210, 0.18), transparent 26%),
+        linear-gradient(180deg, #f8f4ef 0%, var(--color-mist) 100%);
+      color: var(--color-charcoal);
+      font-family: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    section {
+      background: rgba(255, 250, 244, 0.92);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .system-wrap {
+      max-width: 760px;
+      margin: 24px auto 0;
+      padding: 0 20px 24px;
+    }
+
+    .site-footer {
+      border-block-start: 1px solid var(--color-border);
+      padding-block: var(--space-6);
+      background: var(--color-footer-bg);
+      color: var(--color-footer-text);
+    }
+
+    .site-footer a {
+      color: var(--color-footer-text);
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      color: var(--color-footer-hover);
+    }
+
+    .site-footer .copy-email {
+      color: var(--color-mist);
+      border-color: currentColor;
+      background: transparent;
+    }
+
+    .site-footer .copy-email:hover,
+    .site-footer .copy-email:focus-visible {
+      color: var(--component-button-hover-text);
+      border-color: transparent;
+      background: var(--color-secondary);
+    }
+
+    .site-footer .copy-email[data-copied="true"] {
+      color: var(--color-mist);
+    }
+
+    .site-footer .copy-email-address {
+      color: var(--color-mist);
+    }
+
+    .footer-inner {
+      width: min(var(--layout-site-width), calc(100% - (var(--page-gutter) * 2)));
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: var(--space-6);
+    }
+
+    .footer-inner p {
+      margin: 0;
+    }
+
+    .footer-meta p {
+      white-space: nowrap;
+    }
+
+    .footer-meta {
+      align-self: flex-start;
+      flex: 1 1 auto;
+      display: block;
+    }
+
+    .footer-contact {
+      display: grid;
+      gap: var(--space-3);
+      flex: 0 1 50%;
+      justify-items: start;
+      max-width: 50%;
+      text-align: left;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+    }
+
+    .footer-contact h2 {
+      margin: 0;
+      color: var(--color-footer-text);
+      font-size: var(--text-lg);
+    }
+
+    .footer-contact ul {
+      display: grid;
+      gap: var(--space-2);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-contact li {
+      margin: 0;
+    }
+
+    .copy-email-group {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .copy-email {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 24px;
+      height: 24px;
+      padding: 0 8px;
+      border: 1px solid rgba(60, 108, 120, 0.28);
+      border-radius: 6px;
+      background: rgba(60, 108, 120, 0.06);
+      color: var(--color-secondary-contrast);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: left;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background-color 120ms ease, color 120ms ease, border-color 120ms ease;
+      border-color: currentColor;
+      background: transparent;
+    }
+
+    .copy-email:hover,
+    .copy-email:focus-visible {
+      background: var(--color-secondary);
+      color: var(--component-button-hover-text);
+      border-color: transparent;
+    }
+
+    .copy-email[data-copied="true"] {
+      color: var(--component-button-hover-text);
+      background: var(--color-secondary);
+      border-color: transparent;
+    }
+
+    .copy-email .ph {
+      display: block;
+      font-size: 0.92rem;
+      line-height: 1;
+      text-decoration: none;
+      transform: translateY(1px);
+    }
+
+    .copy-email-label {
+      display: inline-flex;
+      align-items: center;
+      transform: translateY(1px);
+      text-decoration: none;
+    }
+
+    .copy-email:hover .copy-email-label,
+    .copy-email:focus-visible .copy-email-label,
+    .copy-email[data-copied="true"] .copy-email-label {
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .copy-block .copy-email .ph,
+    .copy-block .copy-email-label {
+      transform: translateY(0);
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-block-start: var(--space-5);
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: var(--control-height);
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--color-primary);
+      border-radius: var(--component-button-radius);
+      padding: var(--component-button-padding-block) var(--component-button-padding-inline);
+      background: var(--color-primary);
+      color: var(--color-white);
+      font: inherit;
+      font-size: var(--text-sm);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      border-color: var(--color-secondary);
+      background: var(--color-secondary);
+      color: var(--component-button-hover-text);
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .button.secondary {
+      border-color: currentColor;
+      background: transparent;
+      color: var(--color-secondary-contrast);
+    }
+
+    .button.secondary:hover,
+    .button.secondary:focus-visible {
+      border-color: transparent;
+      background: var(--color-secondary);
+      color: var(--component-button-hover-text);
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .button-system-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+
+    .button-sample {
+      display: grid;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      background: rgba(255, 250, 244, 0.66);
+    }
+
+    .button-sample h3 {
+      margin: 0;
+      color: var(--color-primary);
+      font-family: Garamond, "Adobe Garamond Pro", "EB Garamond", Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.15;
+    }
+
+    .button-sample-note {
+      color: var(--color-stone);
+    }
+
+    .button-sample-dark {
+      background: var(--color-primary);
+      border-color: rgba(243, 240, 236, 0.18);
+      color: var(--color-footer-text);
+    }
+
+    .button-sample-dark h3,
+    .button-sample-dark .button-sample-note {
+      color: inherit;
+    }
+
+    .button-sample-dark .button.secondary {
+      border-color: var(--color-mist);
+      background: transparent;
+      color: var(--color-mist);
+    }
+
+    .button-sample-dark .button.secondary:hover,
+    .button-sample-dark .button.secondary:focus-visible {
+      border-color: transparent;
+      background: var(--color-secondary);
+      color: var(--component-button-hover-text);
+    }
+
+    .button-sample-dark .copy-email {
+      color: var(--color-mist);
+      border-color: currentColor;
+      background: transparent;
+    }
+
+    .button-sample-dark .copy-email:hover,
+    .button-sample-dark .copy-email:focus-visible {
+      color: var(--component-button-hover-text);
+      border-color: transparent;
+      background: var(--color-secondary);
+    }
+
+    .button-sample-dark .copy-email[data-copied="true"] {
+      color: var(--color-mist);
+    }
+
+    .linkedin-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .footer-email-item {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .footer-email-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: currentColor;
+      font-size: 1.05rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .linkedin-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: currentColor;
+      font-size: 1.25rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .linkedin-link-text {
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .linkedin-link:hover .linkedin-link-text,
+    .linkedin-link:focus-visible .linkedin-link-text {
+      text-decoration-thickness: 0.14em;
+    }
+
+    .linkedin-external-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .social-link span {
+      text-decoration-line: underline;
+      text-decoration-thickness: 0.08em;
+      text-underline-offset: 0.18em;
+    }
+
+    .social-link:hover span,
+    .social-link:focus-visible span {
+      text-decoration-thickness: 0.14em;
+    }
+
+    .linkedin-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: currentColor;
+      font-size: 1.25rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: var(--color-primary);
+      font-family: Garamond, "Adobe Garamond Pro", "EB Garamond", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      line-height: 1.02;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      color: var(--color-primary);
+      font-family: Garamond, "Adobe Garamond Pro", "EB Garamond", Georgia, serif;
+      font-size: 1.5rem;
+      line-height: 1.08;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .note {
+      max-width: 58ch;
+      margin-bottom: 24px;
+      color: var(--color-charcoal);
+      font-size: 1rem;
+    }
+
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--color-secondary-contrast);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .pattern-caption {
+      max-width: 56ch;
+      margin-bottom: 20px;
+      color: var(--color-stone);
+      font-size: 0.98rem;
+    }
+
+    .copy-block {
+      max-width: 34rem;
+    }
+
+    .email-row {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--color-charcoal);
+    }
+
+    .email {
+      color: var(--color-charcoal);
+      font-size: 1rem;
+      word-break: break-word;
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <div class="eyebrow">Pattern Test</div>
+      <h1>Copy email pattern</h1>
+      <p class="note">This version uses the US government-style “email plus adjacent action” pattern, but styled to fit your site branding and tighter interface rhythm.</p>
+
+      <h2>Branded government-style treatment</h2>
+      <p class="pattern-caption">This version is set up for footer-style use: the email stays as plain content, the action sits directly beside it, and the control changes to a copied state without showing a separate status message.</p>
+
+      <div class="copy-block">
+        <div class="email-row">
+          <span class="email">mwallerbiz@gmail.com</span>
+          <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address">
+            <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+            <span class="copy-email-label" data-copy-label>Copy</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="system-wrap">
+    <section aria-labelledby="button-system-title">
+      <div class="eyebrow">Button System</div>
+      <h2 id="button-system-title">Buttons working as a system</h2>
+      <p class="pattern-caption">These are the main button patterns used across the site, shown together so you can compare weight, shape, spacing, and contrast in one place.</p>
+
+      <div class="button-system-grid">
+        <article class="button-sample">
+          <h3>Primary action</h3>
+          <p class="button-sample-note">Used for the strongest call to action.</p>
+          <div class="action-row">
+            <a class="button" href="resume.html">Download Resume (PDF)</a>
+          </div>
+        </article>
+
+        <article class="button-sample">
+          <h3>Secondary action</h3>
+          <p class="button-sample-note">Used for supporting navigation and lighter actions.</p>
+          <div class="action-row">
+            <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
+            <a class="button secondary" href="about.html">Learn More About Me</a>
+          </div>
+        </article>
+
+        <article class="button-sample button-sample-dark">
+          <h3>Dark-surface secondary</h3>
+          <p class="button-sample-note">Same secondary button on a dark surface.</p>
+          <div class="action-row">
+            <a class="button secondary" href="resume.html">View Resume</a>
+          </div>
+        </article>
+
+        <article class="button-sample">
+          <h3>Body copy action</h3>
+          <p class="button-sample-note">The copy pattern used in content sections.</p>
+          <div class="copy-email-group">
+            <span class="copy-email-address">mwallerbiz@gmail.com</span>
+            <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address">
+              <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+              <span class="copy-email-label" data-copy-label>Copy</span>
+            </button>
+          </div>
+        </article>
+
+        <article class="button-sample button-sample-dark">
+          <h3>Footer copy action</h3>
+          <p class="button-sample-note">The same copy pattern in the footer color treatment.</p>
+          <div class="copy-email-group">
+            <span class="copy-email-address">mwallerbiz@gmail.com</span>
+            <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address">
+              <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+              <span class="copy-email-label" data-copy-label>Copy</span>
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <p>&copy; 2026 Melissa Waller</p>
+      </div>
+      <section id="footer-contact" class="footer-contact" aria-labelledby="footer-contact-title">
+        <h2 id="footer-contact-title">Contact</h2>
+        <p>Interested in discussing accessibility leadership, organizational enablement, design operations, or future opportunities?</p>
+        <p>I’d love to connect.</p>
+        <ul>
+          <li>
+            <span class="footer-email-item">
+              <i class="ph ph-envelope-simple footer-email-icon" aria-hidden="true"></i>
+              <span class="copy-email-group">
+                <span class="copy-email-address">mwallerbiz@gmail.com</span>
+                <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address">
+                  <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+                  <span class="copy-email-label" data-copy-label>Copy</span>
+                </button>
+              </span>
+            </span>
+          </li>
+          <li>
+            <span class="linkedin-item">
+              <i class="ph ph-linkedin-logo linkedin-icon" aria-hidden="true"></i>
+              <a class="linkedin-link" href="https://www.linkedin.com/in/melissa-waller-61b48827">
+                <span class="linkedin-link-text">LinkedIn</span>
+                <i class="ph ph-arrow-up-right linkedin-external-icon" aria-hidden="true"></i>
+              </a>
+            </span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </footer>
+
+  <script>
+    function copyText(text) {
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+
+      return new Promise(function (resolve, reject) {
+        var input = document.createElement("textarea");
+        input.value = text;
+        input.setAttribute("readonly", "");
+        input.style.position = "fixed";
+        input.style.top = "-9999px";
+        document.body.appendChild(input);
+        input.select();
+
+        try {
+          document.execCommand("copy") ? resolve() : reject();
+        } catch (error) {
+          reject(error);
+        } finally {
+          document.body.removeChild(input);
+        }
+      });
+    }
+
+    document.querySelectorAll("[data-copy-value]").forEach(function (button) {
+      var label = button.querySelector("[data-copy-label]");
+      var icon = button.querySelector("[data-copy-icon]");
+      var defaultLabel = label ? label.textContent : "";
+      var defaultIconClass = icon ? icon.className : "";
+      var defaultAriaLabel = button.getAttribute("aria-label") || "Copy email address";
+
+      button.addEventListener("click", function () {
+        copyText(button.dataset.copyValue).then(function () {
+          button.dataset.copied = "true";
+          button.setAttribute("aria-label", "Copied email address");
+          if (label) {
+            label.textContent = "Copied";
+          }
+          if (icon) {
+            icon.className = "ph ph-check";
+          }
+
+          window.setTimeout(function () {
+            delete button.dataset.copied;
+            button.setAttribute("aria-label", defaultAriaLabel);
+            if (label) {
+              label.textContent = defaultLabel;
+            }
+            if (icon) {
+              icon.className = defaultIconClass;
+            }
+          }, 2000);
+        });
+      });
+    });
+  </script>
+</body>
+</html>

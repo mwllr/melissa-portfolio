@@ -18,7 +18,7 @@ Open `index.html` in a browser.
 ## Structure
 
 ```plaintext
-03-portfolio-site/
+melissa-portfolio-site/
 +-- app/
 +-- archive/
 +-- components/
@@ -33,7 +33,7 @@ Open `index.html` in a browser.
 +-- contact.html
 ```
 
-The `app`, `components`, `content`, `public`, `styles`, and `lib` folders mirror the future Next.js structure from the platform plan.
+The `app`, `components`, `content`, `public`, `styles`, and `lib` folders mirror the intended application structure while the site continues to evolve.
 
 ## Design Foundation
 

@@ -19,6 +19,21 @@
 - [ ] Check that each selected work page has a useful meta description.
 - [ ] Confirm each selected work page has a clear CTA or next step back to Selected Work/contact.
 
+## Selected Work Pages
+
+These page sections are for manual review only. Leave them unchecked until you tell me a page is done.
+
+- [ ] Building Accessibility Capability at Scale
+- [ ] AI-Assisted UX Governance & Accessibility Review System
+- [ ] Accessibility Champions Program
+- [ ] Accessibility Risk & Prioritization Framework
+- [ ] Function Health
+- [ ] University-Wide Design System, Prototypes, and Web Components
+- [ ] ACES Program Explorer
+- [ ] Hedgerow Pottery Identity Expansion
+- [ ] Presentations & Knowledge Sharing
+- [ ] Housing Website Accessibility & Design Feedback
+
 ## Visual And Brand Polish
 
 - [ ] Confirm all page imagery follows the brand photography/graphic direction.

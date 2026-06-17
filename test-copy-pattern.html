@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Copy email patterns</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f7f7f8;
+      color: #1f2937;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .example {
+      background: white;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .email {
+      font-size: 16px;
+    }
+
+    .copy-btn {
+      position: relative;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 20px;
+      min-width: 32px;
+      min-height: 32px;
+      border-radius: 6px;
+    }
+
+    .copy-btn:focus-visible {
+      outline: 3px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #166534;
+      display: none;
+    }
+
+    .tooltip {
+      position: absolute;
+      right: 0;
+      top: -36px;
+      background: #111827;
+      color: white;
+      font-size: 13px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      display: none;
+    }
+
+    .copy-btn:hover .tooltip,
+    .copy-btn:focus-visible .tooltip {
+      display: block;
+    }
+
+    .toast {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      background: #111827;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .copied .message {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Copy email web patterns</h1>
+
+    <section class="example">
+      <h2>1. Icon changes to checkmark</h2>
+      <div class="row">
+        <span class="email">jordan.lee@example.com</span>
+        <button class="copy-btn" onclick="copyEmail(this, 'icon')">
+          <span class="icon">📄</span>
+          <span class="tooltip">Copy email</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>2. Tooltip changes to “Copied!”</h2>
+      <div class="row">
+        <span class="email">jordan.lee@example.com</span>
+        <button class="copy-btn" onclick="copyEmail(this, 'tooltip')">
+          <span class="icon">📄</span>
+          <span class="tooltip">Copy email</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>3. Inline confirmation message</h2>
+      <div class="copy-wrapper">
+        <div class="row">
+          <span class="email">jordan.lee@example.com</span>
+          <button class="copy-btn" onclick="copyEmail(this, 'inline')">
+            <span class="icon">📄</span>
+            <span class="tooltip">Copy email</span>
+          </button>
+        </div>
+        <p class="message">Email copied to clipboard</p>
+      </div>
+    </section>
+
+    <section class="example">
+      <h2>4. Toast confirmation</h2>
+      <div class="row">
+        <span class="email">jordan.lee@example.com</span>
+        <button class="copy-btn" onclick="copyEmail(this, 'toast')">
+          <span class="icon">📄</span>
+          <span class="tooltip">Copy email</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Email copied to clipboard</div>
+
+  <script>
+    function copyEmail(button, pattern) {
+      const email = "jordan.lee@example.com";
+      navigator.clipboard.writeText(email);
+
+      const icon = button.querySelector(".icon");
+      const tooltip = button.querySelector(".tooltip");
+
+      if (pattern === "icon") {
+        icon.textContent = "✓";
+        setTimeout(() => icon.textContent = "📄", 1500);
+      }
+
+      if (pattern === "tooltip") {
+        tooltip.textContent = "Copied!";
+        tooltip.style.display = "block";
+        setTimeout(() => {
+          tooltip.textContent = "Copy email";
+          tooltip.style.display = "";
+        }, 1500);
+      }
+
+      if (pattern === "inline") {
+        const wrapper = button.closest(".copy-wrapper");
+        wrapper.classList.add("copied");
+        setTimeout(() => wrapper.classList.remove("copied"), 2000);
+      }
+
+      if (pattern === "toast") {
+        const toast = document.getElementById("toast");
+        toast.style.display = "block";
+        setTimeout(() => toast.style.display = "none", 2000);
+      }
+    }
+  </script>
+</body>
+</html>

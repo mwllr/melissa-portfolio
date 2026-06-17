@@ -70,32 +70,38 @@
             <div>
               <h3>Email</h3>
               <p>For opportunities, collaboration, or general conversation.</p>
-              <p><button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address"><span class="copy-email-text">mwallerbiz@gmail.com</span><i class="ph ph-copy" aria-hidden="true"></i></button></p>
+              <p>
+                <span class="contact-inline">
+                  <i class="ph ph-envelope-simple contact-inline-icon" aria-hidden="true"></i>
+                  <span class="copy-email-group">
+                    <span class="copy-email-address">mwallerbiz@gmail.com</span>
+                    <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address">
+                      <i class="ph ph-copy" aria-hidden="true" data-copy-icon></i>
+                      <span class="copy-email-label" data-copy-label>Copy</span>
+                    </button>
+                  </span>
+                </span>
+              </p>
             </div>
             <div>
               <h3>LinkedIn</h3>
               <p>Connect professionally or follow along with my work.</p>
-              <p><a href="https://www.linkedin.com/in/melissa-waller-61b48827">LinkedIn</a></p>
+              <p>
+                <span class="contact-inline">
+                  <i class="ph ph-linkedin-logo contact-inline-icon" aria-hidden="true"></i>
+                  <a class="contact-link" href="https://www.linkedin.com/in/melissa-waller-61b48827">
+                    <span class="contact-link-text">LinkedIn</span>
+                    <i class="ph ph-arrow-up-right contact-link-icon" aria-hidden="true"></i>
+                  </a>
+                </span>
+              </p>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-meta">
-          <p>&copy; 2026 Melissa Waller</p>
-        </div>
-        <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
-          <h2 id="footer-contact-title">Contact</h2>
-          <ul>
-            <li><button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address"><span class="copy-email-text">mwallerbiz@gmail.com</span><i class="ph ph-copy" aria-hidden="true"></i></button></li>
-            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><i class="ph ph-linkedin-logo linkedin-mark" aria-hidden="true"></i><span>LinkedIn</span></a></li>
-          </ul>
-        </section>
-      </div>
-    </footer>
+    <footer class="site-footer" data-site-footer></footer>
     <script src="scripts/theme.js?v=responsive-menu"></script>
   </body>
 </html>
