@@ -40,6 +40,7 @@ Typography is defined both by scale and by role.
 - Fonts: `--font-heading`, `--font-sans`, `--font-mono`
 - Scale: `--text-xs` through `--text-3xl`
 - Roles: `--type-body`, `--type-lede`, `--type-kicker`, `--type-card-title`, `--type-compact-card-title`, `--type-section-title`, `--type-page-title`, `--type-nav`
+- Hero rhythm: `--hero-copy-leading`, `--hero-copy-gap`
 
 Use role tokens when styling components. Reserve raw size tokens for defining the role layer or for rare one-off exceptions.
 
@@ -62,21 +63,30 @@ These capture repeated treatments for shared patterns.
 
 - Cards and panels: `--component-card-*`, `--component-panel-*`
 - Tags: `--component-tag-*`, `--component-work-tag-text`
-- Buttons and controls: `--control-height`, `--component-button-*`, `--component-input-*`, `--component-theme-select-*`
+- Buttons and controls: `--control-height`, `--component-button-*`, `--component-input-*`
 - Menus and shadows: `--component-menu-*`, `--component-shadow-subtle`
 - Content patterns: `--component-callout-*`, `--component-table-*`, `--component-opportunity-bg`, `--component-roadmap-bg`, `--component-value-flow-bg`
 
 Use component tokens when a treatment should stay consistent even if the underlying semantic tokens change later.
 
+### Hero Rhythm
+
+Hero sections share a slightly more open copy rhythm than standard body text.
+
+- `--hero-copy-leading` controls the line-height for hero eyebrow, lede, and supporting hero copy.
+- `--hero-copy-gap` controls the spacing between stacked hero paragraphs and the action row that follows them.
+
+Keep these values consistent across all page heroes so the About page remains the reference rhythm.
+
 ## Theme Behavior
 
-Light and dark mode should override semantic and component tokens, not rewrite component rules from scratch.
+The site currently ships in a single light theme. If a second theme becomes a future upgrade, it should override semantic and component tokens rather than rewrite component rules from scratch.
 
 That means:
 
-- Color changes belong in `:root[data-theme="dark"]`
+- Color changes should live in theme-level token overrides, not one-off component patches
 - Shared component selectors should continue using semantic or component tokens
-- Dark mode fixes should prefer token remapping over one-off selector patches
+- Any future theme work should prefer token remapping over selector-specific overrides
 
 ## Component Guidance
 
@@ -125,8 +135,8 @@ If a value starts repeating, promote it.
 
 ## Accessibility Expectations
 
-- All text and controls must meet accessible contrast targets in both themes
-- Focus styles should remain visible across cards, menus, forms, and dark mode
+- All text and controls must meet accessible contrast targets
+- Focus styles should remain visible across cards, menus, and forms
 - Responsive changes should collapse structure without changing meaning
 - Reusable patterns should preserve keyboard usability and readable hierarchy
 
@@ -137,5 +147,5 @@ Before adding a new section or page:
 1. Choose semantic and component tokens first.
 2. Reuse an existing layout pattern if one already fits.
 3. Promote repeated new values into tokens.
-4. Check both light and dark themes.
+4. Check the current theme and any future theme variants.
 5. Confirm the new pattern still reads as part of the same portfolio system.

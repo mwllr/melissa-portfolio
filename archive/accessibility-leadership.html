@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accessibility Leadership | Melissa Waller</title>
     <meta name="description" content="Accessibility leadership work by Melissa Waller, including governance, QA systems, WCAG implementation, and organizational enablement.">
-    <script>
-      (function () {
-        try {
-          if (localStorage.getItem("melissa-theme") === "dark") {
-            document.documentElement.dataset.theme = "dark";
-          }
-        } catch (error) {}
-      })();
-    </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="styles/site.css">
   </head>
@@ -23,15 +14,6 @@
       <div class="header-inner">
         <a class="brand" href="index.html">Melissa Waller</a>
         <div class="header-menu">
-          <div class="theme-setting">
-            <span class="theme-toggle-icon" aria-hidden="true"></span>
-            <label for="theme-select-accessibility">Dark mode</label>
-            <select id="theme-select-accessibility" class="theme-select" data-theme-select>
-              <option value="off">Off</option>
-              <option value="on">On</option>
-            </select>
-            <span class="sr-only" aria-live="polite" aria-atomic="true" data-theme-status></span>
-          </div>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
 
             <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
@@ -104,8 +86,13 @@
         <section id="contact" class="footer-contact" aria-labelledby="footer-contact-title">
           <h2 id="footer-contact-title">Contact</h2>
           <ul>
-            <li><button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address"><span class="copy-email-text">mwallerbiz@gmail.com</span><i class="ph ph-copy" aria-hidden="true"></i></button></li>
-            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827"><i class="ph ph-linkedin-logo linkedin-mark" aria-hidden="true"></i><span>LinkedIn</span></a></li>
+            <li>
+              <span class="copy-email-group">
+                <button class="copy-email" type="button" data-copy-value="mwallerbiz@gmail.com" aria-label="Copy email address"><span class="copy-email-text">mwallerbiz@gmail.com</span><i class="ph ph-copy" aria-hidden="true"></i></button>
+                <span class="sr-only" role="status" aria-live="polite" aria-atomic="true" data-copy-status></span>
+              </span>
+            </li>
+            <li><a class="social-link" href="https://www.linkedin.com/in/melissa-waller-61b48827" aria-label="LinkedIn, external site"><i class="ph ph-linkedin-logo linkedin-mark" aria-hidden="true"></i><span>LinkedIn</span></a></li>
           </ul>
         </section>
       </div>
