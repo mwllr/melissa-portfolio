@@ -81,8 +81,8 @@
   --type-section-title: var(--text-2xl);
   --type-page-title: var(--text-page-title);
   --type-nav: var(--text-nav);
-  --hero-copy-leading: 1.72;
-  --hero-copy-gap: var(--space-5);
+  --hero-copy-leading: 1.58;
+  --hero-copy-gap: var(--space-4);
 
   /* Spacing and shape */
   --space-1: 0.25rem;
@@ -860,10 +860,6 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 .hero .compact-copy,
 .hero .action-row {
   max-width: var(--layout-text-measure);
-}
-
-.hero .action-row {
-  padding-bottom: var(--space-8);
 }
 
 .hero .section-inner > p,
