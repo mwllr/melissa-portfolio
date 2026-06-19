@@ -81,6 +81,8 @@
   --type-section-title: var(--text-2xl);
   --type-page-title: var(--text-page-title);
   --type-nav: var(--text-nav);
+  --hero-copy-leading: 1.72;
+  --hero-copy-gap: var(--space-5);
 
   /* Spacing and shape */
   --space-1: 0.25rem;
@@ -698,12 +700,39 @@ main {
 }
 
 .hero {
+  position: relative;
+  overflow: hidden;
   border-block-end: 0;
   background: var(--color-primary);
   color: var(--color-white);
 }
 
+.hero .section-inner {
+  position: relative;
+}
+
+.hero .section-inner > :not(.hero-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: auto calc(var(--space-4) * -1) calc(var(--space-4) * -1) auto;
+  z-index: 0;
+  margin: 0;
+  pointer-events: none;
+  opacity: 0.88;
+}
+
+.hero-overlay img {
+  display: block;
+  width: min(46vw, 38rem);
+  height: auto;
+}
+
 .hero h1 {
+  max-width: var(--layout-text-measure);
   color: var(--color-white);
 }
 
@@ -730,10 +759,13 @@ main {
   background: var(--focus-card-2-bg);
 }
 
-article > .page-hero h1,
+article > .page-hero h1 {
+  max-width: var(--layout-site-width);
+}
+
 article > .page-hero .lede,
 article > .page-hero .section-inner > p:not(.eyebrow) {
-  max-width: var(--layout-site-width);
+  max-width: var(--layout-text-measure);
 }
 
 article > .page-hero .section-inner > p:first-child {
@@ -830,8 +862,32 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   max-width: var(--layout-text-measure);
 }
 
+.hero .action-row {
+  padding-bottom: var(--space-8);
+}
+
+.hero .section-inner > p,
+.page-hero .section-inner > p {
+  max-width: var(--layout-text-measure);
+}
+
+.hero .hero-focus,
+.hero .lede,
+.hero .compact-copy,
+.page-hero .lede,
+.page-hero .compact-copy,
+.page-hero .section-inner > p {
+  line-height: var(--hero-copy-leading);
+}
+
+.hero .hero-focus,
+.hero .lede,
+.page-hero .lede,
+.page-hero .section-inner > p {
+  margin-block-end: var(--hero-copy-gap);
+}
+
 .hero-focus {
-  margin-block: 0 var(--space-4);
   font-size: var(--text-md);
 }
 
@@ -1816,6 +1872,11 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   margin: 0;
 }
 
+.page-hero[aria-labelledby="about-title"] ~ .content-section .story-image {
+  position: static;
+  top: auto;
+}
+
 .story-image img {
   display: block;
   width: 100%;
@@ -2003,6 +2064,10 @@ textarea {
 }
 
 @media (max-width: 840px) {
+  .hero-overlay {
+    display: none;
+  }
+
   .header-inner {
     align-items: center;
   }
