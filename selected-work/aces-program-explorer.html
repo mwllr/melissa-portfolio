@@ -4,7 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ACES Program Explorer | Melissa Waller</title>
-    <meta name="description" content="A selected work project by Melissa Waller about designing a scalable program discovery experience for the College of ACES.">
+    <meta name="description" content="A selected work project by Melissa Waller about designing and leading a scalable program discovery experience for the College of ACES.">
+    <link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../public/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="../public/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="../styles/site.css">
   </head>
@@ -43,39 +46,56 @@
             <p class="eyebrow">College of Agricultural, Consumer and Environmental Sciences (ACES) · 2022-2023</p>
             <h1>ACES Program Explorer</h1>
             <div class="work-tags" aria-label="Categories">
-              <span class="work-tag tag-ux">UX Strategy</span>
-              <span class="work-tag tag-ia">Information Architecture</span>
+              <span class="work-tag tag-ux">UX design</span>
+              <span class="work-tag tag-ux">Interaction design</span>
+              <span class="work-tag tag-ia">Information architecture</span>
+              <span class="work-tag tag-ux">UX leadership</span>
             </div>
-            <p class="lede">Designing a scalable program discovery experience that helped prospective students explore academic opportunities with confidence.</p>
+            <p class="lede">I designed and led a scalable program-discovery experience that helped prospective students explore ACES programs by interest instead of by internal department structure.</p>
+            <p>The visible problem was a long program list. The deeper product challenge was turning department ownership, fast certificate growth, and a catalog that would later reach 126 program options into one coherent discovery experience.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-program-explorer-device-mockup.jpg" alt="ACES Program Explorer shown across desktop, laptop, tablet, and phone screens.">
+              <figcaption>Responsive mockup of the shipped Program Explorer across desktop, laptop, tablet, and phone.</figcaption>
+            </figure>
           </div>
         </header>
 
         <section class="content-section section-band" aria-labelledby="challenge-title">
           <div class="section-inner prose">
             <h2 id="challenge-title">Challenge</h2>
-            <p>The College of ACES offered an expanding collection of majors, minors, certificates, and academic programs. Over time, the existing presentation evolved into a long list of options organized primarily by degree type.</p>
-            <p>As the number of offerings grew, several challenges emerged:</p>
+            <p>Students explored by interest. The college operated by department.</p>
+            <p>The College of ACES had a growing catalog of majors, minors, certificates, master&rsquo;s programs, and PhD programs across 9 departments. The old experience presented programs mostly as long degree-type lists, which made exploration difficult on mobile and forced prospective students to understand the college&rsquo;s internal structure before they could find programs that matched their interests.</p>
+            <p>As the catalog grew, several challenges emerged:</p>
             <ul>
               <li>Too many choices created decision paralysis.</li>
               <li>Users had no way to filter or sort programs.</li>
-              <li>Program discovery relied heavily on browsing long lists.</li>
+              <li>Program discovery relied on browsing long lists organized around institutional categories.</li>
               <li>Navigation was especially difficult on mobile devices.</li>
-              <li>"Learn More" interactions frequently sent users away from the main experience.</li>
+              <li>Interest areas often crossed department boundaries.</li>
+              <li>The college needed a model that could scale as new certificates and program options were added.</li>
             </ul>
-            <p>The college needed a more intuitive way for prospective students and families to explore programs and identify areas aligned with their interests.</p>
+            <p>A student interested in business, food systems, animals, sustainability, health, or technology might not know which ACES department owned the relevant program, or whether the program existed at all.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-convergence-map.svg" alt="Diagram showing one college, 9 departments, and 126 program options converging into one Program Explorer.">
+              <figcaption>Convergence map showing 1 college, 9 departments, and a growing program catalog becoming one Explorer experience.</figcaption>
+            </figure>
           </div>
         </section>
 
         <section class="content-section" aria-labelledby="approach-title">
           <div class="section-inner prose">
             <h2 id="approach-title">Approach</h2>
-            <p>Rather than treating the problem as a simple redesign, I approached it as an information discovery challenge.</p>
+            <p>I supplied the product discipline in an environment without a formal product function: framing the problem, shaping the research approach, aligning stakeholders, defining scope, making tradeoffs, and directing implementation.</p>
             <p>The project combined user research, information architecture, content strategy, accessibility, and interaction design to create a more flexible experience that could grow as new programs were added.</p>
-            <p>Working closely with content strategists, developers, recruiters, advisors, and stakeholders, we focused on helping users answer a fundamental question:</p>
+            <p>Working with developers, content strategists, recruiters, advisors, department representatives, and campus stakeholders, we focused on helping prospective students answer a fundamental question:</p>
             <blockquote class="quote-callout">
               <p>What programs fit my interests?</p>
             </blockquote>
-            <p>The result was a searchable, filterable experience built around how prospective students think rather than how academic departments are organized.</p>
+            <p>The result was a searchable, filterable experience built around student interests rather than the college&rsquo;s internal map.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-before-after-ia.svg" alt="Before and after information architecture diagram showing a shift from degree and department lists to interest-based structured discovery.">
+              <figcaption>Before/after IA diagram showing the shift from institution-first browsing to student-centered discovery.</figcaption>
+            </figure>
           </div>
         </section>
 
@@ -83,98 +103,77 @@
           <div class="section-inner prose">
             <h2 id="created-title">What Was Created</h2>
             <h3>Program Discovery Experience</h3>
-            <p>A responsive program explorer that allowed users to browse academic offerings, filter by areas of interest, sort results, explore related programs, and access detailed program information.</p>
-            <p>The design was built to support both desktop and mobile experiences while remaining scalable for future growth.</p>
+            <p>I personally designed the full Program Explorer, including the reusable UI components used in the experience: program cards, filters, sort behavior, detail views, calls to action, the related-programs section, responsive behavior, accessibility expectations, and Drupal content-model requirements.</p>
+            <p>The final experience let students browse academic offerings, filter by areas of interest, sort results, scan program cards, open in-experience program details, move to related programs, and use direct Apply and Advisor Contact calls to action.</p>
+            <p>The design supported both desktop and mobile experiences while remaining scalable for future growth.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-journey-map.svg" alt="User journey diagram showing Program Explorer cards, filtering, program details, related programs, apply, and advisor-contact paths.">
+              <figcaption>User journey diagram showing how browsing, filtering, details, related programs, apply, and advisor-contact paths connected in the Explorer experience.</figcaption>
+            </figure>
+
+            <hr class="section-divider">
 
             <h3>Information Architecture</h3>
-            <p>A significant portion of the project focused on organizing content in a way that matched user expectations.</p>
-            <p>Research and testing informed program naming conventions, topic categories, department associations, search terminology, and navigation structure.</p>
-            <p>Several rounds of testing helped refine category labels and terminology to improve discoverability and reduce confusion.</p>
+            <p>A significant portion of the project focused on organizing content in a way that matched user expectations instead of departmental ownership.</p>
+            <p>Research and testing informed interest-based categories, program naming conventions, department associations, search terminology, and navigation structure. The work also showed where programs needed to belong to more than one mental model.</p>
+            <p>I facilitated a related-programs mapping workshop with department stakeholders. Each major had a printed sheet, and representatives physically placed program cards to show which options they believed were genuinely related based on student interest and advising patterns.</p>
+            <p>That exercise turned an abstract IA debate into visible decisions and became the basis for the Explorer&rsquo;s related-programs feature.</p>
 
-            <h3>Content Strategy</h3>
-            <p>To reduce maintenance overhead and improve consistency, the experience was designed around a shared data structure.</p>
-            <p>This allowed the same program information to be displayed in multiple formats without duplicating content.</p>
-            <p>Benefits included simplified content management, improved consistency, easier updates, and greater flexibility for future enhancements.</p>
+            <hr class="section-divider">
+
+            <h3>Structured Content System</h3>
+            <p>To reduce maintenance overhead and improve consistency, I defined a structured Drupal content model so each program record could power multiple parts of the experience.</p>
+            <p>One program record supplied the card, filters, detail view, related-program surfacing, and calls to action. That made the Explorer a scalable content system instead of a hand-maintained collection of one-off pages.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-structured-content-model.svg" alt="Structured content model diagram showing one Drupal program record powering cards, filters, detail views, related programs, and calls to action.">
+              <figcaption>Structured content model showing how one Drupal program record powered multiple parts of the Explorer.</figcaption>
+            </figure>
+
+            <hr class="section-divider">
 
             <h3>Accessibility-First Design</h3>
             <p>Accessibility considerations were incorporated from the beginning of the project rather than added later.</p>
-            <p>Key considerations included WCAG 2.1 AA compliance, accessible color contrast, keyboard navigation, focus management, screen reader optimization, responsive typography, meaningful image descriptions, and reduced reliance on animation.</p>
+            <p>Key considerations included a WCAG 2.1 AA target, accessible color contrast, keyboard navigation, focus management, screen reader optimization, responsive typography, meaningful image descriptions, and reduced reliance on animation.</p>
             <p>User testing revealed opportunities to further simplify navigation for assistive technology users. One notable improvement was treating each program card as a single interactive element, reducing screen reader verbosity and improving efficiency.</p>
+            <p>Validation came through internal automated checks, team testing, and manual review with accessibility-focused working group members. This was not a formal third-party accessibility audit.</p>
+
+            <hr class="section-divider">
 
             <h3>Research and Testing</h3>
-            <p>User research played a significant role throughout the project.</p>
-            <p>Methods included Optimal Workshop testing, tree testing, card sorting exercises, stakeholder workshops, recruiter and advisor interviews, and prototype testing.</p>
-            <p>The team gathered feedback from prospective students, parents, college recruiters, academic advisors, department leaders, and campus stakeholders.</p>
-            <p>The research helped validate navigation structures, category labels, and content organization before implementation.</p>
-
-            <h3>Collaboration and Feedback</h3>
-            <p>A key part of the process involved bringing stakeholders into the design process.</p>
-            <p>Department representatives participated in workshops and card-sorting activities that helped shape the final information architecture.</p>
-            <p>This collaborative approach not only improved the solution but also increased stakeholder buy-in and support during implementation.</p>
+            <p>Because the primary prospective-student audience was difficult to access directly, we used a practical research approach: card sorting, tree-testing for findability, proxy student participants, interns, small follow-up rounds, advisor and recruiter input, and limited parent feedback.</p>
+            <p>The research helped validate navigation structures, category labels, and content organization before implementation. One saved findability-testing task for Agricultural and Biological Engineering showed 96% success and 96% directness, an encouraging signal for the direction.</p>
           </div>
         </section>
 
         <section class="content-section" aria-labelledby="outcomes-title">
           <div class="section-inner prose">
             <h2 id="outcomes-title">Outcomes</h2>
-            <p>The new Program Explorer transformed a growing collection of academic offerings into a more approachable and discoverable experience.</p>
-            <p>The project established a scalable framework that could evolve alongside the college's expanding portfolio of programs.</p>
-            <p>Benefits included:</p>
-            <ul>
-              <li>Improved program discoverability</li>
-              <li>More intuitive navigation</li>
-              <li>Better support for mobile users</li>
-              <li>Increased accessibility</li>
-              <li>Stronger alignment between user expectations and content organization</li>
-              <li>A more sustainable content management model</li>
-            </ul>
-            <p>The project also reinforced the value of validating assumptions through research before committing to navigation and categorization decisions.</p>
+            <p>The Program Explorer shipped in roughly 6-8 months and remained live in essentially the same public-facing form years later.</p>
+            <p>The model supported a catalog that later reached 126 program options across 9 departments. Certificate offerings grew from 16 total certificates to 43 without requiring a redesign of the discovery model.</p>
+            <p>Site analytics showed users moving from the Explorer into program areas and specific program pages, suggesting the experience was supporting real discovery behavior.</p>
+            <p>The underlying discovery pattern also later informed a shared program/course repository between Education and Gies College of Business. That is best understood as later influence, not another college adopting the ACES Explorer as-is.</p>
+            <p>The strongest outcome was durability: the Explorer gave ACES a scalable discovery model that could absorb catalog growth without forcing the college back into hand-maintained program lists.</p>
           </div>
         </section>
 
         <section class="content-section section-band" aria-labelledby="role-title">
           <div class="section-inner prose">
             <h2 id="role-title">My Role</h2>
-            <h3>Experience Design</h3>
-            <ul>
-              <li>UX design</li>
-              <li>User journey mapping</li>
-              <li>Information architecture</li>
-              <li>Interaction design</li>
-              <li>Prototyping</li>
-            </ul>
-            <h3>Research</h3>
-            <ul>
-              <li>User testing</li>
-              <li>Tree testing</li>
-              <li>Card sorting</li>
-              <li>Stakeholder interviews</li>
-              <li>Research synthesis</li>
-            </ul>
-            <h3>Accessibility</h3>
-            <ul>
-              <li>WCAG compliance</li>
-              <li>Accessibility reviews</li>
-              <li>Inclusive design</li>
-              <li>Screen reader considerations</li>
-            </ul>
-            <h3>Delivery</h3>
-            <ul>
-              <li>Project management</li>
-              <li>Cross-functional collaboration</li>
-              <li>Developer partnership</li>
-              <li>Content strategy support</li>
-            </ul>
+            <p>I served as acting product lead and UX design lead, while also directly designing the Explorer experience. I owned the product framing, information architecture, interaction model, research direction, accessibility expectations, and structured content requirements.</p>
+            <p>Two engineers implemented the experience from my designs and product direction, with support from an additional UX designer and a graduate student. I led the stakeholder alignment work that turned department knowledge, research findings, and implementation constraints into a shippable discovery model.</p>
+            <p>My hands-on work included journey mapping, wireframes, prototyping, card sorting, tree-testing, stakeholder interviews, research synthesis, accessibility review, developer partnership, and launch coordination.</p>
           </div>
         </section>
 
         <section class="content-section" aria-labelledby="takeaways-title">
           <div class="section-inner prose">
             <h2 id="takeaways-title">Key Takeaways</h2>
-            <p>This project reinforced that finding information is often a bigger challenge than presenting information.</p>
-            <p>The most important design decisions were not visual. They were organizational.</p>
-            <p>By combining research, accessibility, content strategy, and information architecture, we created an experience that helped users move from "I don't know what I want to study" to "I can see which programs fit my interests."</p>
-            <p>It also demonstrated how user research can challenge internal assumptions and lead to better navigation structures that reflect how people actually think.</p>
+            <p>This project reinforced that finding information is often a bigger challenge than presenting information. The most important design decisions were not visual. They were organizational.</p>
+            <blockquote class="quote-callout">
+              <p>The hardest part was not designing filters. It was helping 9 departments agree that students do not explore the college the way the college is organized.</p>
+            </blockquote>
+            <p>By combining research, accessibility, content strategy, and information architecture, we created an experience that helped users move from &ldquo;I don&rsquo;t know what I want to study&rdquo; to &ldquo;I can see which programs fit my interests.&rdquo;</p>
+            <p>It also demonstrated how product strategy and hands-on UX design can create a durable model for complex institutional content.</p>
           </div>
         </section>
 
@@ -182,6 +181,6 @@
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="../scripts/theme.js?v=responsive-menu"></script>
+    <script src="../scripts/theme.js?v=image-modal"></script>
   </body>
 </html>

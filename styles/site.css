@@ -1329,6 +1329,115 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   box-shadow: none;
 }
 
+.case-study-visual img {
+  max-height: none;
+}
+
+.image-zoom-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.image-zoom-button img {
+  pointer-events: none;
+}
+
+.image-zoom-button::after {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-header-overlay);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  content: "+";
+}
+
+.image-modal-open {
+  overflow: hidden;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: var(--space-5);
+  background: rgba(1, 32, 66, 0.78);
+}
+
+.image-modal[hidden] {
+  display: none;
+}
+
+.image-modal-panel {
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  width: min(100%, 72rem);
+  max-height: min(92vh, 54rem);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--component-shadow-subtle);
+}
+
+.image-modal-close {
+  position: absolute;
+  inset-block-start: var(--space-3);
+  inset-inline-end: var(--space-3);
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.image-modal-image {
+  display: block;
+  width: 100%;
+  max-height: calc(92vh - 8rem);
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+}
+
+.image-modal-caption {
+  max-width: 56rem;
+  margin: 0 auto;
+  color: var(--color-text);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+.section-divider {
+  margin: var(--space-6) 0;
+  border: 0;
+  border-block-start: 1px solid var(--color-border);
+}
+
 .logo-comparison {
   display: grid;
   gap: var(--space-4);

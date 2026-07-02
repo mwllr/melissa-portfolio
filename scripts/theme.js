@@ -50,6 +50,115 @@
     });
   }
 
+  function setupImageModal() {
+    var figures = document.querySelectorAll(".case-study-visual");
+
+    if (!figures.length) {
+      return;
+    }
+
+    var modal = document.createElement("div");
+    var titleId = "image-modal-title";
+    var captionId = "image-modal-caption";
+    var previousFocus = null;
+
+    modal.className = "image-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-labelledby", titleId);
+    modal.setAttribute("aria-describedby", captionId);
+    modal.setAttribute("hidden", "");
+    modal.innerHTML = [
+      '<div class="image-modal-panel" role="document">',
+      '  <h2 class="sr-only" id="' + titleId + '">Enlarged image</h2>',
+      '  <button class="image-modal-close" type="button" aria-label="Close enlarged image">',
+      '    <i class="ph ph-x" aria-hidden="true"></i>',
+      '  </button>',
+      '  <img class="image-modal-image" alt="">',
+      '  <p class="image-modal-caption" id="' + captionId + '"></p>',
+      '</div>'
+    ].join("");
+
+    document.body.appendChild(modal);
+
+    var closeButton = modal.querySelector(".image-modal-close");
+    var modalImage = modal.querySelector(".image-modal-image");
+    var modalCaption = modal.querySelector(".image-modal-caption");
+
+    function getCaptionText(figure) {
+      var caption = figure.querySelector("figcaption");
+      return caption ? caption.textContent.trim() : "";
+    }
+
+    function openModal(image, caption) {
+      previousFocus = document.activeElement;
+      modalImage.src = image.currentSrc || image.src;
+      modalImage.alt = image.alt || "";
+      modalCaption.textContent = caption || image.alt || "";
+      modal.removeAttribute("hidden");
+      document.body.classList.add("image-modal-open");
+      closeButton.focus();
+    }
+
+    function closeModal() {
+      modal.setAttribute("hidden", "");
+      document.body.classList.remove("image-modal-open");
+      modalImage.removeAttribute("src");
+
+      if (previousFocus && typeof previousFocus.focus === "function") {
+        previousFocus.focus();
+      }
+    }
+
+    figures.forEach(function (figure) {
+      var image = figure.querySelector("img");
+
+      if (!image || image.closest(".image-zoom-button")) {
+        return;
+      }
+
+      var button = document.createElement("button");
+      var caption = getCaptionText(figure);
+      var label = caption || image.alt || "Open larger image";
+
+      button.className = "image-zoom-button";
+      button.type = "button";
+      button.setAttribute("aria-label", "Open larger image: " + label);
+
+      image.parentNode.insertBefore(button, image);
+      button.appendChild(image);
+
+      button.addEventListener("click", function () {
+        openModal(image, caption);
+      });
+    });
+
+    closeButton.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (modal.hasAttribute("hidden")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeModal();
+        return;
+      }
+
+      if (event.key === "Tab") {
+        event.preventDefault();
+        closeButton.focus();
+      }
+    });
+  }
+
   navToggles.forEach(function (toggle) {
     var headerMenu = toggle.closest(".header-menu");
     var nav = headerMenu ? headerMenu.querySelector(".site-nav") : null;
@@ -77,6 +186,7 @@
   });
 
   renderSharedFooter();
+  setupImageModal();
 
   var copyButtons = document.querySelectorAll("[data-copy-value]");
 
