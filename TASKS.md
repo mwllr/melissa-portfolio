@@ -3,9 +3,8 @@
 ## Content And Pages
 
 - [ ] Add images to the home page.
-- [ ] Add images to all selected work pages.
-- [ ] Add resume PDF file.
-- [ ] Update the resume page to reference/download the resume PDF.
+- [x] Add resume PDF file.
+- [x] Update the resume page to reference/download the resume PDF.
 - [ ] Update the About page content and layout.
 - [ ] Add additional selected work pages as new case studies are completed.
 - [ ] Add a selected work page for ChatGPT agents work.
@@ -23,14 +22,16 @@
 
 These page sections are for manual review only. Leave them unchecked until you tell me a page is done.
 
+- [ ] Selected Work
 - [ ] Building Accessibility Capability at Scale
 - [ ] AI-Assisted UX Governance & Accessibility Review System
 - [ ] Accessibility Champions Program
+-- [ ] Bryana's testimonial
 - [ ] Accessibility Risk & Prioritization Framework
 - [ ] Function Health
 - [ ] University-Wide Design System, Prototypes, and Web Components
 - [ ] ACES Program Explorer
-- [ ] Hedgerow Pottery Identity Expansion
+- [x] Hedgerow Pottery Identity Expansion
 - [ ] Presentations & Knowledge Sharing
 - [ ] Housing Website Accessibility & Design Feedback
 
@@ -38,8 +39,8 @@ These page sections are for manual review only. Leave them unchecked until you t
 
 - [ ] Confirm all page imagery follows the brand photography/graphic direction.
 - [ ] Align site CSS with the new primitive, semantic, and component token files where practical.
-- [x] Archive/remove `font-options-preview.html` from the active site.
 - [ ] Review color/token usage after all new images and case studies are added.
+- [x] Archive/remove `font-options-preview.html` from the active site.
 
 ## Accessibility And QA
 
@@ -56,3 +57,7 @@ These page sections are for manual review only. Leave them unchecked until you t
 - [ ] Confirm Vercel deployment reflects the latest pushed commits.
 - [ ] Do a final proofreading pass for headings, labels, punctuation, and consistency.
 - [ ] Confirm Contact page and footer links work as expected.
+
+## Future Ideas And Upgrades
+
+- [ ] Reintroduce dark mode later only if it is still a useful, well-tested upgrade for the public site.
