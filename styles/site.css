@@ -1333,6 +1333,16 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   max-height: none;
 }
 
+.workshop-photo-figure {
+  width: min(50%, 32rem);
+  margin-inline: auto;
+}
+
+.workshop-photo-figure .workshop-photo {
+  background: transparent;
+  border-radius: var(--radius-sm);
+}
+
 .image-zoom-button {
   position: relative;
   display: block;
