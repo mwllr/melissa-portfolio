@@ -1343,14 +1343,14 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   padding: 0;
   background: transparent;
   color: inherit;
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .image-zoom-button img {
   pointer-events: none;
 }
 
-.image-zoom-button::after {
+.image-zoom-icon {
   position: absolute;
   inset-block-start: var(--space-3);
   inset-inline-end: var(--space-3);
@@ -1358,15 +1358,21 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-border-strong);
   border-radius: 999px;
   background: var(--color-header-overlay);
   color: var(--color-primary);
-  font-family: var(--font-sans);
   font-size: 1.15rem;
-  font-weight: 700;
   line-height: 1;
-  content: "+";
+  pointer-events: none;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.image-zoom-button:hover .image-zoom-icon,
+.image-zoom-button:focus-visible .image-zoom-icon {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 .image-modal-open {
@@ -1391,8 +1397,8 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   position: relative;
   display: grid;
   gap: var(--space-3);
-  width: min(100%, 72rem);
-  max-height: min(92vh, 54rem);
+  width: min(100%, 80rem);
+  max-height: min(96vh, 60rem);
   padding: var(--space-4);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -1408,18 +1414,26 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
-  border: 1px solid var(--color-border-strong);
+  border: 2px solid var(--color-border-strong);
   border-radius: 999px;
   background: var(--color-surface);
   color: var(--color-primary);
   font-size: 1.25rem;
   cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.image-modal-close:hover,
+.image-modal-close:focus-visible {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 .image-modal-image {
   display: block;
   width: 100%;
-  max-height: calc(92vh - 8rem);
+  max-height: calc(96vh - 7rem);
   border-radius: var(--radius-sm);
   object-fit: contain;
 }
@@ -1527,6 +1541,36 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   color: var(--color-text-muted);
   font-size: var(--text-sm);
   text-align: center;
+}
+
+.diagram-details {
+  max-width: 42rem;
+  margin: var(--space-3) auto 0;
+  border-block-start: 1px solid var(--color-border);
+  padding-block-start: var(--space-3);
+  color: var(--color-text);
+  font-size: var(--type-body);
+  text-align: left;
+}
+
+.diagram-details summary {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.diagram-details summary:hover,
+.diagram-details summary:focus-visible {
+  color: var(--color-secondary-contrast);
+}
+
+.diagram-details p,
+.diagram-details ul {
+  margin-block-end: 0;
+}
+
+.diagram-details ul {
+  padding-inline-start: var(--space-5);
 }
 
 .figure-center {

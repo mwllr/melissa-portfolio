@@ -71,8 +71,8 @@
     modal.innerHTML = [
       '<div class="image-modal-panel" role="document">',
       '  <h2 class="sr-only" id="' + titleId + '">Enlarged image</h2>',
-      '  <button class="image-modal-close" type="button" aria-label="Close enlarged image">',
-      '    <i class="ph ph-x" aria-hidden="true"></i>',
+      '  <button class="image-modal-close" type="button" aria-label="Collapse enlarged image">',
+      '    <i class="ph ph-corners-in" aria-hidden="true"></i>',
       '  </button>',
       '  <img class="image-modal-image" alt="">',
       '  <p class="image-modal-caption" id="' + captionId + '"></p>',
@@ -119,14 +119,18 @@
 
       var button = document.createElement("button");
       var caption = getCaptionText(figure);
-      var label = caption || image.alt || "Open larger image";
+      var label = caption || image.alt || "Expand image";
 
       button.className = "image-zoom-button";
       button.type = "button";
-      button.setAttribute("aria-label", "Open larger image: " + label);
+      button.setAttribute("aria-label", "Expand image: " + label);
 
       image.parentNode.insertBefore(button, image);
       button.appendChild(image);
+      button.insertAdjacentHTML(
+        "beforeend",
+        '<span class="image-zoom-icon" aria-hidden="true"><i class="ph ph-corners-out"></i></span>'
+      );
 
       button.addEventListener("click", function () {
         openModal(image, caption);
