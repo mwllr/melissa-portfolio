@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MOCKUP — Home Graphics Tie-In | Melissa Waller</title>
+    <meta name="description" content="Internal mockup exploring how selected-work visual language could tie into the home page: a signature scatter-to-system graphic, diagram thumbnails on work cards, and a nodes-on-a-rail divider motif.">
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="public/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="styles/site.css">
+    <style>
+      /* ---- MOCKUP-ONLY scoped styles ---- */
+      .mockup-flag{background:#dd8e58;color:#012042;font-family:system-ui,sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.5px;text-align:center;padding:.5rem 1rem}
+
+      /* #1 signature hero banner */
+      .sig-hero-banner{background:#012042 url('public/images/work/mw-scatter-to-system-hero.svg') no-repeat center right;background-size:cover}
+      .sig-hero-banner .section-inner{padding:clamp(2.75rem,8vw,6.5rem) 0}
+      .sig-hero-copy{max-width:min(52%,560px)}
+      .sig-hero-copy .hero-focus{color:#97b1d2}
+      .sig-hero-copy h1{color:#fff;margin:.4rem 0 1rem}
+      .sig-hero-copy .lede{color:#dbe4f0}
+      @media (max-width:800px){.sig-hero-copy{max-width:100%}}
+
+      /* #3 diagram thumbnails on work cards */
+      .work-thumb{margin:0 0 1.1rem;border-radius:10px;overflow:hidden;background:#f4f1ec;aspect-ratio:3/2;display:block;border:1px solid rgba(1,32,66,.08)}
+      .work-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <p class="mockup-flag">MOCKUP — concept only. Not linked from the live site; no live pages were changed.</p>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">Melissa Waller</a>
+        <div class="header-menu">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+
+            <span class="menu-toggle-text">Menu</span>
+
+          </button>
+
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="selected-work.html">Selected Work</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+
+      <!-- ============ #1 SIGNATURE HERO GRAPHIC ============ -->
+      <section class="sig-hero-banner" aria-labelledby="mock-title">
+        <div class="section-inner">
+          <div class="sig-hero-copy">
+            <p class="hero-focus">Design and Accessibility Leadership • Team Enablement • Systems Thinking</p>
+            <h1 id="mock-title">Leading the Systems Behind Better Digital Experiences</h1>
+            <p class="lede">A flowing signature graphic: separate lines enter from the left and converge, rising into one connected system on the right.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ #3 MOTIF MARKS ON WORK CARDS ============ -->
+      <section class="content-section section-band rail-section" aria-labelledby="work-title">
+        <div class="section-inner">
+          <h2 id="work-title">Selected Work</h2>
+          <p class="prose">Each card leads with a small house-style motif mark in the shared palette, so the visual system carries onto the overview without pulling in full diagrams.</p>
+          <div class="work-grid">
+
+            <a class="card work-card-link" href="selected-work/associate-experience-portfolio-strategy.html">
+              <figure class="work-thumb">
+                <img src="public/images/work/mw-thumb-ax.svg" alt="A few scattered dots feeding into two stacked support lanes, one funded and one baseline.">
+              </figure>
+              <h3><span class="work-link-title">Associate Experience Portfolio Strategy</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>A portfolio strategy and support model that helped leadership prioritize accessibility risk across roughly 80 associate-experience touchpoints.</p>
+              <div class="work-tags" aria-label="Categories">
+                <span class="work-tag tag-ux">UX Leadership</span>
+                <span class="work-tag tag-strategy">Product Strategy</span>
+                <span class="work-tag tag-accessibility">Accessibility Strategy</span>
+              </div>
+            </a>
+
+            <a class="card work-card-link" href="selected-work/aces-program-explorer.html">
+              <figure class="work-thumb">
+                <img src="public/images/work/mw-thumb-aces.svg" alt="A flat list on the left regrouped into three soft interest clusters on the right.">
+              </figure>
+              <h3><span class="work-link-title">ACES Program Explorer</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>A scalable, interest-based program discovery experience with reusable UX components, structured content, and information architecture built around how students explore.</p>
+              <div class="work-tags" aria-label="Categories">
+                <span class="work-tag tag-ux">UX Design</span>
+                <span class="work-tag tag-strategy">Product Strategy</span>
+                <span class="work-tag tag-ia">Information Architecture</span>
+              </div>
+            </a>
+
+            <a class="card work-card-link" href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html">
+              <figure class="work-thumb">
+                <img src="public/images/work/mw-thumb-ai-governance.svg" alt="A document inside a circular review loop with an approved checkmark node.">
+              </figure>
+              <h3><span class="work-link-title">AI-Assisted UX Governance &amp; Accessibility Review System</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>A practical prototype for using AI to support design quality, governance, and review workflows.</p>
+              <div class="work-tags" aria-label="Categories">
+                <span class="work-tag tag-ai">AI-Assisted Workflows</span>
+                <span class="work-tag tag-governance">Governance</span>
+              </div>
+            </a>
+
+            <a class="card work-card-link" href="selected-work/accessibility-champions-program.html">
+              <figure class="work-thumb">
+                <img src="public/images/work/mw-thumb-champions.svg" alt="A central hub node connected out to six surrounding peer nodes.">
+              </figure>
+              <h3><span class="work-link-title">Accessibility Champions Program</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>An enablement model that gave teams local support, peer learning, and a way to make accessibility part of everyday work.</p>
+              <div class="work-tags" aria-label="Categories">
+                <span class="work-tag tag-accessibility">Accessibility Leadership</span>
+                <span class="work-tag tag-enablement">Peer Learning</span>
+              </div>
+            </a>
+
+          </div>
+          <p class="prose"><small>All four marks are new, custom-built in the same palette: two support lanes (Associate Experience), a list regrouped into interest clusters (ACES), a review loop (AI Governance), and a peer hub (Champions) &mdash; a small, consistent set rather than cropped full diagrams.</small></p>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="notes-title">
+        <div class="section-inner prose">
+          <h2 id="notes-title">What This Mockup Shows</h2>
+          <ul>
+            <li><strong>#1 — Signature graphic:</strong> flowing lines that enter separately on the left and converge/rise into a connected system on the right, as a wide (~1:4) navy hero banner (asset also saved on its own; not added to the live home page).</li>
+            <li><strong>#3 — Motif marks:</strong> all four work cards lead with a small custom house-style mark in the shared palette.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>

@@ -101,6 +101,7 @@ That means:
 - Base tag styling should come from the shared tag tokens
 - Category-specific tag colors should use the `--tag-*` token pairs
 - New portfolio categories should add a new token pair before adding a new tag class
+- Use `content/tag-system.md` as the selected work tag inventory and canonical label reference
 
 ### Buttons and Inputs
 

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hedgerow Pottery identity system map</title>
+  <desc id="desc">Diagram showing one fragile logo source becoming a production-ready identity system with logo artwork, usage guidance, vendor-ready files, and real-world applications across signage, social channels, and marketing materials.</desc>
+  <rect width="980" height="520" rx="18" fill="#f7f3ea"/>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M2,2 L10,6 L2,10 Z" fill="#1f4f4a"/>
+    </marker>
+  </defs>
+  <text x="60" y="64" fill="#14213d" font-family="Georgia, serif" font-size="30" font-weight="700">From Fragile Asset to Usable System</text>
+  <text x="60" y="98" fill="#425466" font-family="Arial, sans-serif" font-size="16">A small business identity rebuilt so the owner and vendors could apply it in real production contexts.</text>
+
+  <rect x="60" y="158" width="180" height="150" rx="12" fill="#ffffff" stroke="#d7c9b2" stroke-width="2"/>
+  <text x="88" y="196" fill="#14213d" font-family="Arial, sans-serif" font-size="17" font-weight="700">Before</text>
+  <text x="88" y="228" fill="#425466" font-family="Arial, sans-serif" font-size="15">One low-resolution</text>
+  <text x="88" y="252" fill="#425466" font-family="Arial, sans-serif" font-size="15">logo file</text>
+  <text x="88" y="286" fill="#6b5b4b" font-family="Arial, sans-serif" font-size="14">Fragile for print,</text>
+  <text x="88" y="308" fill="#6b5b4b" font-family="Arial, sans-serif" font-size="14">signage, and vendors</text>
+
+  <line x1="255" y1="233" x2="342" y2="233" stroke="#1f4f4a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="362" y="132" width="230" height="202" rx="12" fill="#e6f0ed" stroke="#1f4f4a" stroke-width="2"/>
+  <text x="394" y="172" fill="#14213d" font-family="Arial, sans-serif" font-size="17" font-weight="700">Identity Toolkit</text>
+  <circle cx="397" cy="212" r="5" fill="#1f4f4a"/>
+  <text x="414" y="217" fill="#263238" font-family="Arial, sans-serif" font-size="15">Vector logo artwork</text>
+  <circle cx="397" cy="246" r="5" fill="#1f4f4a"/>
+  <text x="414" y="251" fill="#263238" font-family="Arial, sans-serif" font-size="15">Logo variations</text>
+  <circle cx="397" cy="280" r="5" fill="#1f4f4a"/>
+  <text x="414" y="285" fill="#263238" font-family="Arial, sans-serif" font-size="15">Legibility rules</text>
+  <circle cx="397" cy="314" r="5" fill="#1f4f4a"/>
+  <text x="414" y="319" fill="#263238" font-family="Arial, sans-serif" font-size="15">File-format guidance</text>
+
+  <line x1="612" y1="233" x2="692" y2="233" stroke="#1f4f4a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="712" y="122" width="208" height="64" rx="12" fill="#ffffff" stroke="#d7c9b2" stroke-width="2"/>
+  <text x="742" y="161" fill="#14213d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Vendor Handoff</text>
+  <rect x="712" y="214" width="208" height="64" rx="12" fill="#ffffff" stroke="#d7c9b2" stroke-width="2"/>
+  <text x="742" y="253" fill="#14213d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Large-Format Sign</text>
+  <rect x="712" y="306" width="208" height="64" rx="12" fill="#ffffff" stroke="#d7c9b2" stroke-width="2"/>
+  <text x="742" y="345" fill="#14213d" font-family="Arial, sans-serif" font-size="16" font-weight="700">Social &amp; Marketing</text>
+
+  <path d="M592 196 C644 154 660 154 699 154" fill="none" stroke="#1f4f4a" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M592 233 C642 233 660 233 699 233" fill="none" stroke="#1f4f4a" stroke-width="3" marker-end="url(#arrow)"/>
+  <path d="M592 270 C644 335 662 338 699 338" fill="none" stroke="#1f4f4a" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <text x="60" y="438" fill="#263238" font-family="Arial, sans-serif" font-size="16" font-weight="700">Result:</text>
+  <text x="118" y="438" fill="#263238" font-family="Arial, sans-serif" font-size="16">the identity could leave Melissa's hands and still show up correctly in production.</text>
+</svg>

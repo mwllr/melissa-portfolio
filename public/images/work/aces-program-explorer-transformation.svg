@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" role="img" aria-labelledby="acesTransT acesTransD">
+  <title id="acesTransT">From a department-organized list to interest-based discovery</title>
+  <desc id="acesTransD">On the left, a tall stack of identical gray rows represents a long program list organized by degree type and department, with two highlighted rows labeled as valuable programs buried and hard to find. An arrow points right, where the same programs are reorganized into labeled interest areas shown as scannable cards: Animals, Food Systems, Sustainability, Business and Policy, Data and Technology, and Health and Nutrition. A connector shows one program, Agricultural Business, linked to two interest areas at once, illustrating that a single program can be discovered across department lines.</desc>
+
+  <!-- LEFT: the old list -->
+  <text x="40" y="46" font-family="Georgia, serif" font-size="22" fill="#012042" font-weight="700">A list organized by the college</text>
+  <text x="40" y="72" font-family="system-ui, sans-serif" font-size="14" fill="#807975">browse by degree type and department</text>
+
+  <rect x="40" y="100" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="130" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="160" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="190" width="360" height="20" rx="4" fill="#dd8e58" opacity="0.95"/>
+  <rect x="40" y="220" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="250" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="280" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="310" width="360" height="20" rx="4" fill="#dd8e58" opacity="0.95"/>
+  <rect x="40" y="340" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+  <rect x="40" y="370" width="360" height="20" rx="4" fill="#5d7695" opacity="0.45"/>
+
+  <text x="40" y="424" font-family="system-ui, sans-serif" font-size="13" fill="#807975" font-style="italic">Valuable programs stay buried</text>
+  <text x="40" y="444" font-family="system-ui, sans-serif" font-size="13" fill="#807975" font-style="italic">inside the college&#8217;s own structure.</text>
+
+  <!-- ARROW -->
+  <line x1="430" y1="245" x2="590" y2="245" stroke="#c2956e" stroke-width="3"/>
+  <path d="M 590 245 l -14 -8 l 0 16 z" fill="#c2956e"/>
+  <text x="510" y="230" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#807975" font-style="italic">reorganized</text>
+  <text x="510" y="266" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#807975" font-style="italic">by interest</text>
+
+  <!-- RIGHT: interest discovery -->
+  <text x="628" y="46" font-family="Georgia, serif" font-size="22" fill="#012042" font-weight="700">Discovery organized by interest</text>
+  <text x="628" y="72" font-family="system-ui, sans-serif" font-size="14" fill="#807975">filter across departments, not around them</text>
+
+  <!-- column 1 cards -->
+  <rect x="628" y="100" width="200" height="66" rx="10" fill="#708a81" opacity="0.16"/>
+  <rect x="628" y="100" width="6" height="66" rx="3" fill="#708a81"/>
+  <text x="648" y="139" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Animals</text>
+
+  <rect x="628" y="186" width="200" height="66" rx="10" fill="#708a81" opacity="0.16"/>
+  <rect x="628" y="186" width="6" height="66" rx="3" fill="#708a81"/>
+  <text x="648" y="225" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Sustainability</text>
+
+  <rect x="628" y="272" width="200" height="66" rx="10" fill="#708a81" opacity="0.16"/>
+  <rect x="628" y="272" width="6" height="66" rx="3" fill="#708a81"/>
+  <text x="648" y="311" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Data &amp; Technology</text>
+
+  <!-- column 2 cards -->
+  <rect x="948" y="100" width="212" height="66" rx="10" fill="#97b1d2" opacity="0.30"/>
+  <rect x="948" y="100" width="6" height="66" rx="3" fill="#5d7695"/>
+  <text x="968" y="139" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Food Systems</text>
+
+  <rect x="948" y="186" width="212" height="66" rx="10" fill="#97b1d2" opacity="0.30"/>
+  <rect x="948" y="186" width="6" height="66" rx="3" fill="#5d7695"/>
+  <text x="968" y="225" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Business &amp; Policy</text>
+
+  <rect x="948" y="272" width="212" height="66" rx="10" fill="#97b1d2" opacity="0.30"/>
+  <rect x="948" y="272" width="6" height="66" rx="3" fill="#5d7695"/>
+  <text x="968" y="311" font-family="system-ui, sans-serif" font-size="16" fill="#012042" font-weight="600">Health &amp; Nutrition</text>
+
+  <!-- cross-department connector: one program in two interests -->
+  <line x1="890" y1="205" x2="948" y2="133" stroke="#012042" stroke-width="2"/>
+  <line x1="890" y1="205" x2="948" y2="219" stroke="#012042" stroke-width="2"/>
+  <circle cx="890" cy="205" r="9" fill="#012042"/>
+  <circle cx="890" cy="205" r="4" fill="#fff"/>
+  <text x="884" y="384" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#012042" font-weight="600">Agricultural Business</text>
+  <text x="884" y="404" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#807975" font-style="italic">one program, found in</text>
+  <text x="884" y="422" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#807975" font-style="italic">two interests at once</text>
+</svg>
