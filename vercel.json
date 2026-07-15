@@ -1,4 +1,11 @@
 {
   "buildCommand": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/selected-work/accessibility-risk-prioritization-framework.html",
+      "destination": "/selected-work/associate-experience-portfolio-strategy.html",
+      "permanent": true
+    }
+  ]
 }

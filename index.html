@@ -3,13 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Melissa Waller | Design Leadership, UX Systems, and Accessibility</title>
-    <meta name="description" content="Melissa Waller helps organizations build better digital experiences through design leadership, UX systems, team enablement, and accessibility-informed quality.">
+    <title>Melissa Waller | UX Design, Experience Strategy, and Team Enablement</title>
+    <meta name="description" content="Melissa Waller is a hands-on UX designer and experience strategist who leads across functions and builds the systems and team capability behind better digital experiences.">
     <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="public/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="styles/site.css">
+    <style>
+      /* Home-page card details. */
+      .hero .eyebrow{color:var(--focus-card-1-bg)}
+      .home-feature-content{gap:.6rem}
+      .home-feature-header{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-3)}
+      .home-feature-header .work-chevron{transform:translateY(-2px)}
+      .home-feature-content .card-eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--color-secondary-contrast);margin:0}
+      .home-feature-description{font-size:14px}
+      .focus-grid .card.people-leadership-card{background:var(--color-page)}
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -18,13 +28,9 @@
         <a class="brand" href="index.html">Melissa Waller</a>
         <div class="header-menu">
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-
             <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-
             <span class="menu-toggle-text">Menu</span>
-
           </button>
-
           <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
               <li><a href="selected-work.html">Selected Work</a></li>
@@ -38,14 +44,16 @@
     </header>
 
     <main id="main">
+      <!-- HERO: role, point of view, and leadership through-line before the work. -->
       <section class="hero" aria-labelledby="home-title">
         <figure class="hero-overlay" aria-hidden="true">
           <img src="public/images/work/mw-system-dots.svg" alt="">
         </figure>
         <div class="section-inner">
-          <p class="hero-focus">Design and Accessibility Leadership • Team Enablement • Systems Thinking</p>
-          <h1 id="home-title">Leading the Systems Behind Better Digital Experiences</h1>
-          <p class="lede">I am a design leader focused on UX strategy, systems thinking, team enablement, and accessibility-informed quality.</p>
+          <p class="eyebrow">UX Design • Experience Strategy • Cross-functional Leadership</p>
+          <h1 id="home-title">I Build the Systems and Teams Behind Better Digital Experiences</h1>
+          <p class="lede">I'm a hands-on UX designer and experience strategist. I bring structure to complex problems, shape the experience, and help teams make better decisions at scale.</p>
+          <p class="hero-focus">I lead through clarity, practical support, and shared ways of working.</p>
           <div class="action-row">
             <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
             <a class="button secondary" href="resume.html">View Resume</a>
@@ -53,109 +61,106 @@
         </div>
       </section>
 
-      <section class="content-section rail-section" aria-labelledby="focus-title">
+      <!-- SELECTED WORK: the cards carry four distinct kinds of proof. -->
+      <section class="content-section rail-section" aria-labelledby="selected-work-title">
         <div class="section-inner">
-          <h2 id="focus-title">My Focus</h2>
+          <h2 id="selected-work-title">Selected Work</h2>
+          <div>
+            <div class="prose">
+              <p>These four pieces show the range of the work: hands-on design, enterprise prioritization, repeatable quality, and team capability.</p>
+            </div>
+            <div class="home-feature-grid">
+              <a class="card home-feature-card" href="selected-work/aces-program-explorer.html">
+                <figure class="home-feature-artwork" aria-hidden="true">
+                  <img src="public/images/work/mw-thumb-aces.svg" alt="">
+                </figure>
+                <span class="home-feature-content">
+                  <span class="home-feature-header"><span class="card-eyebrow">ACES Program Explorer</span><span class="work-chevron" aria-hidden="true">›</span></span>
+                  <span class="home-feature-title">Designed and shipped program discovery that absorbed catalog growth</span>
+                  <span class="home-feature-description">I owned the interaction model and responsive UX, then directed two engineers through implementation across nine departments. The catalog grew from 16 to 43 certificates without a redesign.</span>
+                </span>
+              </a>
+              <a class="card home-feature-card" href="selected-work/associate-experience-portfolio-strategy.html">
+                <figure class="home-feature-artwork" aria-hidden="true">
+                  <img src="public/images/work/mw-thumb-ax.svg" alt="">
+                </figure>
+                <span class="home-feature-content">
+                  <span class="home-feature-header"><span class="card-eyebrow">Associate Experience Portfolio Strategy</span><span class="work-chevron" aria-hidden="true">›</span></span>
+                  <span class="home-feature-title">Gave leaders a way to prioritize risk across ~80 touchpoints</span>
+                  <span class="home-feature-description">I built the inventory, assessment, and risk model, then interviewed five directors to shape baseline and funded support.</span>
+                </span>
+              </a>
+              <a class="card home-feature-card" href="selected-work/design-quality-operating-model.html">
+                <figure class="home-feature-artwork" aria-hidden="true">
+                  <img src="public/images/work/mw-thumb-design-quality-horizontal.svg" alt="">
+                </figure>
+                <span class="home-feature-content">
+                  <span class="home-feature-header"><span class="card-eyebrow">Design Quality Operating Model</span><span class="work-chevron" aria-hidden="true">›</span></span>
+                  <span class="home-feature-title">Turned a one-specialist queue into a quality decision system</span>
+                  <span class="home-feature-description">A risk-matched review path, shared severity language, and training loop helped 16 designers catch and prevent recurring accessibility issues.</span>
+                </span>
+              </a>
+              <a class="card home-feature-card" href="selected-work/accessibility-champions-program.html">
+                <figure class="home-feature-artwork" aria-hidden="true">
+                  <img src="public/images/work/mw-thumb-champions.svg" alt="">
+                </figure>
+                <span class="home-feature-content">
+                  <span class="home-feature-header"><span class="card-eyebrow">Accessibility Champions Program</span><span class="work-chevron" aria-hidden="true">›</span></span>
+                  <span class="home-feature-title">Built local accessibility capability for a growing design organization</span>
+                  <span class="home-feature-description">A two-year program trained 16 designers, developed 3–5 peer champions, and gave teams a clear path for harder questions.</span>
+                </span>
+              </a>
+            </div>
+            <div class="action-row">
+              <a class="button secondary" href="selected-work.html">Explore All Work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW I LEAD: explicit role-fit signals supported by the case-study evidence. -->
+      <section class="content-section section-band rail-section" aria-labelledby="focus-title">
+        <div class="section-inner">
+          <h2 id="focus-title">How I Lead</h2>
           <div class="summary-grid focus-grid">
             <article class="card">
               <i class="ph ph-compass focus-card-icon" aria-hidden="true"></i>
-              <h3>Design Leadership and Experience Strategy</h3>
-              <p>Shaping direction, clarifying priorities, and connecting design decisions to broader product and organizational goals.</p>
+              <h3>Hands-on UX Design</h3>
+              <p>Owning the interaction model, information architecture, content structure, and accessible behavior, then partnering with engineering to ship it.</p>
             </article>
             <article class="card">
               <i class="ph ph-users-three focus-card-icon" aria-hidden="true"></i>
-              <h3>Team Enablement</h3>
-              <p>Creating guidance, training, workflows, and shared systems that help teams work with more confidence and consistency.</p>
+              <h3>Cross-functional Leadership</h3>
+              <p>Aligning product, engineering, business, and leadership across reporting lines. In ACES, that meant bringing nine departments to one discovery model.</p>
             </article>
-            <article class="card">
+            <article class="card people-leadership-card">
               <i class="ph ph-squares-four focus-card-icon" aria-hidden="true"></i>
-              <h3>Design Systems and Operational Clarity</h3>
-              <p>Improving how teams collaborate, communicate, document, review, and scale digital work across organizations.</p>
+              <h3>People Leadership</h3>
+              <p>Building capability through coaching, training, governance, and clear escalation paths. The same approach supports work as an individual contributor, a cross-functional lead, or a people manager. The Champions program trained 16 designers and developed 3–5 peer champions.</p>
             </article>
             <article class="card">
               <i class="ph ph-shield-check focus-card-icon" aria-hidden="true"></i>
-              <h3>Accessibility and Quality</h3>
-              <p>Embedding accessibility and inclusive design into the systems that support better, more durable experiences.</p>
+              <h3>Accessibility &amp; Quality</h3>
+              <p>Making accessibility part of the decisions, standards, and review systems that help teams deliver better work.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="content-section section-band rail-section" aria-labelledby="numbers-title">
-        <div class="section-inner">
-          <h2 id="numbers-title">Areas of Impact</h2>
-          <div class="summary-grid impact-grid">
-            <article class="card">
-              <h3>70+ Designers Supported</h3>
-              <p>Provided design leadership, accessibility guidance, training, mentorship, and enablement resources across enterprise UX teams.</p>
-            </article>
-            <article class="card">
-              <h3>Design and Governance Leadership</h3>
-              <p>Established scalable practices, governance processes, and review workflows across multiple product teams.</p>
-            </article>
-            <article class="card">
-              <h3>Quality Built Into Workflows</h3>
-              <p>Integrated accessibility standards, design reviews, documentation, and quality checkpoints into everyday design workflows.</p>
-            </article>
-            <article class="card">
-              <h3>Cross-Functional Collaboration</h3>
-              <p>Partnered with design, product, engineering, and business stakeholders to improve delivery quality and team alignment.</p>
-            </article>
-            <article class="card">
-              <h3>Higher Education and Enterprise Experience</h3>
-              <p>Led digital experience, accessibility, training, and operational initiatives across both higher education and enterprise organizations.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
+      <!-- PHILOSOPHY: kept your voice; trimmed the 7-item list to the three that carry weight. -->
       <section class="content-section rail-section" aria-labelledby="why-title">
         <div class="section-inner">
           <h2 id="why-title">Improving the Systems Behind the Work</h2>
           <div class="prose">
             <p>The biggest challenges organizations face are rarely caused by a lack of talent.</p>
-            <p>More often, teams struggle because knowledge is difficult to find, processes are inconsistent, accessibility is addressed too late, or collaboration breaks down across functions.</p>
-            <p>My work focuses on creating the systems, guidance, and operational structures that help teams move faster, make better decisions, and deliver higher-quality experiences.</p>
-            <p>This work often includes:</p>
-            <ul>
-              <li>Design leadership and experience strategy</li>
-              <li>Training and capability building</li>
-              <li>Governance and review frameworks</li>
-              <li>Design and UX operations</li>
-              <li>Cross-functional alignment</li>
-              <li>Accessibility and inclusive design as a built-in quality standard</li>
-              <li>AI-assisted quality and review workflows</li>
-            </ul>
+            <p>More often, teams struggle because knowledge is hard to find, processes are inconsistent, and accessibility gets addressed too late. My work is building the systems, guidance, and prioritization that help teams move faster and make better decisions. That work includes governance and review frameworks, capability-building training, and accessibility treated as a built-in quality standard instead of a last step.</p>
             <p>The best systems often feel invisible when they work well.</p>
             <p>That is the kind of work I love building.</p>
           </div>
         </div>
       </section>
 
-      <section class="content-section section-band rail-section" aria-labelledby="selected-work-title">
-        <div class="section-inner">
-          <h2 id="selected-work-title">Selected Work</h2>
-          <div>
-            <div class="prose">
-              <p>Examples of design leadership, systems thinking, team enablement, and accessibility-informed work built to improve quality and help teams work more effectively.</p>
-              <h3>Highlighted Work</h3>
-              <ul>
-                <li>Associate Experience Portfolio Strategy</li>
-                <li>ACES Program Explorer</li>
-                <li>AI-Assisted UX Governance Concepts</li>
-                <li>Operational Enablement and Team Training</li>
-                <li>University-Wide Design System, Prototypes, and Web Components</li>
-                <li>Accessibility Governance and Design Quality Systems</li>
-              </ul>
-            </div>
-            <div class="action-row">
-              <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="content-section rail-section" aria-labelledby="about-preview-title">
+      <section class="content-section section-band rail-section" aria-labelledby="about-preview-title">
         <div class="section-inner">
           <h2 id="about-preview-title">About Melissa</h2>
           <div class="about-preview">
@@ -164,9 +169,8 @@
                 <figure class="about-preview-image">
                   <img src="public/images/about/mw-headshot-gray.png" alt="Melissa Waller smiling in a gray-toned professional headshot.">
                 </figure>
-                <p>I started my career in graphic design, where I learned how thoughtful communication and visual clarity can shape people’s experiences.</p>
-                <p>Over time, my work expanded beyond designing interfaces into leading the systems behind them. Today, I focus on helping organizations strengthen design quality, improve collaboration, build team capability, and create more sustainable ways of working.</p>
-                <p>Accessibility is a major strength in that work, but I do not see it as the whole story. Whether I am developing training programs, creating governance frameworks, mentoring designers, or improving operational processes, I am motivated by the same goal: helping people do their best work and creating better experiences for the people they serve.</p>
+                <p>I started in graphic design, where I learned how thoughtful communication and visual clarity shape people's experiences.</p>
+                <p>Over time my work expanded beyond designing interfaces into leading the systems behind them. Today I help organizations strengthen design quality, improve collaboration, build team capability, and create more sustainable ways of working. Accessibility is a major strength in that work, but it isn't the whole story. Whether I'm building training, governance frameworks, or operational processes, I'm motivated by the same goal: helping people do their best work and creating better experiences for the people they serve.</p>
               </div>
               <div class="action-row">
                 <a class="button secondary" href="about.html">Learn More About Me</a>
@@ -176,7 +180,7 @@
         </div>
       </section>
 
-      <section class="content-section section-band rail-section" aria-labelledby="resume-preview-title">
+      <section class="content-section rail-section" aria-labelledby="resume-preview-title">
         <div class="section-inner">
           <h2 id="resume-preview-title">Resume</h2>
           <div>

@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Selected Work | Melissa Waller</title>
-    <meta name="description" content="Selected work by Melissa Waller spanning design leadership, systems thinking, team enablement, and accessibility-informed quality.">
+    <meta name="description" content="Selected work by Melissa Waller showing hands-on UX design, cross-functional leadership, enterprise prioritization, team enablement, and accessibility-informed quality.">
     <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="public/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="styles/site.css">
     <style>
-      /* Work-card motif thumbnails — reference the external SVG files so they can be tweaked anytime */
+      /* Work-card motif thumbnails. */
       .work-thumb{width:50%;margin:0 auto 1.1rem;border-radius:10px;overflow:hidden;background:#f4f1ec;aspect-ratio:3/2;display:block}
       .work-thumb img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+      .card-eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--color-secondary-contrast);margin:0 0 .3rem}
     </style>
   </head>
   <body>
@@ -23,13 +24,9 @@
         <a class="brand" href="index.html">Melissa Waller</a>
         <div class="header-menu">
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-
             <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-
             <span class="menu-toggle-text">Menu</span>
-
           </button>
-
           <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
               <li><a href="selected-work.html" aria-current="page">Selected Work</a></li>
@@ -43,21 +40,36 @@
     </header>
 
     <main id="main">
+      <!-- HERO: the lede tells a recruiter what the set proves. -->
       <section class="page-hero" aria-labelledby="work-title">
         <div class="section-inner">
           <h1 id="work-title">Selected Work</h1>
-          <p class="lede">Explore a mix of design leadership, UX strategy, systems thinking, team enablement, and accessibility-informed work.</p>
+          <p class="lede">Work that shows how I design, align people around decisions, and build systems that hold up at scale. The projects cover hands-on product design, portfolio strategy, quality systems, and team capability across enterprise and higher education.</p>
         </div>
       </section>
 
+      <!-- HIGHLIGHTED WORK: project name is the eyebrow; the heading carries the outcome and the description carries ownership. -->
       <section class="content-section section-band" aria-labelledby="work-areas-title">
         <div class="section-inner">
           <h2 id="work-areas-title">Highlighted Work</h2>
           <div class="work-grid">
+            <a class="card work-card-link" href="selected-work/aces-program-explorer.html">
+              <figure class="work-thumb"><img src="public/images/work/mw-thumb-aces.svg" alt=""></figure>
+              <span class="card-eyebrow">ACES Program Explorer</span>
+              <h3><span class="work-link-title">Designed and shipped program discovery that absorbed catalog growth</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>I owned the interaction model and responsive UX, then directed two engineers through implementation across nine departments. The catalog grew from 16 to 43 certificates without a redesign.</p>
+              <div class="work-tags" aria-label="Categories">
+                <span class="work-tag tag-ux">UX Design</span>
+                <span class="work-tag tag-strategy">Product Strategy</span>
+                <span class="work-tag tag-ia">Information Architecture</span>
+                <span class="work-tag tag-ux">UX Leadership</span>
+              </div>
+            </a>
             <a class="card work-card-link" href="selected-work/associate-experience-portfolio-strategy.html">
               <figure class="work-thumb"><img src="public/images/work/mw-thumb-ax.svg" alt=""></figure>
-              <h3><span class="work-link-title">Associate Experience Portfolio Strategy</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-              <p>A portfolio strategy and support model that helped leadership prioritize accessibility risk across roughly 80 associate-experience touchpoints.</p>
+              <span class="card-eyebrow">Associate Experience Portfolio Strategy</span>
+              <h3><span class="work-link-title">Gave leaders a way to prioritize risk across ~80 touchpoints</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>I built the inventory, assessment, and risk model, then interviewed five directors to shape baseline and funded support.</p>
               <div class="work-tags" aria-label="Categories">
                 <span class="work-tag tag-ux">UX Leadership</span>
                 <span class="work-tag tag-strategy">Product Strategy</span>
@@ -66,30 +78,22 @@
                 <span class="work-tag tag-accessibility">Accessibility Strategy</span>
               </div>
             </a>
-            <a class="card work-card-link" href="selected-work/aces-program-explorer.html">
-              <figure class="work-thumb"><img src="public/images/work/mw-thumb-aces.svg" alt=""></figure>
-              <h3><span class="work-link-title">ACES Program Explorer</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-              <p>A scalable, interest-based program discovery experience with reusable UX components, structured content, and information architecture built around how students explore.</p>
+            <a class="card work-card-link" href="selected-work/design-quality-operating-model.html">
+              <figure class="work-thumb"><img src="public/images/work/mw-thumb-design-quality-horizontal.svg" alt=""></figure>
+              <span class="card-eyebrow">Design Quality Operating Model</span>
+              <h3><span class="work-link-title">Turned a one-specialist queue into a quality decision system</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>A risk-matched review path, shared severity language, and training loop helped 16 designers catch and prevent recurring accessibility issues.</p>
               <div class="work-tags" aria-label="Categories">
-                <span class="work-tag tag-ux">UX Design</span>
-                <span class="work-tag tag-strategy">Product Strategy</span>
-                <span class="work-tag tag-ia">Information Architecture</span>
-                <span class="work-tag tag-ux">UX Leadership</span>
-              </div>
-            </a>
-            <a class="card work-card-link" href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html">
-              <figure class="work-thumb"><img src="public/images/work/mw-thumb-ai-governance.svg" alt=""></figure>
-              <h3><span class="work-link-title">AI-Assisted UX Governance &amp; Accessibility Review System</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-              <p>A practical prototype for using AI to support design quality, governance, and review workflows.</p>
-              <div class="work-tags" aria-label="Categories">
-                <span class="work-tag tag-ai">AI-Assisted Workflows</span>
-                <span class="work-tag tag-governance">Governance</span>
+                <span class="work-tag tag-ux">UX Operations</span>
+                <span class="work-tag tag-governance">Design Governance</span>
+                <span class="work-tag tag-strategy">Operating Models</span>
               </div>
             </a>
             <a class="card work-card-link" href="selected-work/accessibility-champions-program.html">
               <figure class="work-thumb"><img src="public/images/work/mw-thumb-champions.svg" alt=""></figure>
-              <h3><span class="work-link-title">Accessibility Champions Program</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-              <p>An enablement model that gave teams local support, peer learning, and a way to make accessibility part of everyday work.</p>
+              <span class="card-eyebrow">Accessibility Champions Program</span>
+              <h3><span class="work-link-title">Built local accessibility capability for a growing design organization</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+              <p>A two-year program trained 16 designers, developed 3–5 peer champions, and gave teams a clear path for harder questions.</p>
               <div class="work-tags" aria-label="Categories">
                 <span class="work-tag tag-accessibility">Accessibility Leadership</span>
                 <span class="work-tag tag-enablement">Peer Learning</span>
@@ -99,15 +103,42 @@
         </div>
       </section>
 
+      <section class="content-section" aria-labelledby="speaking-title">
+        <div class="section-inner">
+          <h2 id="speaking-title">Speaking &amp; Enablement</h2>
+          <div>
+            <div class="prose">
+              <p>Invited talks and teaching on experience strategy, design systems, governance, and accessibility. I use them to give teams and leaders a shared direction they can act on.</p>
+            </div>
+            <div class="action-row">
+              <a class="button secondary" href="selected-work/presentations-knowledge-sharing.html">View Presentations &amp; Knowledge Sharing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADDITIONAL WORK: project name as eyebrow, headings nudged toward outcome where it's honest. Kept lighter-weight than Highlighted. -->
       <section class="content-section rail-section" aria-labelledby="more-work-title">
         <div class="section-inner">
           <h2 id="more-work-title">Additional Work</h2>
           <div>
             <ul class="work-list">
               <li>
+                <a class="work-list-link" href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html">
+                  <span class="card-eyebrow">AI-Assisted UX Governance &amp; Accessibility Review System</span>
+                  <h3><span class="work-link-title">Prototyping AI support for design-quality and review workflows</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+                  <p>A practical prototype for using AI to support design quality, governance, and review.</p>
+                  <div class="work-tags" aria-label="Categories">
+                    <span class="work-tag tag-ai">AI-Assisted Workflows</span>
+                    <span class="work-tag tag-governance">Governance</span>
+                  </div>
+                </a>
+              </li>
+              <li>
                 <a class="work-list-link" href="selected-work/function-health.html">
-                  <h3><span class="work-link-title">Making Personal Health Data More Accessible, Actionable, and Trustworthy</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-                  <p>An accessibility opportunity brief exploring how the experience could better support clarity, trust, and assistive technology use.</p>
+                  <span class="card-eyebrow">Function Health · Accessibility Opportunity Brief</span>
+                  <h3><span class="work-link-title">Making personal health data more accessible and trustworthy</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+                  <p>An opportunity brief exploring how the experience could better support clarity, trust, and assistive-technology use.</p>
                   <div class="work-tags" aria-label="Categories">
                     <span class="work-tag tag-accessibility">Accessibility Review</span>
                     <span class="work-tag tag-health">Health Data</span>
@@ -116,8 +147,9 @@
               </li>
               <li>
                 <a class="work-list-link" href="selected-work/university-wide-design-system-prototypes-web-components.html">
-                  <h3><span class="work-link-title">University-Wide Design System, Prototypes, and Web Components</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-                  <p>A shared design system and governance model created across a decentralized university environment.</p>
+                  <span class="card-eyebrow">University-Wide Design System</span>
+                  <h3><span class="work-link-title">Built a shared design system across a decentralized university</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+                  <p>A shared design system, prototypes, web components, and governance model for a decentralized environment.</p>
                   <div class="work-tags" aria-label="Categories">
                     <span class="work-tag tag-systems">Design Systems</span>
                     <span class="work-tag tag-governance">Governance</span>
@@ -126,8 +158,9 @@
               </li>
               <li>
                 <a class="work-list-link" href="selected-work/hedgerow-pottery-identity-expansion.html">
-                  <h3><span class="work-link-title">Hedgerow Pottery Identity Expansion</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-                  <p>Turning a fragile logo file into a production-ready identity system with accessible standards, flexible assets, and practical guidance.</p>
+                  <span class="card-eyebrow">Hedgerow Pottery Identity Expansion</span>
+                  <h3><span class="work-link-title">Turned a fragile logo file into a production-ready identity system</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+                  <p>Accessible standards, flexible assets, and practical guidance a small client could actually use.</p>
                   <div class="work-tags" aria-label="Categories">
                     <span class="work-tag tag-brand">Brand Systems</span>
                     <span class="work-tag tag-accessibility">Accessibility</span>
@@ -136,19 +169,10 @@
                 </a>
               </li>
               <li>
-                <a class="work-list-link" href="selected-work/presentations-knowledge-sharing.html">
-                  <h3><span class="work-link-title">Presentations &amp; Knowledge Sharing</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-                  <p>Selected presentations and workshops on accessibility, design systems, UX, content strategy, collaboration, and organizational enablement.</p>
-                  <div class="work-tags" aria-label="Categories">
-                    <span class="work-tag tag-enablement">Team Enablement</span>
-                    <span class="work-tag tag-enablement">Learning</span>
-                  </div>
-                </a>
-              </li>
-              <li>
                 <a class="work-list-link" href="selected-work/housing-website-accessibility-design-feedback.html">
-                  <h3><span class="work-link-title">Housing Website Accessibility &amp; Design Feedback</span><span class="work-chevron" aria-hidden="true">›</span></h3>
-                  <p>Using accessibility reviews and design feedback to improve digital experiences while building long-term accessibility awareness.</p>
+                  <span class="card-eyebrow">Housing Website Accessibility &amp; Design Feedback</span>
+                  <h3><span class="work-link-title">Improved a live site while building lasting accessibility awareness</span><span class="work-chevron" aria-hidden="true">›</span></h3>
+                  <p>Accessibility reviews and design feedback that improved the experience and left the team more capable.</p>
                   <div class="work-tags" aria-label="Categories">
                     <span class="work-tag tag-accessibility">Accessibility Review</span>
                     <span class="work-tag tag-feedback">Design Feedback</span>

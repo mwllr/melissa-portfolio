@@ -92,7 +92,10 @@
 
     function openModal(image, caption) {
       previousFocus = document.activeElement;
-      modalImage.src = image.currentSrc || image.src;
+      var mobileSrc = image.getAttribute("data-mobile-src");
+      modalImage.src = mobileSrc && window.matchMedia("(max-width: 640px)").matches
+        ? mobileSrc
+        : image.currentSrc || image.src;
       modalImage.alt = image.alt || "";
       modalCaption.textContent = caption || image.alt || "";
       modal.removeAttribute("hidden");

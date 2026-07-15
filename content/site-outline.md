@@ -2,25 +2,25 @@
 
 ## Primary Positioning
 
-Melissa Waller builds scalable accessibility and UX systems that improve how organizations design, communicate, and deliver inclusive digital experiences.
+Melissa Waller is a design leader and experience strategist who turns fragmented design, systems, and quality practices into scalable experience strategy, design systems, and operating models. Accessibility runs through the work as a built-in quality lens — evidence of how she builds durable systems, not the headline.
 
 ## Current Pages
 
 - Home
-- About
-- Selected Work
+- Selected Work (case studies plus a Speaking & Enablement section)
 - Resume
+- About (includes a Speaking & Teaching section)
 - Contact
 
 ## Content Priorities
 
-- accessibility governance
-- WCAG implementation at scale
-- UX operations
-- design systems and pattern governance
-- quality systems and defect remediation
-- executive-ready communication
-- organizational enablement
+- experience strategy and portfolio prioritization
+- design systems, patterns, and standards
+- UX operations and operating models
+- experience measurement and quality systems
+- accessibility as experience-quality infrastructure
+- executive-ready storytelling and stakeholder influence
+- speaking, teaching, and organizational enablement
 
 ## Portfolio Design System Governance
 

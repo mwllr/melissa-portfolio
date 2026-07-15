@@ -3,13 +3,27 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accessibility Champions Program | Melissa Waller</title>
-    <meta name="description" content="A selected work project by Melissa Waller about an accessibility champions program.">
+    <title>Accessibility Champions and Training | Melissa Waller</title>
+    <meta name="description" content="How Melissa Waller scaled accessibility quality through people: a defect-driven training program and a peer champion network that put local expertise on every design team.">
     <link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../public/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="../public/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="../styles/site.css">
+    <style>
+      /* Scoped styles for the adoption-first Champions page */
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+      .stats-section{background:#012042;color:#fff;padding:3rem 0}
+      .stats-section .eyebrow{color:#97b1d2}
+      .stats-section h2{color:#fff;margin:.25rem 0 1.75rem;max-width:none}
+      .stat-grid{display:flex;flex-wrap:wrap;gap:1.75rem 2.5rem}
+      .stat-grid .stat{flex:1 1 140px;min-width:130px;text-align:center}
+      .stat-num{display:block;font-family:Georgia,serif;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:700;color:#fff;line-height:1.1;margin:0}
+      .stat-grid div{margin:0}
+      .stat-label{display:block;margin:.4rem 0 0;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:#97b1d2}
+      .champions-model-image{max-width:640px}
+      @media (max-width:640px){.champions-model-image{content:url("../public/images/work/accessibility-champions-hub-spoke-mobile.svg");max-width:360px}}
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to main content</a>
@@ -18,13 +32,9 @@
         <a class="brand" href="../index.html">Melissa Waller</a>
         <div class="header-menu">
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-
             <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-
             <span class="menu-toggle-text">Menu</span>
-
           </button>
-
           <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
               <li><a href="../index.html">Home</a></li>
@@ -39,77 +49,105 @@
     </header>
 
     <main id="main">
-      <article>
+      <article class="champions-program-page">
         <header class="page-hero">
           <div class="section-inner">
             <p><a href="../selected-work.html">&lsaquo; Back to Selected Work</a></p>
-            <h1>Accessibility Champions Program</h1>
+            <p class="eyebrow">Walmart &middot; 2024&ndash;2026</p>
+            <h1>Accessibility Champions and Training</h1>
             <div class="work-tags" aria-label="Categories">
               <span class="work-tag tag-accessibility">Accessibility Leadership</span>
-              <span class="work-tag tag-enablement">Peer Learning</span>
+              <span class="work-tag tag-enablement">Team Enablement</span>
+              <span class="work-tag tag-systems">Peer Learning</span>
+              <span class="work-tag tag-strategy">Learning Design</span>
             </div>
+            <p class="lede">I built a defect-driven training program and a peer champion network so accessibility expertise could live inside every design team, not just in one specialist role.</p>
           </div>
         </header>
 
-        <section class="content-section section-band" aria-labelledby="challenge-title">
+        <section class="content-section" aria-labelledby="model-title">
           <div class="section-inner prose">
-            <h2 id="challenge-title">Challenge</h2>
-            <p>As accessibility efforts expanded, it became clear that sustainable adoption would require more than centralized support. Teams needed local advocates who could answer questions, reinforce best practices, and help accessibility become part of everyday work.</p>
-            <p>The goal was to build capability across the organization rather than concentrating expertise in a single role.</p>
+            <h2 id="model-title">Answering Every Question Myself Made Me the Bottleneck</h2>
+            <p>When I became the accessibility-focused designer for the organization, the same issues surfaced review after review: low color contrast, inconsistent component use, accessibility considered too late. I was the primary resource, so every question routed to me.</p>
+            <p>Answering them one at a time would never scale, and it made the whole organization depend on a single specialist. The durable fix was not a bigger queue into me. It was local expertise on every team. I built the program around a hub-and-spoke model: coach interested designers into accessibility champions, embed them on their own teams, and keep a clear path back to me for the hard cases.</p>
+            <figure class="work-figure case-study-visual">
+              <img class="champions-model-image" src="../public/images/work/accessibility-champions-hub-spoke.svg" alt="A central accessibility lead sends coaching, resources, and training out to a ring of accessibility champions, each embedded on a product team with fellow designers who bring local questions and first-pass reviews. Complex issues escalate back to the lead.">
+              <figcaption>Champions carried accessibility locally, with coaching flowing out and complex issues escalating back.</figcaption>
+            </figure>
           </div>
         </section>
 
-        <section class="content-section" aria-labelledby="approach-title">
-          <div class="section-inner prose">
-            <h2 id="approach-title">Approach</h2>
-            <p>I developed an Accessibility Champions Program that provided interested designers with additional coaching, resources, and opportunities to support their peers.</p>
-            <p>Champions served as local accessibility advocates, helping teams identify issues, answer common questions, and promote stronger accessibility practices throughout the design process.</p>
+        <section class="stats-section" aria-labelledby="stats-title">
+          <div class="section-inner">
+            <h2 id="stats-title">Two Years of Training, Built to Spread</h2>
+            <dl class="stat-grid">
+              <div class="stat">
+                <dt class="stat-num">6 <span class="sr-only">grew to</span><span aria-hidden="true">&rarr;</span> 8</dt>
+                <dd class="stat-label">Sessions, 2024 to 2025</dd>
+              </div>
+              <div class="stat">
+                <dt class="stat-num">5</dt>
+                <dd class="stat-label">Recurring defects targeted</dd>
+              </div>
+              <div class="stat">
+                <dt class="stat-num">3&ndash;5</dt>
+                <dd class="stat-label">Peer champions</dd>
+              </div>
+              <div class="stat">
+                <dt class="stat-num">16</dt>
+                <dd class="stat-label">Designers trained</dd>
+              </div>
+            </dl>
           </div>
         </section>
 
-        <section class="content-section section-band" aria-labelledby="created-title">
+        <section class="content-section" aria-labelledby="training-title">
           <div class="section-inner prose">
-            <h2 id="created-title">What Was Created</h2>
-            <ul>
-              <li>Accessibility champion role definition</li>
-              <li>Peer coaching framework</li>
-              <li>Additional training opportunities</li>
-              <li>Community of practice</li>
-              <li>Escalation path for complex issues</li>
-              <li>Ongoing support and mentorship</li>
-            </ul>
+            <h2 id="training-title">Training Built From Real Defects, Not a Generic Curriculum</h2>
+            <p>I did not teach the standards top to bottom. I analyzed our recurring defects and review findings, then built the sessions around the five issues that showed up most: color contrast, labels and alt text, unique button labels, headings and hierarchy, and page titles. A small, concrete set designers could grasp and apply the same week.</p>
+            <p>The examples came from designers' own products, not abstract demos. Sessions paired live instruction with hands-on Figma annotation work, which the designers had asked for directly, plus job aids and reference documentation. Session feedback and topic requests shaped what I taught next, so the curriculum tracked the real failure patterns instead of a fixed syllabus.</p>
+            <p>The goal was behavior change, not attendance.</p>
           </div>
         </section>
 
-        <section class="content-section" aria-labelledby="outcomes-title">
+        <section class="content-section section-band" aria-labelledby="champions-title">
           <div class="section-inner prose">
-            <h2 id="outcomes-title">Outcomes</h2>
-            <ul>
-              <li>Expanded accessibility support across teams</li>
-              <li>Created leadership opportunities for designers</li>
-              <li>Increased peer-to-peer learning and coaching</li>
-              <li>Reduced dependency on centralized review</li>
-              <li>Strengthened long-term accessibility adoption</li>
-            </ul>
+            <h2 id="champions-title">Champions Amplified the System Instead of Absorbing It</h2>
+            <p>The champions were designers who showed interest and aptitude. Some volunteered, some I recruited after they proved strong at the work, especially annotation. I coached them directly and gave them extra resources and time.</p>
+            <p>I designed their role deliberately narrow. Champions handled local questions, gave first-pass reviews, and reinforced expectations on their own teams. They were never a second support lane meant to absorb expert-level work. The escalation path ran from self-review, to champion input, to my review, with leadership alignment when a call needed it, so complex issues always had somewhere to go.</p>
           </div>
         </section>
 
-        <section class="content-section section-band" aria-labelledby="ask-title">
+        <section class="content-section" aria-labelledby="proof-title">
           <div class="section-inner prose">
-            <h2 id="ask-title">Ask Me About</h2>
-            <ul>
-              <li>Developing peer leaders</li>
-              <li>Creating communities of practice</li>
-              <li>Scaling expertise through mentorship</li>
-              <li>Building sustainable support models</li>
-              <li>Leadership development through technical specialization</li>
-            </ul>
+            <h2 id="proof-title">A Champion Caught Ten Issues I Never Saw</h2>
+            <p>One of my champions, Bryanna, was relatively new to accessibility when she started. After she changed teams, she landed on a group that had run a single accessibility audit but never taken the findings back through design.</p>
+            <p>On her own, she identified roughly ten valid accessibility issues in the team's work and brought them to me as well-founded concerns, with more she already knew how to fix herself. The team addressed them. The escalation path worked exactly as designed: she did the detection, I only had to confirm it, and the team did the fixing.</p>
+            <p>The measure of success was never how many questions I could answer. It was how many I no longer needed to.</p>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="expansion-title">
+          <div class="section-inner prose">
+            <h2 id="expansion-title">The Expansion Was Designed and Sponsored Before My Involvement Ended</h2>
+            <p>After a reorganization moved me to a larger design organization of more than 70 designers across five directors, I designed the program's next stage: a full-day accessibility training retreat that doubled as culture-building for the newly merged team, followed by an ongoing monthly cadence to layer in harder topics over time. The group director sponsored it and encouraged bringing every designer together.</p>
+            <p>The retreat was planned and sponsored, but it did not run before my involvement ended. I count it as designed and endorsed, not delivered. What I can point to as delivered is the two-year program for the original team of 16.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="evidence-title">
+          <div class="section-inner prose">
+            <h2 id="evidence-title">What Changed, and How I&rsquo;d Measure It</h2>
+            <p>Across 2024 and 2025, I delivered an eight-session program for a team of 16, focused on five recurring accessibility defects. I also defined the champion role and gave it to two designers on that team, so they could serve as local first points of contact while complex questions still had a clear path back to me.</p>
+            <p>The most meaningful outcome was a shift in where first-pass expertise lived. Bryanna&rsquo;s story captures it: after changing teams, she independently identified roughly ten valid accessibility issues, brought them to me for confirmation, and already knew how to fix more herself. That was the behavior I was designing for: people who could spot and act on accessibility problems before every question reached the specialist.</p>
+            <p>The program created a repeatable training rhythm and gave the original team a local starting point for accessibility questions. When the organization expanded to 70 designers, three more champions were identified and named. I met with them once before my involvement ended, so that next phase remained a starting point rather than a delivered expansion.</p>
+            <p>If I were setting the measurement plan today, I&rsquo;d establish a baseline for recurring defects, track progress by team, and measure how often champions helped resolve issues before escalation.</p>
           </div>
         </section>
       </article>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="../scripts/theme.js?v=responsive-menu"></script>
+    <script src="../scripts/theme.js?v=image-modal-responsive"></script>
   </body>
 </html>

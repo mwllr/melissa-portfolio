@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">From a college-organized list to interest-based discovery</title>
+  <desc id="desc">A vertical mobile layout. A long list organized by degree type and department is reorganized into six interest areas. Agricultural Business connects to Food Systems and Business and Policy, showing that one program can be found through more than one interest.</desc>
+
+  <rect width="600" height="1000" fill="#f7f4ef"/>
+
+  <text x="30" y="48" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#012042">A list organized by the college</text>
+  <text x="30" y="80" font-family="system-ui, sans-serif" font-size="17" fill="#807975">browse by degree type and department</text>
+
+  <g opacity="0.55" fill="#5d7695">
+    <rect x="30" y="118" width="540" height="22" rx="4"/>
+    <rect x="30" y="154" width="540" height="22" rx="4"/>
+    <rect x="30" y="226" width="540" height="22" rx="4"/>
+    <rect x="30" y="262" width="540" height="22" rx="4"/>
+    <rect x="30" y="334" width="540" height="22" rx="4"/>
+    <rect x="30" y="370" width="540" height="22" rx="4"/>
+  </g>
+  <rect x="30" y="190" width="540" height="22" rx="4" fill="#dd8e58"/>
+  <rect x="30" y="298" width="540" height="22" rx="4" fill="#dd8e58"/>
+
+  <text x="30" y="430" font-family="system-ui, sans-serif" font-size="16" font-style="italic" fill="#807975">Valuable programs stay buried inside</text>
+  <text x="30" y="454" font-family="system-ui, sans-serif" font-size="16" font-style="italic" fill="#807975">the college's own structure.</text>
+
+  <line x1="300" y1="486" x2="300" y2="548" stroke="#c2956e" stroke-width="4"/>
+  <path d="M300 565 l-12 -20 h24 z" fill="#c2956e"/>
+  <text x="320" y="526" font-family="system-ui, sans-serif" font-size="16" font-style="italic" fill="#807975">reorganized by interest</text>
+
+  <text x="30" y="620" font-family="Georgia, serif" font-size="28" font-weight="700" fill="#012042">Discovery organized by interest</text>
+  <text x="30" y="652" font-family="system-ui, sans-serif" font-size="17" fill="#807975">filter across departments, not around them</text>
+
+  <g font-family="system-ui, sans-serif" font-size="17" font-weight="600" fill="#012042">
+    <g>
+      <rect x="30" y="684" width="255" height="52" rx="10" fill="#708a81" opacity="0.16"/>
+      <rect x="30" y="684" width="7" height="52" rx="3" fill="#708a81"/>
+      <text x="52" y="717">Animals</text>
+    </g>
+    <g>
+      <rect x="315" y="684" width="255" height="52" rx="10" fill="#97b1d2" opacity="0.30"/>
+      <rect x="315" y="684" width="7" height="52" rx="3" fill="#5d7695"/>
+      <text x="337" y="717">Food Systems</text>
+    </g>
+    <g>
+      <rect x="30" y="754" width="255" height="52" rx="10" fill="#708a81" opacity="0.16"/>
+      <rect x="30" y="754" width="7" height="52" rx="3" fill="#708a81"/>
+      <text x="52" y="787">Sustainability</text>
+    </g>
+    <g>
+      <rect x="315" y="754" width="255" height="52" rx="10" fill="#97b1d2" opacity="0.30"/>
+      <rect x="315" y="754" width="7" height="52" rx="3" fill="#5d7695"/>
+      <text x="337" y="787">Business &amp; Policy</text>
+    </g>
+    <g>
+      <rect x="30" y="824" width="255" height="52" rx="10" fill="#708a81" opacity="0.16"/>
+      <rect x="30" y="824" width="7" height="52" rx="3" fill="#708a81"/>
+      <text x="52" y="857">Data &amp; Technology</text>
+    </g>
+    <g>
+      <rect x="315" y="824" width="255" height="52" rx="10" fill="#97b1d2" opacity="0.30"/>
+      <rect x="315" y="824" width="7" height="52" rx="3" fill="#5d7695"/>
+      <text x="337" y="857">Health &amp; Nutrition</text>
+    </g>
+  </g>
+
+  <line x1="300" y1="908" x2="315" y2="710" stroke="#012042" stroke-width="2"/>
+  <line x1="300" y1="908" x2="315" y2="780" stroke="#012042" stroke-width="2"/>
+  <rect x="150" y="900" width="300" height="54" rx="27" fill="#012042"/>
+  <text x="300" y="934" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#fff">Agricultural Business</text>
+  <text x="300" y="982" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-style="italic" fill="#807975">one program, found through two interests</text>
+</svg>
