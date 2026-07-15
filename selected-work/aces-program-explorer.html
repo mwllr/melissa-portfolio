@@ -4,27 +4,31 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ACES Program Explorer | Melissa Waller</title>
-    <meta name="description" content="A selected work project by Melissa Waller about designing and leading an interest-based program-discovery system for the College of ACES that scaled as the catalog grew.">
+    <meta name="description" content="How Melissa Waller personally designed and led an accessible program-discovery experience for 126 academic options across nine departments.">
     <link rel="icon" href="../public/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../public/favicon-32.png" sizes="32x32">
     <link rel="apple-touch-icon" href="../public/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
     <link rel="stylesheet" href="../styles/site.css">
     <style>
-      /* Scoped styles for the restructured ACES page */
+      /* Scoped styles for the authorship-first ACES page */
       .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
       .stats-section{background:#012042;color:#fff;padding:3rem 0}
       .stats-section .eyebrow{color:#97b1d2}
       .stats-section h2{color:#fff;margin:.25rem 0 1.75rem;max-width:none;white-space:nowrap}
-      @media (max-width:640px){.stats-section h2{white-space:normal}}
+      @media (max-width:640px){.stats-section h2{white-space:normal}.aces-program-explorer-page .workshop-photo-figure{width:100%}.aces-transformation-image{content:url("../public/images/work/aces-program-explorer-transformation-mobile.svg")}}
       .stat-grid{display:flex;flex-wrap:wrap;gap:1.75rem 2.5rem}
       .stat-grid .stat{flex:1 1 140px;min-width:130px;text-align:center}
-      .stat-num{display:block;font-family:Georgia,serif;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:700;color:#fff;line-height:1.1}
+      .stat-num{display:block;font-family:Georgia,serif;font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:700;color:#fff;line-height:1.1;margin:0}
       .stat-grid div{margin:0}
-      .stat-num{margin:0}
       .stat-label{display:block;margin:.4rem 0 0;font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;color:#97b1d2}
-      .transform-figure{margin:1.5rem 0 0}
-      .transform-figure svg,.transform-figure img{width:100%;height:auto;display:block}
+      .signal-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;margin:2rem 0}
+      .signal-card{background:var(--color-white-soft);border:1px solid var(--color-border);border-top:4px solid var(--sig,var(--color-primary));border-radius:12px;padding:1.4rem 1.4rem 1.5rem}
+      .signal-card .signal-num{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:50%;background:var(--sig,var(--color-primary));color:#fff;font-family:Georgia,serif;font-weight:700;font-size:1rem}
+      .signal-card h3{margin:.85rem 0 .5rem;font-size:1.08rem;line-height:1.3;color:var(--color-primary)}
+      .signal-card p{margin:0 0 .9rem;font-size:.95rem;line-height:1.55;color:var(--color-text)}
+      .signal-card .signal-metric{margin:0;font-weight:700;font-size:.9rem;color:var(--color-primary)}
+      @media (max-width:760px){.signal-grid{grid-template-columns:1fr}}
     </style>
   </head>
   <body>
@@ -34,13 +38,9 @@
         <a class="brand" href="../index.html">Melissa Waller</a>
         <div class="header-menu">
           <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
-
             <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
-
             <span class="menu-toggle-text">Menu</span>
-
           </button>
-
           <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
             <ul>
               <li><a href="../index.html">Home</a></li>
@@ -68,13 +68,41 @@
               <span class="work-tag tag-strategy">Research-Informed Design</span>
               <span class="work-tag tag-accessibility">Accessibility</span>
             </div>
-            <p class="lede">I turned a sprawling, department-organized academic catalog into an interest-based discovery system, helping prospective students find programs by what they cared about while giving the college a model that kept scaling as its offerings grew.</p>
+            <p class="lede">I designed and led an interest-based Program Explorer that helped prospective students browse a growing academic catalog without needing to understand the college&rsquo;s department structure first.</p>
           </div>
         </header>
 
+        <section class="content-section" aria-labelledby="model-title">
+          <div class="section-inner prose">
+            <h2 id="model-title">Three Pressures Converged at Once</h2>
+            <p>Three pressures landed on the same page at the same time, and a department-first structure could not absorb any of them.</p>
+            <div class="signal-grid">
+              <div class="signal-card" style="--sig:var(--color-primary)">
+                <span class="signal-num" aria-hidden="true">1</span>
+                <h3>The catalog was about to balloon</h3>
+                <p>A 2022 Investment for Growth award &mdash; $1.7&nbsp;million in campus funding &mdash; stood up the ACES Learning Innovation Lab and new online courses that could stack into certificates and master&rsquo;s programs. The catalog was set to expand fast.</p>
+                <p class="signal-metric">16 certificates, on its way to 43</p>
+              </div>
+              <div class="signal-card" style="--sig:#3c6c78">
+                <span class="signal-num" aria-hidden="true">2</span>
+                <h3>Students searched by interest, not department</h3>
+                <p>Admissions and in-person recruiting kept surfacing the same gap: prospective students talked in interests &mdash; business, animals, sustainability, food &mdash; but the site only let them browse by department.</p>
+                <p class="signal-metric">Department-first navigation</p>
+              </div>
+              <div class="signal-card" style="--sig:#b96734">
+                <span class="signal-num" aria-hidden="true">3</span>
+                <h3>It had to double as a recruiting tool</h3>
+                <p>Marketing and Prospective Student Days needed a majors-only view to put in front of prospective students, without commissioning a second build.</p>
+                <p class="signal-metric">Reusable for recruitment</p>
+              </div>
+            </div>
+            <p>The three pointed the same direction, so I framed the design problem around all of them: help students explore by interest, give the college a scalable way to market and maintain a growing catalog, and let one program appear in more than one interest area while department ownership stayed intact behind the scenes.</p>
+          </div>
+        </section>
+
         <section class="stats-section" aria-labelledby="stats-title">
           <div class="section-inner">
-            <h2 id="stats-title">The Catalog One Experience Had to Unify</h2>
+            <h2 id="stats-title">The Explorer Needed a Model Built for Scale</h2>
             <dl class="stat-grid">
               <div class="stat">
                 <dt class="stat-num">9</dt>
@@ -86,123 +114,81 @@
               </div>
               <div class="stat">
                 <dt class="stat-num">16 <span class="sr-only">grew to</span><span aria-hidden="true">&rarr;</span> 43</dt>
-                <dd class="stat-label">Certificates absorbed</dd>
+                <dd class="stat-label">Certificates</dd>
               </div>
               <div class="stat">
-                <dt class="stat-num">1</dt>
-                <dd class="stat-label">Discovery system</dd>
+                <dt class="stat-num">6&ndash;8</dt>
+                <dd class="stat-label">Months to launch</dd>
               </div>
             </dl>
           </div>
         </section>
 
-        <section class="content-section" aria-labelledby="product-title">
+        <section class="content-section" aria-labelledby="ownership-title">
           <div class="section-inner prose">
-            <h2 id="product-title">Right Time. Right Place.</h2>
-            <figure class="work-figure case-study-visual transform-figure">
-              <img src="../public/images/work/aces-program-explorer-device-mockup.jpg" alt="ACES Program Explorer shown across desktop, laptop, tablet, and phone screens.">
-              <figcaption>The shipped Program Explorer, responsive across desktop, laptop, tablet, and phone.</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="content-section section-band" aria-labelledby="transform-title">
-          <div class="section-inner prose">
-            <h2 id="transform-title">From a College&rsquo;s Filing System to a Student&rsquo;s Point of View</h2>
-            <p>Students were trying to picture their future. The old experience showed them the college&rsquo;s org chart. I flipped the model so a single program could be discovered by interest - across department lines - instead of staying buried in a degree-type list.</p>
-            <figure class="work-figure case-study-visual transform-figure">
-              <img src="../public/images/work/aces-program-explorer-transformation.svg" alt="A long undifferentiated program list on the left, reorganized on the right into labeled interest areas such as Animals, Food Systems, Sustainability, Business and Policy, Data and Technology, and Health and Nutrition, with one program shown connected to two interests at once.">
-              <figcaption>A department-organized list, resolved into interest-based discovery - where programs, like Agricultural Business, can be found across more than one interest.</figcaption>
-            </figure>
-          </div>
-        </section>
-
-        <section class="content-section" aria-labelledby="problem-title">
-          <div class="section-inner prose">
-            <h2 id="problem-title">Students Explored by Interest, Not College Departments</h2>
-            <p>The visible problem was a long list of majors, minors, certificates, and graduate programs, organized mostly by degree type and hard to use on a phone. The deeper problem was a mismatch: prospective students explore by what they care about, while the college is organized into 9 departments - so a student interested in business, food systems, or sustainability might never realize which department owned the right program, or that it existed at all.</p>
-            <p>That mismatch was getting more expensive by the year. As the catalog grew - certificates alone were climbing fast - a longer list would only bury more of the college&rsquo;s strongest offerings inside its own structure.</p>
-          </div>
-        </section>
-
-        <section class="content-section section-band" aria-labelledby="reframe-title">
-          <div class="section-inner prose">
-            <h2 id="reframe-title">I Reframed a Page Redesign Into a Discovery-System Problem</h2>
-            <p>The ask sounded like &ldquo;improve the program list.&rdquo; I reframed it as &ldquo;build a discovery model the college can grow with,&rdquo; organized around one student question: <em>what programs fit my interests?</em></p>
-            <p>There was no formal product manager, so I supplied that discipline myself - framing the problem, shaping the research, defining scope, and directing implementation - while also serving as UX design lead. To make the interest-based structure a real decision rather than my guess, I validated the taxonomy with card sorting and tree testing, and facilitated a related-programs mapping workshop where department heads and the Dean physically placed program cards to agree on genuine cross-department connections.</p>
-            <figure class="work-figure case-study-visual workshop-photo-figure">
-              <img class="workshop-photo" src="../public/images/work/aces-program-explorer-related-programs-workshop.jpg" alt="Conference table with printed program sheets and small program cards arranged during a related-programs mapping workshop.">
-              <figcaption>The related-programs mapping workshop, where department representatives placed physical program cards to identify genuine cross-department connections.</figcaption>
-            </figure>
-            <details class="diagram-details">
-              <summary>How the interest model was validated</summary>
-              <ul>
-                <li>Closed card sorts against interest categories like Animals; Food Systems; Sustainability; Business, Economics &amp; Policy; Data &amp; Technology; and Health &amp; Nutrition.</li>
-                <li>Tree testing to check findability before build.</li>
-                <li>Proxy participants, interns, advisor and recruiter input, and limited parent feedback - a practical sample, since the primary audience was largely under 18 and hard to reach.</li>
-                <li>A related-programs workshop that turned an abstract political IA debate into concrete, stakeholder-owned connections.</li>
-              </ul>
-            </details>
-          </div>
-        </section>
-
-        <section class="content-section" aria-labelledby="proof-title">
-          <div class="section-inner prose">
-            <h2 id="proof-title">The Research Caught a Insight the College&rsquo;s Own Pages Missed</h2>
-            <p>During tree testing, two programs behaved oddly: students expected them as majors, matching how the majors pages presented them, but that didn&rsquo;t reconcile with how the departments described their own degrees. I followed the signal into supplemental conversations with Admissions - and learned the two programs were officially still minors, published as majors while a multi-year university reclassification worked through governance.</p>
-            <p>That is the part that proves the method. A rigorous discovery process surfaced a real content-accuracy gap the college didn&rsquo;t know it had - something no amount of visual polish would have caught. I wasn&rsquo;t relabeling a list; I was building a process that could tell the organization something true about itself.</p>
-          </div>
-        </section>
-
-        <section class="content-section section-band" aria-labelledby="designed-title">
-          <div class="section-inner prose">
-            <h2 id="designed-title">What I Designed and Led</h2>
-            <p>This was hands-on authorship, not delegated direction. I designed every wireframe and interaction decision, then directed two engineers through implementation.</p>
-            <ul>
-              <li>the full responsive Program Explorer - program cards, filtering, sorting, and in-experience detail views</li>
-              <li>interest-based discovery and cross-department related-programs surfacing</li>
-              <li>Direct Apply and Advisor Contact calls to action</li>
-              <li>accessibility built into the interaction model (WCAG 2.1 AA), including treating each card as a single element to cut screen-reader verbosity</li>
-              <li>the structured Drupal content model so one program record could power the whole experience</li>
-              <li>the related-programs workshop, stakeholder alignment across 9 departments, and launch coordination</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="content-section" aria-labelledby="system-title">
-          <div class="section-inner prose">
-            <h2 id="system-title">One Program Record, the Whole Experience</h2>
-            <p>The Explorer was a content system, not a one-off page. I defined a structured Drupal model so a single program record supplied its card, its filters and sorting, its detail view, its related-program links, and its calls to action - which is what let the catalog keep growing without hand-maintaining disconnected pages.</p>
+            <h2 id="ownership-title">I Designed the Experience and Directed the Build</h2>
+            <p>To turn that direction into a shippable product, I personally designed the interaction model from wireframes through responsive behavior and content requirements, then directed two engineers through implementation.</p>
+            <p>That included the program cards, filter and sort behavior, in-experience detail views, and the structured Drupal requirements behind them. There was no formal product manager, so I also framed the problem, shaped the research, aligned nine departments, and made the tradeoffs needed to ship.</p>
             <figure class="work-figure case-study-visual">
-              <img src="../public/images/work/aces-structured-content-model.svg" alt="Structured content model diagram showing one Drupal program record powering cards, filters, detail views, related programs, and calls to action.">
-              <figcaption>One structured Drupal record powering cards, filters, detail views, related programs, and calls to action.</figcaption>
+              <img src="../public/images/work/aces-program-explorer-device-mockup.jpg" alt="The shipped ACES Program Explorer shown across desktop, laptop, tablet, and phone screens.">
+              <figcaption>The shipped experience across desktop, laptop, tablet, and phone.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="content-section section-band" aria-labelledby="system-title">
+          <div class="section-inner prose">
+            <h2 id="system-title">One Program Record Powered the Whole Experience</h2>
+            <p>One design decision did the most to make the Explorer durable: I defined a structured Drupal model so a single program record supplied its card, filters and sorting, detail view, related-program relationships, and calls to action. The catalog could grow without hand-maintaining disconnected versions of the same content.</p>
+            <p>I also made that record configurable, not just reusable. For a Prospective Student Days campaign, I embedded a majors-only version on the landing page and hid minors, certificates, and graduate programs without rebuilding the Explorer. The same system I designed became a focused recruiting surface in a second context, with no new build.</p>
+            <figure class="work-figure case-study-visual">
+              <img src="../public/images/work/aces-structured-content-model.svg" alt="Structured content model showing one Drupal program record powering cards, filters, detail views, related programs, and calls to action.">
+              <figcaption>One structured Drupal record supplied content and relationships across the experience.</figcaption>
             </figure>
             <details class="diagram-details">
               <summary>Diagram details: structured content model</summary>
               <p>The diagram shows how one structured Drupal record supported multiple parts of the student experience.</p>
               <ul>
-                <li>Each program record supplied the content for program cards and detail views.</li>
                 <li>Structured fields powered filters, sorting, degree-type display, and interest-area relationships.</li>
-                <li>Related-program mappings connected each program to other relevant options across departments.</li>
-                <li>Centralizing the content reduced duplicated maintenance and let the Explorer scale as programs changed.</li>
+                <li>The same record supplied program cards and detail views.</li>
+                <li>Related-program mappings connected relevant options across departments.</li>
               </ul>
             </details>
           </div>
         </section>
 
-        <section class="content-section section-band" aria-labelledby="outcomes-title">
+        <section class="content-section" aria-labelledby="research-title">
           <div class="section-inner prose">
-            <h2 id="outcomes-title">Outcome: A Discovery Model That Kept Scaling</h2>
-            <p>The strongest proof the model worked is that the organization kept using it. It shipped in roughly 6&ndash;8 months and stayed live in essentially the same public-facing form years later - and it absorbed real catalog growth without a redesign: certificate offerings climbed from 16 to 43 inside a catalog that reached 126 program options, and the structured model took the growth in stride.</p>
-            <p><strong>Directional signals.</strong> A saved tree-testing task showed 96% success and 96% directness for the interest-based IA, and a GA4 path report showed 11,055 Explorer sessions with users moving deeper into program areas. Both point the same way; neither is a controlled study. The ACES idea also later informed a shared program/course repository between the College of Education and Gies College of Business.</p>
-            <p><strong>What I don&rsquo;t claim.</strong> Institutional privacy rules prevented tying Explorer usage to applications or enrollment, so I make no conversion claim. If I were setting the measurement plan today, I&rsquo;d pair UX signals - task success, mobile completion, filter usage, related-program click-through - with operational ones like reduced advising confusion and avoided redesign work as the catalog grew.</p>
+            <h2 id="research-title">Research Made the Taxonomy a Shared Decision</h2>
+            <p>I treated the field signal as a hypothesis, not a conclusion. Card sorting and tree testing checked whether the categories matched how prospective students looked for programs; a physical mapping workshop made cross-department relationships concrete enough for department leaders and the Dean to decide together.</p>
+            <p>The research also surfaced a content-accuracy gap: two programs were presented as majors on public pages while officially remaining minors during a multi-year university reclassification. The Explorer could not resolve that governance process, but the discovery work caught the discrepancy before the interface repeated it.</p>
+            <figure class="work-figure case-study-visual workshop-photo-figure">
+              <img class="workshop-photo" src="../public/images/work/aces-program-explorer-related-programs-workshop.jpg" alt="Conference table with printed program sheets and program cards arranged during a related-programs mapping workshop.">
+              <figcaption>Department representatives placed physical program cards to identify genuine cross-department relationships.</figcaption>
+            </figure>
           </div>
         </section>
 
+        <section class="content-section section-band" aria-labelledby="accessibility-title">
+          <div class="section-inner prose">
+            <h2 id="accessibility-title">Accessibility Shaped the Interaction Model</h2>
+            <p>I treated each program card as a single interactive element to reduce screen-reader verbosity. In a design review, my accessibility peers caught a filtering defect: every selection reloaded the page and sent keyboard and screen-reader users back to the top.</p>
+            <p>I owned the remediation. I defined the interaction fix, tested it, and directed the two engineers who implemented AJAX filtering, so results update without a page reload, focus is preserved, selections persist through browser back and forward, and the result count is announced.</p>
+          </div>
+        </section>
+
+        <section class="content-section" aria-labelledby="outcomes-title">
+          <div class="section-inner prose">
+            <h2 id="outcomes-title">One Build That Absorbed the Growth</h2>
+            <p>The case for the Explorer is not that ACES kept it &mdash; it is what the Explorer absorbed. Certificate offerings nearly tripled, from 16 to 43 inside a 126-option catalog, and the interest-based structure took that growth without a redesign. The same model powered a majors-only view for recruiting. One build did the three jobs the college needed, and it is still live three years later.</p>
+            <p>The discovery signals point the same way. A saved tree-testing task showed 96% of participants reaching the right program area on the interest-based structure, and a GA4 path report recorded 11,055 Explorer sessions with users moving deeper into program areas. Neither establishes causation, but both give directional evidence that the model supported program discovery. The ACES approach directly influenced a comparable program-and-course repository shared between the College of Education and Gies College of Business &mdash; a separate build, shaped through many conversations between me and their web lead.</p>
+            <p>I don&rsquo;t overstate it. Privacy rules prevented tying Explorer usage to applications or enrollment, so I make no conversion claim. If I were measuring it today, I&rsquo;d pair UX signals like task success and related-program click-through with operational ones like reduced advising load and the redesign work the structure kept avoiding.</p>
+          </div>
+        </section>
       </article>
     </main>
 
     <footer class="site-footer" data-site-footer></footer>
-    <script src="../scripts/theme.js?v=image-modal"></script>
+    <script src="../scripts/theme.js?v=image-modal-responsive"></script>
   </body>
 </html>

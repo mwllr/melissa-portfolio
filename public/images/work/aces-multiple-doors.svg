@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">One program, seven ways in</title>
+  <desc id="desc">A diagram showing seven interest areas — Agriculture, Animals, Business, Food Systems, Health, Plants and Crops, and Sustainability — each leading to the same program, Public Policy and Law, illustrating how interest-based tagging creates many paths to one program.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ef; }
+      .pill { fill: #ffffff; stroke: #d8d2c8; stroke-width: 2; }
+      .title { font-family: Inter, Arial, sans-serif; font-size: 44px; font-weight: 800; fill: #13294b; }
+      .subtitle { font-family: Inter, Arial, sans-serif; font-size: 22px; fill: #4f463c; }
+      .pilltext { font-family: Inter, Arial, sans-serif; font-size: 22px; font-weight: 700; fill: #13294b; }
+      .whiteBig { font-family: Inter, Arial, sans-serif; font-size: 38px; font-weight: 800; fill: #ffffff; }
+      .whiteSmall { font-family: Inter, Arial, sans-serif; font-size: 20px; fill: #ffffff; }
+      .goldNum { font-family: Georgia, serif; font-size: 96px; font-weight: 700; fill: #c99700; }
+      .goldLabel { font-family: Inter, Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #13294b; }
+      .tiny { font-family: Inter, Arial, sans-serif; font-size: 16px; fill: #5f564c; }
+    </style>
+    <marker id="dArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto" markerUnits="strokeWidth"><path d="M2,2 L10,6 L2,10 Z" fill="#2f6f73"/></marker>
+  </defs>
+
+  <rect class="bg" width="1600" height="1000"/>
+
+  <text class="title" x="80" y="86">One program, seven ways in</text>
+  <text class="subtitle" x="82" y="122">Interest-based tagging means a student finds the same program no matter which interest they start from.</text>
+
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 225 C700 225, 830 470, 1046 505" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 325 C700 325, 840 480, 1046 512" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 425 C700 425, 850 495, 1046 518" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 525 C720 525, 860 525, 1046 525" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 625 C700 625, 850 555, 1046 532" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 725 C700 725, 840 570, 1046 538" marker-end="url(#dArrow)"/>
+  <path fill="none" stroke="#2f6f73" stroke-width="3.5" stroke-linecap="round" opacity="0.9" d="M470 825 C700 825, 830 580, 1046 545" marker-end="url(#dArrow)"/>
+
+  <g>
+    <rect class="pill" x="90" y="190" width="380" height="70" rx="16"/><circle cx="128" cy="225" r="9" fill="#3b6d11"/><text class="pilltext" x="152" y="233">Agriculture</text>
+    <rect class="pill" x="90" y="290" width="380" height="70" rx="16"/><circle cx="128" cy="325" r="9" fill="#993c1d"/><text class="pilltext" x="152" y="333">Animals</text>
+    <rect class="pill" x="90" y="390" width="380" height="70" rx="16"/><circle cx="128" cy="425" r="9" fill="#185fa5"/><text class="pilltext" x="152" y="433">Business, Economics &amp; Law</text>
+    <rect class="pill" x="90" y="490" width="380" height="70" rx="16"/><circle cx="128" cy="525" r="9" fill="#854f0b"/><text class="pilltext" x="152" y="533">Food Systems</text>
+    <rect class="pill" x="90" y="590" width="380" height="70" rx="16"/><circle cx="128" cy="625" r="9" fill="#993556"/><text class="pilltext" x="152" y="633">Health &amp; Nutrition</text>
+    <rect class="pill" x="90" y="690" width="380" height="70" rx="16"/><circle cx="128" cy="725" r="9" fill="#0f6e56"/><text class="pilltext" x="152" y="733">Plants &amp; Crops</text>
+    <rect class="pill" x="90" y="790" width="380" height="70" rx="16"/><circle cx="128" cy="825" r="9" fill="#534ab7"/><text class="pilltext" x="152" y="833">Sustainability</text>
+  </g>
+
+  <rect x="1046" y="428" width="470" height="194" rx="24" fill="#2f6f73"/>
+  <text class="whiteBig" x="1082" y="502">Public Policy &amp; Law</text>
+  <text class="whiteSmall" x="1082" y="540">Undergraduate Major</text>
+  <text class="whiteSmall" x="1082" y="586">Reachable from 7 interest areas</text>
+
+  <g transform="translate(1210 660)">
+    <text class="goldNum" x="0" y="80" text-anchor="middle">7</text>
+    <text class="goldLabel" x="0" y="118" text-anchor="middle">interest paths to one program</text>
+  </g>
+
+  <text class="tiny" x="80" y="936">Public Policy &amp; Law is the most cross-listed major; Natural Resources reaches 6 interests, and the average major reaches 3.7. No interest path dead-ends.</text>
+</svg>

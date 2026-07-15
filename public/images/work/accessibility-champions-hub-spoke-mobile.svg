@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 560" role="img" aria-labelledby="champTitleM champDescM" font-family="Georgia, 'Times New Roman', serif">
+  <title id="champTitleM">The accessibility champion model: a hub-and-spoke amplifier</title>
+  <desc id="champDescM">A central accessibility lead at the top sends coaching, resources, and training down to a row of accessibility champions, each embedded on a product team with their fellow designers. Champions handle local questions and first-pass reviews, and escalate complex issues back to the lead.</desc>
+
+  <defs>
+    <marker id="mArrowOut" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#012042"/>
+    </marker>
+    <marker id="mArrowIn" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#807975"/>
+    </marker>
+  </defs>
+
+  <!-- Spokes down to champions -->
+  <g stroke="#012042" stroke-width="3" fill="none">
+    <line x1="168" y1="112" x2="96" y2="210" marker-end="url(#mArrowOut)"/>
+    <line x1="190" y1="122" x2="190" y2="210" marker-end="url(#mArrowOut)"/>
+    <line x1="212" y1="112" x2="284" y2="210" marker-end="url(#mArrowOut)"/>
+  </g>
+
+  <!-- Team designers -->
+  <g fill="#c2956e" stroke="#f3f0ec" stroke-width="2">
+    <circle cx="70" cy="322" r="11"/><circle cx="102" cy="322" r="11"/>
+    <circle cx="174" cy="322" r="11"/><circle cx="206" cy="322" r="11"/>
+    <circle cx="278" cy="322" r="11"/><circle cx="310" cy="322" r="11"/>
+  </g>
+  <g stroke="#c2956e" stroke-width="1.5" opacity="0.85">
+    <line x1="86" y1="290" x2="86" y2="308"/>
+    <line x1="190" y1="290" x2="190" y2="308"/>
+    <line x1="294" y1="290" x2="294" y2="308"/>
+  </g>
+
+  <!-- Escalation back to hub -->
+  <path d="M334 250 Q356 150 236 84" fill="none" stroke="#807975" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#mArrowIn)"/>
+
+  <!-- Champions -->
+  <g>
+    <circle cx="86" cy="250" r="40" fill="#3c6c78"/>
+    <circle cx="190" cy="250" r="40" fill="#3c6c78"/>
+    <circle cx="294" cy="250" r="40" fill="#3c6c78"/>
+    <g fill="#ffffff" font-size="15" text-anchor="middle">
+      <text x="86" y="255">Champion</text>
+      <text x="190" y="255">Champion</text>
+      <text x="294" y="255">Champion</text>
+    </g>
+  </g>
+
+  <!-- Hub -->
+  <circle cx="190" cy="72" r="50" fill="#012042"/>
+  <g fill="#ffffff" text-anchor="middle">
+    <text x="190" y="67" font-size="16">Accessibility</text>
+    <text x="190" y="88" font-size="16">Lead</text>
+  </g>
+
+  <!-- Legend -->
+  <g font-size="15" fill="#232c31">
+    <line x1="24" y1="410" x2="58" y2="410" stroke="#012042" stroke-width="3" marker-end="url(#mArrowOut)"/>
+    <text x="68" y="415">Coaching and training out</text>
+
+    <line x1="24" y1="446" x2="58" y2="446" stroke="#807975" stroke-width="2.5" stroke-dasharray="8 6" marker-end="url(#mArrowIn)"/>
+    <text x="68" y="451">Complex issues escalate back</text>
+
+    <circle cx="41" cy="482" r="9" fill="#c2956e" stroke="#f3f0ec" stroke-width="2"/>
+    <text x="68" y="487">Team designers on each team</text>
+  </g>
+</svg>
