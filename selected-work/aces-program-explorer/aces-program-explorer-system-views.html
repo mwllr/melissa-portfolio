@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACES program system &mdash; interactive views | Melissa Waller</title>
+<meta name="description" content="Four interactive views of the ACES program system: where a flat list favors the biggest department, an interest-to-major relationship map, a department-by-interest structure matrix, and a sortable department catalog. Reverse-engineered from the live ACES Program Explorer.">
+<style>
+  :root{
+    --navy:#13294b; --ink:#232c31; --paper:#faf8f4; --line:#d8d2c8; --mut:#5f564c;
+    --cell:#ece8e1; --orange:#E84A27;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1040px;margin:0 auto;padding:2rem 1.25rem 4rem}
+  a{color:#0C447C}
+  .back{font-size:.9rem}
+  h1{font-size:1.55rem;color:var(--navy);margin:.4rem 0 .3rem;line-height:1.2}
+  .lede{max-width:720px;color:#3a3a3a}
+  .note{font-size:.82rem;color:var(--mut);background:#f2ede4;border:1px solid var(--line);
+    border-radius:8px;padding:.7rem .9rem;margin:1rem 0 1.4rem}
+  /* tabs */
+  .tabs{display:flex;flex-wrap:wrap;gap:6px;border-bottom:2px solid var(--line);margin:1.6rem 0 0}
+  .tab{appearance:none;border:0;border-bottom:3px solid transparent;background:none;cursor:pointer;
+    font:inherit;font-weight:700;color:var(--mut);padding:.6rem .9rem;border-radius:8px 8px 0 0;
+    font-size:.9rem;margin-bottom:-2px;transition:color .15s ease}
+  .tab:hover{color:var(--navy)}
+  .tab[aria-selected=true]{color:var(--navy);border-bottom-color:#0C447C}
+  .panel{display:none;padding:1.4rem 0 0}
+  .panel[data-active=true]{display:block}
+  .ph{font-size:1.05rem;color:var(--navy);margin:.2rem 0 .1rem}
+  .psub{color:var(--mut);font-size:.9rem;max-width:760px;margin:.1rem 0 1.1rem}
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--mut);margin:.4rem 0 1rem}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+  /* view 1 */
+  #relWrap{overflow-x:auto}
+  #rel{display:block;min-width:960px;user-select:none}
+  #rel text{fill:var(--ink)}
+  .rel-hint{font-size:.8rem;color:var(--mut);margin-bottom:.4rem}
+  .rel-hint.locked{color:#0C447C}
+  .rel-hint.locked b{color:var(--navy)}
+  /* view 2 table */
+  .ctrls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;margin-bottom:1rem;font-size:.85rem}
+  .ctrls label{color:var(--mut);font-weight:600;margin-right:4px}
+  select{font:inherit;font-size:.85rem;padding:.35rem .5rem;border:1px solid var(--line);border-radius:6px;background:#fff}
+  table{border-collapse:collapse;width:100%;font-size:.86rem}
+  thead th{position:sticky;top:0;background:var(--navy);color:#fff;text-align:left;
+    padding:.55rem .6rem;cursor:pointer;white-space:nowrap;font-size:.8rem}
+  thead th .ar{opacity:.5;font-size:.7rem}
+  thead th[aria-sort=ascending] .ar,thead th[aria-sort=descending] .ar{opacity:1}
+  tbody td{padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:hover{background:#f2ede4}
+  tbody tr.un td:first-child{color:#6f675b;font-style:italic}
+  .azrow.un .nm{color:#6f675b;font-style:italic}
+  .deptpill{display:inline-block;padding:.12rem .5rem;border-radius:20px;font-size:.72rem;
+    font-weight:700;color:#fff;white-space:nowrap}
+  .chip{display:inline-block;background:#e7e1d6;color:#4a423a;border-radius:4px;
+    padding:.06rem .4rem;font-size:.72rem;margin:1px 2px 1px 0}
+  .pcount{font-weight:800;color:var(--navy)}
+  /* view 3 matrix */
+  #mxWrap{overflow-x:auto}
+  table.mx{font-size:.8rem;min-width:760px}
+  table.mx thead th{background:var(--paper);color:var(--navy)}
+  table.mx th.rot{height:96px;padding:0;vertical-align:bottom}
+  table.mx th.rot div{transform:rotate(-55deg);transform-origin:left bottom;width:22px;
+    white-space:nowrap;font-size:.74rem;color:var(--navy);font-weight:700;translate:16px -6px}
+  table.mx .dep{text-align:left;padding:.4rem .6rem;color:var(--navy);width:1%;white-space:nowrap}
+  table.mx td:not(.dep):not(.rowtot){width:8%}
+  table.mx td{text-align:center;padding:.35rem;border:1px solid #eee5d8;font-weight:700;color:#0C447C}
+  table.mx td.z{color:#cdc6ba;font-weight:400}
+  table.mx tfoot td{background:#f2ede4;color:var(--navy)}
+  table.mx td.rowtot,table.mx th.coltot{background:#eef2f7;color:var(--navy)}
+  .insight{font-size:.85rem;color:#3a3a3a;background:#eef3f8;border-left:3px solid #0C447C;
+    padding:.7rem .9rem;border-radius:0 8px 8px 0;margin:1.1rem 0;max-width:820px}
+  /* view 4 */
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin:.2rem 0 1.4rem}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:.7rem .95rem;min-width:130px}
+  .stat b{display:block;font-size:1.5rem;color:var(--navy);line-height:1.1}
+  .stat span{font-size:.76rem;color:var(--mut)}
+  .stat.hi{border-color:var(--orange);background:#fdf0eb}
+  .stat.hi b{color:var(--orange)}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:720px){.split{grid-template-columns:1fr;gap:24px}}
+  .colh{font-size:.9rem;color:var(--navy);margin:.1rem 0 .8rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+  .ord-wrap{display:inline-flex;gap:4px}
+  .ord{appearance:none;border:1px solid var(--line);background:#fff;cursor:pointer;font:inherit;
+    font-size:.74rem;font-weight:600;color:var(--mut);padding:.2rem .55rem;border-radius:14px}
+  .ord[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .barrow{display:grid;grid-template-columns:52px 1fr 40px;align-items:center;gap:8px;margin:6px 0}
+  .barlab{text-align:left}
+  .bartrack{background:var(--cell);border-radius:5px;overflow:hidden}
+  .barfill{display:block;height:24px;line-height:24px;color:#fff;font-weight:800;font-size:.78rem;
+    text-align:right;padding-right:8px;border-radius:5px;min-width:24px;transition:width .5s ease}
+  .barpct{font-size:.76rem;color:var(--mut);text-align:right}
+  .azlist{list-style:none;margin:0;padding:0;counter-reset:az;
+    column-count:2;column-gap:22px}
+  @media(max-width:520px){.azlist{column-count:1}}
+  .azrow{break-inside:avoid;display:flex;gap:8px;align-items:baseline;padding:3px 6px;border-radius:5px;
+    font-size:.8rem;margin-bottom:2px}
+  .azrow .num{counter-increment:az;color:#6f675b;font-variant-numeric:tabular-nums;min-width:20px;text-align:right;font-size:.72rem}
+  .azrow .nm{flex:1}
+  .azrow .dp{font-size:.68rem;font-weight:700;color:#fff;border-radius:3px;padding:0 5px;white-space:nowrap}
+  .azrow.ace{background:#fde3d9}
+  .azrow.ace .nm{font-weight:600;color:#a3341a}
+  .foot{font-size:.78rem;color:var(--mut);margin-top:2rem;border-top:1px solid var(--line);padding-top:1rem;line-height:1.6}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="back"><a href="aces-program-explorer-cs.html">&lsaquo; Back to the ACES case study</a></p>
+  <h1>One program system, four ways to read it</h1>
+  <p class="lede">The College of ACES organizes its 30 undergraduate majors by <strong>department</strong>. Prospective students explore by <strong>interest</strong>. These interactive views make that gap visible &mdash; and show how the Program Explorer reframed discovery around students instead of the org chart.</p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="t4" aria-selected="true" aria-controls="p4">The list problem</button>
+    <button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="p1">Relationship map</button>
+    <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="p3">Structure matrix</button>
+    <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2">Sortable catalog</button>
+  </div>
+
+  <!-- VIEW 1 -->
+  <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1">
+    <h2 class="ph">How interests converge on programs</h2>
+    <p class="psub">Every line is an interest path into a major. Hover or tap an interest to see which majors it reaches; hover a major to see the interests that lead there. Majors are colored by the department that owns them &mdash; watch how a single interest cuts straight across departments.</p>
+    <div class="rel-hint" id="relHint">Hover to trace a path &middot; click to lock it in place &middot; click empty space to reset</div>
+    <div id="relWrap"><svg id="rel" xmlns="http://www.w3.org/2000/svg"></svg></div>
+    <div class="legend" id="relLegend"></div>
+  </section>
+
+  <!-- VIEW 2 -->
+  <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
+    <h2 class="ph">The catalog, sortable and filterable</h2>
+    <p class="psub">The browse-and-rank view: one row per major. Sort by department, interest reach, or name; filter to a single department or interest. This is the structured counterpart to the visual map &mdash; useful when someone already knows what facet they care about.</p>
+    <div class="ctrls">
+      <span><label for="fDept">Department</label><select id="fDept"></select></span>
+      <span><label for="fInt">Interest</label><select id="fInt"></select></span>
+      <span id="rowCount" style="color:var(--mut)"></span>
+    </div>
+    <table id="cat">
+      <thead><tr>
+        <th data-k="n" aria-sort="ascending">Major <span class="ar">&#9650;</span></th>
+        <th data-k="dept">Department <span class="ar">&#8597;</span></th>
+        <th data-k="paths">Interest paths <span class="ar">&#8597;</span></th>
+        <th data-k="int">Interest areas</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <!-- VIEW 3 -->
+  <section class="panel" id="p3" role="tabpanel" aria-labelledby="t3">
+    <h2 class="ph">Where the org chart meets student interest</h2>
+    <p class="psub">Rows are the 9 academic homes; columns are the 10 interest areas. Each cell counts how many of that department&rsquo;s majors carry that interest. The spread across each row is the point: no department maps to one interest, and no interest belongs to one department.</p>
+    <div id="mxWrap"></div>
+    <div class="insight" id="mxInsight"></div>
+  </section>
+
+  <!-- VIEW 4 -->
+  <section class="panel" id="p4" role="tabpanel" aria-labelledby="t4" data-active="true">
+    <h2 class="ph">Why a flat list favors the biggest department</h2>
+    <p class="psub">Departments are wildly uneven in size &mdash; one holds a third of all majors, others just one. Any list-based experience inherits that imbalance: the large department floods the page while the small ones vanish into a single line. This is the problem interest-first discovery was built to fix.</p>
+    <div class="stats" id="listStats"></div>
+    <div class="split">
+      <div>
+        <h3 class="colh">Majors per department</h3>
+        <div class="bars" id="deptBars"></div>
+      </div>
+      <div>
+        <h3 class="colh">The catalog as a plain list
+          <span class="ord-wrap">
+            <button class="ord" data-o="az" aria-pressed="true">A&ndash;Z</button>
+            <button class="ord" data-o="dept" aria-pressed="false">By department</button>
+          </span>
+        </h3>
+        <ol class="azlist" id="azList"></ol>
+      </div>
+    </div>
+    <div class="insight" id="listInsight"></div>
+  </section>
+
+  <p class="foot" id="footNote"></p>
+</main>
+
+<script>
+/* ---------- DATA ---------- */
+const INTERESTS = ["Agriculture","Animals","Business","Data & Tech","Food Systems","Health","Leadership","People","Plants & Crops","Sustainability"];
+const DEPTS = {
+  ACE:{name:"Agricultural & Consumer Economics", color:"#C0341A"},
+  ABE:{name:"Agricultural & Biological Engineering", color:"#1D58A7"},
+  ALEC:{name:"Agricultural Leadership, Education & Communications", color:"#8A5A44"},
+  ANSC:{name:"Animal Sciences", color:"#A85614"},
+  CPSC:{name:"Crop Sciences", color:"#2E7A40"},
+  FSHN:{name:"Food Science & Human Nutrition", color:"#B0348C"},
+  HDFS:{name:"Human Development & Family Studies", color:"#6B4EA0"},
+  NRES:{name:"Natural Resources & Environmental Sciences", color:"#1C7E77"},
+  ACES:{name:"ACES — interdisciplinary (college-level)", color:"#5E6874"}
+};
+const MAJORS = [
+  {n:"Public Policy & Law", d:"ACE", i:["Agriculture","Animals","Business","Food Systems","Health","Plants & Crops","Sustainability"]},
+  {n:"Natural Resources & Environmental Sciences", d:"NRES", i:["Agriculture","Animals","Data & Tech","Leadership","Plants & Crops","Sustainability"]},
+  {n:"Agribusiness Markets & Management", d:"ACE", i:["Agriculture","Business","Food Systems","People","Plants & Crops"]},
+  {n:"Agricultural & Biological Engineering", d:"ABE", i:["Agriculture","Data & Tech","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Farm Management", d:"ACE", i:["Agriculture","Animals","Business","Plants & Crops","Sustainability"]},
+  {n:"Plant Biotechnology", d:"CPSC", i:["Agriculture","Data & Tech","Health","Plants & Crops","Sustainability"]},
+  {n:"Agricultural Communications", d:"ALEC", i:["Agriculture","Food Systems","Leadership","People"]},
+  {n:"Agronomy", d:"CPSC", i:["Agriculture","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Animal Sciences", d:"ANSC", i:["Agriculture","Animals","Food Systems","Health"]},
+  {n:"Computer Science + Animal Sciences", d:"ANSC", i:["Agriculture","Animals","Data & Tech","Health"]},
+  {n:"Computer Science + Crop Sciences", d:"CPSC", i:["Agriculture","Data & Tech","Plants & Crops","Sustainability"]},
+  {n:"Crop Sciences", d:"CPSC", i:["Agriculture","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Engineering Technology & Management for Ag Systems", d:"ABE", i:["Agriculture","Data & Tech","Food Systems","Sustainability"]},
+  {n:"Environmental Economics & Policy", d:"ACE", i:["Business","Food Systems","Health","Sustainability"]},
+  {n:"Finance in Agribusiness", d:"ACE", i:["Agriculture","Animals","Business","Plants & Crops"]},
+  {n:"Policy, International Trade & Development", d:"ACE", i:["Business","Food Systems","People","Sustainability"]},
+  {n:"Agricultural Accounting", d:"ACE", i:["Agriculture","Business","Food Systems"]},
+  {n:"Agricultural Education", d:"ALEC", i:["Agriculture","Leadership","People"]},
+  {n:"Dietetics & Nutrition", d:"FSHN", i:["Food Systems","Health","People"]},
+  {n:"Food Science", d:"FSHN", i:["Food Systems","Health","People"]},
+  {n:"Hospitality Management", d:"FSHN", i:["Food Systems","Health","People"]},
+  {n:"Human Development & Family Studies", d:"HDFS", i:["Business","Health","People"]},
+  {n:"Nutrition & Health", d:"FSHN", i:["Food Systems","Health","People"]},
+  {n:"Sustainability in Food & Environmental Systems", d:"ACES", i:["Agriculture","Food Systems","Plants & Crops"]},
+  {n:"Agricultural & Consumer Economics", d:"ACE", i:["Agriculture","Business"]},
+  {n:"Consumer Economics & Finance", d:"ACE", i:["Business","People"]},
+  {n:"Financial Planning", d:"ACE", i:["Business","People"]},
+  {n:"Organizational & Community Leadership", d:"ALEC", i:["Leadership","People"]},
+  {n:"Agricultural Leadership, Education & Communications", d:"ALEC", i:["Leadership"]},
+  {n:"ACES Undeclared", d:"ACES", i:["Agriculture","Animals","Business","Data & Tech","Food Systems","Health","Leadership","People","Plants & Crops","Sustainability"]}
+];
+
+/* ---------- TABS ---------- */
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach(t=>t.addEventListener('click',()=>{
+  tabs.forEach(x=>x.setAttribute('aria-selected', x===t));
+  document.querySelectorAll('.panel').forEach(p=>p.dataset.active=(p.id===t.getAttribute('aria-controls')));
+  if(t.id==='t1') drawRel();
+}));
+
+/* ---------- VIEW 1: relationship map ---------- */
+const SVGNS="http://www.w3.org/2000/svg";
+let relBuilt=false, relLock=null;
+function drawRel(){
+  if(relBuilt) return; relBuilt=true;
+  const svg=document.getElementById('rel');
+  const hintEl=document.getElementById('relHint');
+  const DEFAULT_HINT='Hover to trace a path &middot; click to lock it in place &middot; click empty space to reset';
+  function setHint(){
+    if(relLock){
+      const nm = relLock.t==='int' ? relLock.v : MAJORS[relLock.v].n;
+      hintEl.innerHTML='<b>Locked:</b> '+nm+' &middot; click it again, or click empty space, to clear';
+      hintEl.classList.add('locked');
+    } else { hintEl.innerHTML=DEFAULT_HINT; hintEl.classList.remove('locked'); }
+  }
+  const W=1000, top=24, bottom=24;
+  const majH=Math.max(560, MAJORS.length*22);
+  const H=majH+top+bottom;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.setAttribute('height',H);
+  const leftX=205, rightX=545;
+  const iy = i => top + (majH)*(i/(INTERESTS.length-1));
+  const my = j => top + (majH)*(j/(MAJORS.length-1));
+  const majUn = MAJORS.map(m=>m.n==="ACES Undeclared");  // the explore-everything entry, kept visually quiet
+  const linkG=mk('g'), iNodeG=mk('g'), mNodeG=mk('g');
+  svg.append(linkG,iNodeG,mNodeG);
+
+  // links
+  const links=[];
+  MAJORS.forEach((m,j)=>{ const un=majUn[j]; m.i.forEach(intr=>{
+    const ii=INTERESTS.indexOf(intr);
+    const p=mk('path');
+    const x1=leftX+6,y1=iy(ii),x2=rightX-6,y2=my(j),mx=(x1+x2)/2;
+    p.setAttribute('d',`M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+    p.setAttribute('fill','none');
+    p.setAttribute('stroke',un?'#b8bcc2':DEPTS[m.d].color);
+    p.setAttribute('stroke-width','1.2');
+    p.setAttribute('stroke-opacity',un?0.05:0.12);
+    if(un) p.setAttribute('stroke-dasharray','2 3');
+    linkG.append(p);
+    links.push({p,intr,mj:j,dept:m.d,un});
+  });});
+
+  // interest nodes
+  const iLabels=[], iDots=[];
+  INTERESTS.forEach((intr,ii)=>{
+    const y=iy(ii), cnt=MAJORS.filter(m=>m.i.includes(intr)).length;
+    const c=mk('circle'); c.setAttribute('cx',leftX);c.setAttribute('cy',y);c.setAttribute('r',5);
+    c.setAttribute('fill','#0C447C');
+    const t=mk('text'); t.setAttribute('x',leftX-12);t.setAttribute('y',y+4);
+    t.setAttribute('text-anchor','end');t.setAttribute('font-size','12.5');t.setAttribute('font-weight','700');
+    t.textContent=`${intr} (${cnt})`;
+    iNodeG.append(c,t); iLabels.push(t); iDots.push(c);
+    const hit=mk('rect'); hit.setAttribute('x',0);hit.setAttribute('y',y-11);hit.setAttribute('width',leftX+8);hit.setAttribute('height',22);
+    hit.setAttribute('fill','transparent');hit.style.cursor='pointer';
+    hit.addEventListener('mouseenter',()=>focus('int',intr));
+    hit.addEventListener('mouseleave',()=>restore());
+    hit.addEventListener('click',e=>{e.stopPropagation();toggleLock('int',intr);});
+    iNodeG.append(hit);
+  });
+
+  // major nodes
+  const mLabels=[], mDots=[];
+  MAJORS.forEach((m,j)=>{
+    const un=majUn[j], y=my(j), col=DEPTS[m.d].color;
+    const c=mk('circle'); c.setAttribute('cx',rightX);c.setAttribute('cy',y);c.setAttribute('r',un?3:4.5);
+    c.setAttribute('fill',un?'#c4c8ce':col);
+    const t=mk('text'); t.setAttribute('x',rightX+11);t.setAttribute('y',y+3.5);
+    t.setAttribute('font-size',un?'10':'11');t.setAttribute('font-weight',un?'500':'600');
+    if(un) t.setAttribute('font-style','italic');
+    t.textContent=m.n; t.setAttribute('fill',un?'#6f675b':'#232c31');
+    mNodeG.append(c,t); mLabels.push(t); mDots.push(c);
+    const hit=mk('rect'); hit.setAttribute('x',rightX-6);hit.setAttribute('y',y-10);hit.setAttribute('width',W-rightX+6);hit.setAttribute('height',20);
+    hit.setAttribute('fill','transparent');hit.style.cursor='pointer';
+    hit.addEventListener('mouseenter',()=>focus('maj',j));
+    hit.addEventListener('mouseleave',()=>restore());
+    hit.addEventListener('click',e=>{e.stopPropagation();toggleLock('maj',j);});
+    mNodeG.append(hit);
+  });
+
+  svg.addEventListener('click',()=>{ if(relLock){relLock=null;clearFocus();setHint();markLock();} });
+
+  // hovering previews; leaving restores the locked selection (or clears if nothing locked)
+  function restore(){ if(relLock) focus(relLock.t,relLock.v); else clearFocus(); }
+  // clicking the locked item again unlocks it; clicking a different one moves the lock
+  function toggleLock(type,val){
+    if(relLock && relLock.t===type && relLock.v===val){ relLock=null; clearFocus(); }
+    else { relLock={t:type,v:val}; focus(type,val); }
+    setHint(); markLock();
+  }
+  // persistent selected-state ring on the locked node (untouched by hover previews)
+  function markLock(){
+    iDots.forEach((c,ii)=>{
+      const lk = relLock && relLock.t==='int' && relLock.v===INTERESTS[ii];
+      c.setAttribute('r', lk?7:5);
+      if(lk){ c.setAttribute('stroke','#13294b'); c.setAttribute('stroke-width','2.5'); }
+      else c.removeAttribute('stroke');
+    });
+    mDots.forEach((c,j)=>{
+      const base = majUn[j]?3:4.5;
+      const lk = relLock && relLock.t==='maj' && relLock.v===j;
+      c.setAttribute('r', lk?base+2.5:base);
+      if(lk){ c.setAttribute('stroke','#13294b'); c.setAttribute('stroke-width','2.5'); }
+      else c.removeAttribute('stroke');
+    });
+  }
+
+  function focus(type,val){
+    links.forEach(l=>{
+      const on = type==='int' ? l.intr===val : l.mj===val;
+      if(l.un){
+        l.p.setAttribute('stroke', on?'#5E6874':'#b8bcc2');   // darken the dashed lines when active
+        l.p.setAttribute('stroke-opacity', on?0.9:0.03);
+        l.p.setAttribute('stroke-width', on?1.6:1);
+      } else {
+        l.p.setAttribute('stroke-opacity', on?0.85:0.04);
+        l.p.setAttribute('stroke-width', on?2:1);
+      }
+    });
+    iLabels.forEach((t,ii)=>{
+      const intr=INTERESTS[ii];
+      let on = type==='int' ? intr===val : MAJORS[val].i.includes(intr);
+      t.setAttribute('fill', on?'#0C447C':'#c9c2b6');
+    });
+    mLabels.forEach((t,j)=>{
+      let on = type==='maj' ? j===val : MAJORS[j].i.includes(val);
+      if(majUn[j]){ t.setAttribute('fill', on?'#5f564c':'#d6d0c5'); }
+      else { t.setAttribute('fill', on?'#232c31':'#cfc9bd'); t.setAttribute('font-weight', on?'700':'600'); }
+    });
+  }
+  function clearFocus(){
+    links.forEach(l=>{
+      if(l.un) l.p.setAttribute('stroke','#b8bcc2');
+      l.p.setAttribute('stroke-opacity', l.un?0.05:0.12);
+      l.p.setAttribute('stroke-width',1.2);
+    });
+    iLabels.forEach(t=>t.setAttribute('fill','#0C447C'));
+    mLabels.forEach((t,j)=>{
+      if(majUn[j]) t.setAttribute('fill','#6f675b');
+      else { t.setAttribute('fill','#232c31'); t.setAttribute('font-weight','600'); }
+    });
+  }
+  function mk(tag){return document.createElementNS(SVGNS,tag);}
+
+  // legend
+  const leg=document.getElementById('relLegend');
+  leg.innerHTML='';
+  Object.entries(DEPTS).forEach(([k,v])=>{
+    const cnt=MAJORS.filter(m=>m.d===k).length;
+    const s=document.createElement('span');
+    s.innerHTML=`<i style="background:${v.color}"></i>${v.name.split(' —')[0]} (${cnt})`;
+    leg.append(s);
+  });
+}
+
+/* ---------- VIEW 2: sortable catalog ---------- */
+const tbody=document.querySelector('#cat tbody');
+const fDept=document.getElementById('fDept'), fInt=document.getElementById('fInt');
+fDept.innerHTML='<option value="">All departments</option>'+Object.entries(DEPTS).map(([k,v])=>`<option value="${k}">${v.name.split(' —')[0]}</option>`).join('');
+fInt.innerHTML='<option value="">All interests</option>'+INTERESTS.map(i=>`<option>${i}</option>`).join('');
+let sortK='n', sortDir=1;
+function renderTable(){
+  let rows=MAJORS.map((m,idx)=>({...m,paths:m.i.length,idx}));
+  if(fDept.value) rows=rows.filter(r=>r.d===fDept.value);
+  if(fInt.value) rows=rows.filter(r=>r.i.includes(fInt.value));
+  rows.sort((a,b)=>{
+    let x,y;
+    if(sortK==='n'){x=a.n;y=b.n;}
+    else if(sortK==='dept'){x=DEPTS[a.d].name;y=DEPTS[b.d].name;}
+    else if(sortK==='paths'){x=a.paths;y=b.paths;}
+    else {x=a.i[0]||'';y=b.i[0]||'';}
+    return (x<y?-1:x>y?1:0)*sortDir;
+  });
+  tbody.innerHTML=rows.map(r=>{
+    const dp=DEPTS[r.d];
+    const chips=r.i.map(x=>{const on=fInt.value===x;return `<span class="chip" style="${on?'background:#0C447C;color:#fff':''}">${x}</span>`}).join('');
+    const un=r.n==="ACES Undeclared";
+    return `<tr${un?' class="un"':''}><td>${r.n}${un?' <span style="font-size:.7rem;color:#6f675b">(explore-everything entry)</span>':''}</td>
+      <td><span class="deptpill" style="background:${dp.color}">${r.d}</span> <span style="font-size:.76rem;color:#5f564c">${dp.name.split(' —')[0]}</span></td>
+      <td><span class="pcount">${r.paths}</span></td>
+      <td>${chips}</td></tr>`;
+  }).join('');
+  document.getElementById('rowCount').textContent=`${rows.length} of ${MAJORS.length} majors`;
+}
+document.querySelectorAll('#cat thead th').forEach(th=>{
+  th.addEventListener('click',()=>{
+    const k=th.dataset.k;
+    if(sortK===k) sortDir*=-1; else {sortK=k;sortDir=1;}
+    document.querySelectorAll('#cat thead th').forEach(o=>{
+      o.setAttribute('aria-sort', o===th?(sortDir>0?'ascending':'descending'):'none');
+      const ar=o.querySelector('.ar'); if(ar) ar.innerHTML = o===th?(sortDir>0?'&#9650;':'&#9660;'):'&#8597;';
+    });
+    renderTable();
+  });
+});
+fDept.addEventListener('change',renderTable);
+fInt.addEventListener('change',renderTable);
+renderTable();
+
+/* ---------- VIEW 3: structure matrix ---------- */
+function renderMatrix(){
+  // department rows: alphabetical by full name, with the college-level ACES row pinned last
+  const depts=Object.keys(DEPTS).filter(d=>d!=='ACES')
+    .sort((a,b)=>DEPTS[a].name.localeCompare(DEPTS[b].name))
+    .concat('ACES');
+  const grid=depts.map(d=>INTERESTS.map(intr=>MAJORS.filter(m=>m.d===d && m.i.includes(intr)).length));
+  const max=Math.max(...grid.flat());
+  const rowTot=depts.map(d=>MAJORS.filter(m=>m.d===d).length);
+  const colTot=INTERESTS.map(intr=>MAJORS.filter(m=>m.i.includes(intr)).length);
+  const shade=v=> v===0?'#ffffff':`rgba(12,68,124,${0.12+0.72*(v/max)})`;
+  const tc=v=> v===0?'':(v/max>0.55?'#fff':'#0C447C');
+  let h='<table class="mx"><thead><tr><th class="dep">Department</th>';
+  INTERESTS.forEach(i=>h+=`<th class="rot"><div>${i}</div></th>`);
+  h+='<th class="coltot">Majors</th></tr></thead><tbody>';
+  depts.forEach((d,r)=>{
+    h+=`<tr><th class="dep"><span class="deptpill" style="background:${DEPTS[d].color}">${d}</span></th>`;
+    grid[r].forEach(v=>{h+=`<td class="${v===0?'z':''}" style="background:${shade(v)};color:${tc(v)||''}">${v||''}</td>`;});
+    h+=`<td class="rowtot">${rowTot[r]}</td></tr>`;
+  });
+  h+='</tbody><tfoot><tr><td class="dep" style="text-align:right;font-weight:700">Majors per interest &rarr;</td>';
+  colTot.forEach(v=>h+=`<td>${v}</td>`);
+  h+=`<td class="rowtot">${MAJORS.length}</td></tr></tfoot></table>`;
+  document.getElementById('mxWrap').innerHTML=h;
+
+  // widest-reaching *real* department (exclude the college-level catch-all, which trivially spans all 10 via Undeclared)
+  const realDepts=depts.filter(d=>d!=='ACES');
+  const rSpread=realDepts.map(d=>INTERESTS.filter(intr=>MAJORS.some(m=>m.d===d&&m.i.includes(intr))).length);
+  const widest=realDepts[rSpread.indexOf(Math.max(...rSpread))];
+  const agHomes=new Set(MAJORS.filter(m=>m.i.includes('Agriculture')).map(m=>m.d)).size;
+  document.getElementById('mxInsight').innerHTML=
+    `<strong>Read across, not down.</strong> The widest-reaching department, ${DEPTS[widest].name.split(' —')[0]}, touches ${Math.max(...rSpread)} of 10 interests; &ldquo;Agriculture&rdquo; alone pulls from ${colTot[0]} majors across ${agHomes} different academic homes. No single department owns an interest &mdash; which is exactly why organizing discovery by department left students stuck.`;
+}
+renderMatrix();
+
+/* ---------- VIEW 4: the list problem ---------- */
+let listOrder='az';
+function renderList(){
+  const total=MAJORS.length;
+  const counts=Object.keys(DEPTS).map(d=>({d,c:MAJORS.filter(m=>m.d===d).length})).sort((a,b)=>b.c-a.c);
+  const max=counts[0].c;
+  // bar chart
+  document.getElementById('deptBars').innerHTML=counts.map(x=>{
+    const col=DEPTS[x.d].color, pct=Math.round(x.c/total*100);
+    return `<div class="barrow" title="${DEPTS[x.d].name.split(' —')[0]}">
+      <span class="barlab"><span class="deptpill" style="background:${col}">${x.d}</span></span>
+      <span class="bartrack"><span class="barfill" style="width:${x.c/max*100}%;background:${col}">${x.c}</span></span>
+      <span class="barpct">${pct}%</span></div>`;
+  }).join('');
+  // stats
+  const ace=MAJORS.filter(m=>m.d==='ACE').length;
+  const singles=counts.filter(x=>x.c===1).length;
+  const agName=MAJORS.filter(m=>/^Agri/.test(m.n)).length;
+  document.getElementById('listStats').innerHTML=
+    `<div class="stat hi"><b>${Math.round(ace/total*100)}%</b><span>of the catalog is one department (ACE, ${ace} of ${total})</span></div>`+
+    `<div class="stat"><b>${max} : 1</b><span>largest department vs. the ${singles} single-major homes</span></div>`+
+    `<div class="stat"><b>${agName}</b><span>majors whose name starts &ldquo;Agri&hellip;&rdquo; &mdash; they crowd the top of any A&ndash;Z list</span></div>`;
+  // list
+  let rows=MAJORS.map(m=>({...m}));
+  if(listOrder==='az') rows.sort((a,b)=>a.n.localeCompare(b.n));
+  else rows.sort((a,b)=>{
+    const ca=MAJORS.filter(m=>m.d===a.d).length, cb=MAJORS.filter(m=>m.d===b.d).length;
+    if(cb!==ca) return cb-ca;                       // bigger department first
+    if(a.d!==b.d) return a.d.localeCompare(b.d);    // keep same-size departments grouped
+    return a.n.localeCompare(b.n);                  // then alphabetical within the department
+  });
+  document.getElementById('azList').innerHTML=rows.map((r,i)=>{
+    const col=DEPTS[r.d].color, ace=r.d==='ACE', un=r.n==="ACES Undeclared";
+    return `<li class="azrow${ace?' ace':''}${un?' un':''}"><span class="num">${i+1}</span>
+      <span class="nm">${r.n}</span>
+      <span class="dp" style="background:${col}">${r.d}</span></li>`;
+  }).join('');
+  // insight
+  document.getElementById('listInsight').innerHTML=
+    `<strong>Same data, same bias, whichever way you sort it.</strong> A&ndash;Z buries the difference between programs &mdash; ${agName} of them open with &ldquo;Agri&hellip;&rdquo; &mdash; while grouping by department hands ACE a block ${max} rows tall and leaves ${singles} departments as a single, easy-to-miss line. A list can only order the catalog; it can&rsquo;t re-weight it around what a student actually came to find. That&rsquo;s what the interest model does.`;
+}
+document.querySelectorAll('.ord').forEach(b=>b.addEventListener('click',()=>{
+  listOrder=b.dataset.o;
+  document.querySelectorAll('.ord').forEach(o=>o.setAttribute('aria-pressed', o===b));
+  renderList();
+}));
+renderList();
+
+document.getElementById('footNote').innerHTML =
+  '30 undergraduate majors across 9 academic homes (8 departments + college-level interdisciplinary), tagged to 10 interest areas. &ldquo;ACES Undeclared&rdquo; is the explore-everything entry, filed at the college level and surfaced under every interest. Department mapping from the live Program Explorer&rsquo;s department filter; interest tags reverse-engineered from the same tool, July 2026. Concept mockup by Melissa Waller.';
+
+drawRel();
+</script>
+</body>
+</html>

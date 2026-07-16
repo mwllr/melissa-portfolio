@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACES Program Explorer — Wireframe Prototype</title>
+<style>
+  :root{
+    --ink:#222; --mute:#666; --faint:#8a8a8a;
+    --line:#9a9a9a; --line-soft:#c9c9c9;
+    --fill:#f4f4f4; --fill-2:#ececec; --paper:#fff;
+    --accent:#2563eb;                 /* interactive / selected */
+    --anno-ink:#8a5300; --anno-bg:#fff5db; --anno-line:#e3b95a;
+    --badge:#e3e3e3;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:var(--sans);color:var(--ink);background:#dedede;font-size:14px;line-height:1.4}
+  button{font-family:inherit;font-size:inherit;cursor:pointer}
+  a{color:var(--accent);cursor:pointer}
+
+  /* ---------- annotation bar ---------- */
+  .anno-bar{position:sticky;top:0;z-index:40;background:var(--anno-bg);border-bottom:1px solid var(--anno-line);
+    padding:9px 16px;display:flex;gap:14px;align-items:flex-start;color:var(--anno-ink)}
+  .anno-bar .tag{font-size:10px;letter-spacing:.09em;text-transform:uppercase;font-weight:700;
+    border:1px solid var(--anno-line);border-radius:3px;padding:2px 6px;white-space:nowrap;margin-top:1px}
+  .anno-bar .body{flex:1}
+  .anno-bar .title{font-weight:700}
+  .anno-bar .why{font-size:12.5px;opacity:.9}
+  .anno-toggle{border:1px solid var(--anno-line);background:transparent;color:var(--anno-ink);
+    border-radius:4px;padding:4px 8px;font-size:11px;white-space:nowrap}
+  body.hide-anno .anno, body.hide-anno .anno-bar .body, body.hide-anno .callout{display:none}
+  .anno-bar.slim{padding:6px 16px}
+
+  /* ---------- flow tabs ---------- */
+  .flows{background:#f7f7f7;border-bottom:1px solid var(--line-soft);padding:8px 16px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .flows .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+  .flow-btn{border:1px solid var(--line);background:var(--paper);border-radius:16px;padding:5px 12px;color:var(--ink)}
+  .flow-btn:hover{background:var(--fill)}
+  .flow-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+  /* ---------- fake browser / stage ---------- */
+  .stage{max-width:1080px;margin:16px auto 40px;background:var(--paper);border:1px solid var(--line);
+    box-shadow:0 6px 24px rgba(0,0,0,.12)}
+  .chrome{display:flex;align-items:center;gap:8px;background:var(--fill-2);border-bottom:1px solid var(--line-soft);padding:7px 12px}
+  .dots{display:flex;gap:5px}
+  .dots i{width:10px;height:10px;border-radius:50%;background:#c4c4c4;display:block}
+  .urlbar{flex:1;background:var(--paper);border:1px solid var(--line-soft);border-radius:4px;padding:4px 9px;color:var(--faint);font-size:12px}
+
+  /* ---------- site nav ---------- */
+  .sitenav{display:flex;align-items:center;gap:16px;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--paper)}
+  .logo{border:1.5px solid var(--ink);border-radius:4px;padding:6px 10px;font-weight:800;letter-spacing:.03em;font-size:13px}
+  .sitenav nav{display:flex;gap:14px;color:var(--mute);font-size:13px;flex-wrap:wrap}
+  .sitenav nav span{padding:2px 0;border-bottom:2px solid transparent}
+  .navsearch{margin-left:auto;display:flex;align-items:center;position:relative}
+  .navsearch input{border:1px solid var(--line);border-radius:16px;padding:6px 30px 6px 12px;width:190px;font-size:12.5px}
+  .navsearch .mag{position:absolute;right:10px;color:var(--faint);pointer-events:none}
+
+  /* ---------- page ---------- */
+  .page{padding:18px}
+  .pagehead h1{margin:2px 0 4px;font-size:22px}
+  .pagehead p{margin:0 0 14px;color:var(--mute);max-width:70ch}
+  .pagehead .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .explorer{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+  .masters-wrap{display:grid;grid-template-columns:1fr 250px;gap:22px;align-items:start}
+  .infobox{border:1px solid var(--line-soft);border-radius:8px;padding:16px;background:var(--fill)}
+  .infobox h3{margin:0 0 8px;font-size:15px}
+
+  /* ---------- filter rail ---------- */
+  .rail{border:1px solid var(--line-soft);border-radius:6px;padding:14px;background:var(--fill)}
+  .rail h3{margin:0 0 8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .filtsearch{width:100%;border:1px solid var(--line);border-radius:4px;padding:8px 10px;font-size:13px;margin-bottom:14px;background:var(--paper)}
+  .fgroup{margin-bottom:14px;border-top:1px dashed var(--line-soft);padding-top:12px}
+  .opt{display:flex;align-items:center;gap:8px;padding:3px 0;color:var(--ink);font-size:13px;cursor:pointer}
+  .opt input{accent-color:var(--accent)}
+  .clearbtn{width:100%;border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:8px;color:var(--ink)}
+  .clearbtn:hover{background:var(--fill-2)}
+
+  /* ---------- results ---------- */
+  .resbar{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .count{font-weight:700}
+  .count b{color:var(--accent)}
+  .sortwrap{margin-left:auto;display:flex;align-items:center;gap:6px;color:var(--mute);font-size:12.5px}
+  .sortwrap select{border:1px solid var(--line);border-radius:4px;padding:5px 8px;font-size:12.5px;background:var(--paper)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:14px}
+  .card{border:1px solid var(--line);border-radius:6px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column;text-align:left;padding:0;transition:box-shadow .12s}
+  .card:hover{box-shadow:0 3px 12px rgba(0,0,0,.14)}
+  .imgph{height:96px;background:
+      repeating-linear-gradient(45deg,var(--fill) 0 10px,var(--fill-2) 10px 20px);
+      border-bottom:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:11px;letter-spacing:.1em}
+  .card .body{padding:11px 12px 13px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .card h4{margin:0;font-size:14.5px;line-height:1.25}
+  .card .dept{font-size:11.5px;color:var(--faint)}
+  .card .desc{font-size:12px;color:var(--mute);flex:1}
+  .badge{display:inline-block;font-size:10px;letter-spacing:.04em;text-transform:uppercase;background:var(--badge);
+    border-radius:3px;padding:2px 6px;color:#444;width:max-content}
+  .badge.minor{background:#fde9c8;color:#8a5300}
+  .tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+  .tags i{font-style:normal;font-size:10.5px;color:var(--faint);border:1px solid var(--line-soft);border-radius:10px;padding:1px 7px}
+
+  /* list view */
+  .list{border:1px solid var(--line-soft);border-radius:6px;overflow:hidden}
+  .lrow{display:flex;align-items:center;gap:12px;padding:11px 14px;border-top:1px solid var(--line-soft);background:var(--paper);text-align:left;width:100%;border-left:0;border-right:0}
+  .lrow:first-child{border-top:0}
+  .lrow:hover{background:var(--fill)}
+  .lrow .nm{font-weight:600}
+  .lrow .dp{color:var(--faint);font-size:12px}
+  .lrow .arrow{margin-left:auto;color:var(--accent);font-size:20px;line-height:1;font-weight:600}
+
+  /* ---------- empty ---------- */
+  .empty{border:1px dashed var(--line);border-radius:8px;padding:34px 20px;text-align:center;background:var(--fill)}
+  .empty h3{margin:0 0 6px}
+  .empty p{margin:0 0 16px;color:var(--mute)}
+  .empty .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{border:1px solid var(--ink);background:var(--ink);color:#fff;border-radius:5px;padding:9px 16px}
+  .btn.ghost{background:var(--paper);color:var(--ink)}
+
+  /* ---------- detail ---------- */
+  .back{background:none;border:0;color:var(--accent);padding:0 0 12px;display:inline-flex;gap:6px;align-items:center}
+  .detail{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start}
+  .detail .hero{height:180px}
+  .dhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:2px 0 8px}
+  .dhead h1{margin:0;font-size:24px}
+  .detail .lede{color:var(--mute);margin:0 0 14px}
+  .ctacol{border:1px solid var(--line-soft);border-radius:8px;padding:16px;background:var(--fill)}
+  .ctacol .btn{width:100%;margin-bottom:10px;position:relative}
+  .fact{display:flex;justify-content:space-between;font-size:12.5px;padding:6px 0;border-top:1px dashed var(--line-soft);color:var(--mute)}
+  .fact b{color:var(--ink);font-weight:600}
+  .related{margin-top:26px;border-top:1px solid var(--line-soft);padding-top:16px}
+  .related h3{margin:0 0 3px;font-size:16px}
+  .related .sub{color:var(--faint);font-size:12.5px;margin:0 0 12px}
+
+  /* ---------- marketing ---------- */
+  .campaign{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .chero{background:repeating-linear-gradient(135deg,var(--fill) 0 14px,var(--fill-2) 14px 28px);
+    padding:34px 26px;border-bottom:1px solid var(--line-soft)}
+  .chero .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .chero h1{margin:6px 0 6px;font-size:26px}
+  .chero p{margin:0;color:var(--mute);max-width:60ch}
+  .lockbar{display:flex;align-items:center;gap:10px;background:#eef3ff;border-bottom:1px solid #cdd9f5;
+    padding:8px 16px;font-size:12.5px;color:#2b4a9b}
+  .lockbar .pin{border:1px solid #b8c7ee;border-radius:10px;padding:1px 9px;background:#fff}
+
+  /* callout pins on the wireframe */
+  .callout{background:var(--anno-bg);border:1px dashed var(--anno-line);color:var(--anno-ink);
+    border-radius:5px;padding:7px 10px;font-size:11.5px;margin:0 0 12px;display:flex;gap:7px}
+  .callout b{white-space:nowrap}
+  .cta-note{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:9px;letter-spacing:.08em;
+    background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.5);border-radius:3px;padding:1px 5px}
+
+  .foot{max-width:1080px;margin:0 auto 50px;color:#777;font-size:11.5px;line-height:1.6;padding:0 6px}
+  .foot code{background:#cfcfcf;border-radius:3px;padding:1px 5px}
+
+  @media(max-width:720px){
+    .explorer{grid-template-columns:1fr}
+    .detail{grid-template-columns:1fr}
+    .masters-wrap{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="anno-bar" id="annoBar">
+    <span class="tag">Flow</span>
+    <div class="body">
+      <div class="title" id="annoTitle"></div>
+      <div class="why" id="annoWhy"></div>
+    </div>
+    <button class="anno-toggle" id="annoToggle">Hide annotations</button>
+  </div>
+
+  <div class="flows" id="flowTabs">
+    <span class="lbl">Prototype flows</span>
+  </div>
+
+  <div class="stage">
+    <div class="chrome">
+      <div class="dots"><i></i><i></i><i></i></div>
+      <div class="urlbar" id="urlbar">aces.illinois.edu/academics/program-explorer</div>
+    </div>
+
+    <div class="sitenav" id="sitenav">
+      <div class="logo">ACES</div>
+      <nav><span>Academics</span><span>Admissions</span><span>Research</span><span>Extension</span><span>About</span></nav>
+      <div class="navsearch">
+        <input id="navSearch" placeholder="Search aces.illinois.edu" aria-label="Site search">
+        <span class="mag">⌕</span>
+      </div>
+    </div>
+
+    <div class="page" id="page"></div>
+  </div>
+
+  <div class="foot" id="foot"></div>
+
+<script>
+/* ============================================================
+   ACES Program Explorer — wireframe prototype
+   Low-fidelity. Content below is representative for wireframing,
+   not the shipped catalog.
+   ============================================================ */
+
+const CATS = [
+  "Agriculture","Animals","Business, Economics, Policy & Law","Data and Technology",
+  "Food Systems","Health & Nutrition","Leadership, Communication and Education",
+  "People, Communities & Families","Plants & Crops","Environment, Sustainability & Conservation"
+];
+
+const SUS = "Environment, Sustainability & Conservation";
+
+const PROGRAMS = [
+  {n:"Environmental Sciences", d:"Natural Resources & Environmental Sciences", g:"Major",
+   c:[SUS,"Plants & Crops"], desc:"Study ecosystems, climate, water, and land use to solve environmental problems.",
+   r:["Natural Resource Conservation","Environmental Economics & Policy","Technical Systems Management"]},
+  {n:"Natural Resource Conservation", d:"Natural Resources & Environmental Sciences", g:"Major",
+   c:[SUS,"Animals"], desc:"Manage and restore forests, grasslands, and wildlife habitat.",
+   r:["Environmental Sciences","Fish, Wildlife & Conservation Biology"]},
+  {n:"Fish, Wildlife & Conservation Biology", d:"Natural Resources & Environmental Sciences", g:"Major",
+   c:["Animals",SUS], desc:"Protect species and biodiversity through applied conservation science.",
+   r:["Natural Resource Conservation","Animal Sciences"]},
+  {n:"Environmental Economics & Policy", d:"Agricultural & Consumer Economics", g:"Major",
+   c:["Business, Economics, Policy & Law",SUS], desc:"Use economics and policy to weigh environmental tradeoffs and incentives.",
+   r:["Environmental Sciences","Agribusiness Markets & Management"]},
+  {n:"Technical Systems Management", d:"Agricultural & Biological Engineering", g:"Major",
+   c:["Data and Technology",SUS], desc:"Apply technology and data to farms, machinery, and natural systems.",
+   r:["Environmental Sciences","Agricultural & Biological Engineering"]},
+  {n:"Agricultural & Biological Engineering", d:"Agricultural & Biological Engineering", g:"Major",
+   c:["Agriculture","Data and Technology",SUS], desc:"Engineer solutions for food, water, energy, and the environment.",
+   r:["Technical Systems Management","Food Science"]},
+  {n:"Crop Sciences", d:"Crop Sciences", g:"Major",
+   c:["Agriculture","Plants & Crops","Food Systems",SUS], desc:"Grow and improve crops for food, feed, fuel, and sustainability.",
+   r:["Environmental Sciences","Food Science"]},
+  {n:"Food Science", d:"Food Science & Human Nutrition", g:"Major",
+   c:["Food Systems","Health & Nutrition"], desc:"The science of making food safe, nutritious, and appealing.",
+   r:["Human Nutrition","Crop Sciences"]},
+  {n:"Human Nutrition", d:"Food Science & Human Nutrition", g:"Major",
+   c:["Health & Nutrition","Food Systems"], desc:"How food and nutrients shape health across the lifespan.",
+   r:["Food Science","Dietetics"]},
+  {n:"Dietetics", d:"Food Science & Human Nutrition", g:"Major",
+   c:["Health & Nutrition","Food Systems"], desc:"Prepare for registered-dietitian practice in clinical and community settings.",
+   r:["Human Nutrition","Food Science"]},
+  {n:"Agribusiness Markets & Management", d:"Agricultural & Consumer Economics", g:"Major",
+   c:["Agriculture","Business, Economics, Policy & Law","Food Systems"], desc:"Run and finance the businesses that move food from farm to market.",
+   r:["Environmental Economics & Policy","Agricultural Communications"]},
+  {n:"Agricultural Communications", d:"Agricultural Leadership, Education & Communications", g:"Major",
+   c:["Agriculture","Leadership, Communication and Education","Food Systems"], desc:"Tell the story of food, agriculture, and science to the public.",
+   r:["Agribusiness Markets & Management","Agricultural Teacher Education"]},
+  {n:"Animal Sciences", d:"Animal Sciences", g:"Major",
+   c:["Agriculture","Animals","Food Systems"], desc:"Biology, care, and management of animals in food and companion systems.",
+   r:["Fish, Wildlife & Conservation Biology","Food Science"]},
+  {n:"Human Development & Family Studies", d:"Human Development & Family Studies", g:"Major",
+   c:["People, Communities & Families","Health & Nutrition"], desc:"How people and families grow, learn, and thrive over time.",
+   r:["Human Nutrition"]},
+  {n:"Agricultural Teacher Education", d:"Agricultural Leadership, Education & Communications", g:"Major",
+   official:"Minor", c:["Agriculture","Leadership, Communication and Education"],
+   desc:"Become a licensed agriculture teacher — the program students call “ag teacher.”",
+   alias:"ag teacher agriculture education", r:["Agricultural Communications"]},
+
+  {n:"Sustainable Food & Farming", d:"Crop Sciences", g:"Certificate",
+   c:["Agriculture","Food Systems",SUS], desc:"Practical credential in sustainable production and local food systems.",
+   r:["Crop Sciences","Environmental Sciences"]},
+  {n:"Local Food Systems & Small Farms", d:"Crop Sciences", g:"Certificate",
+   c:["Food Systems"], desc:"Build and support small-scale and community food enterprises.",
+   r:["Sustainable Food & Farming"]},
+
+  {n:"Food Science (MS)", d:"Food Science & Human Nutrition", g:"Master's",
+   c:["Food Systems","Health & Nutrition"], desc:"Advanced study in food chemistry, safety, and processing.",
+   r:["Food Science"]},
+  {n:"Agricultural & Applied Economics (MS)", d:"Agricultural & Consumer Economics", g:"Master's",
+   c:["Business, Economics, Policy & Law"], desc:"Graduate training in applied economic analysis and policy.",
+   r:["Environmental Economics & Policy"]},
+  {n:"Natural Resources & Environmental Sciences (MS)", d:"Natural Resources & Environmental Sciences", g:"Master's",
+   c:[SUS], desc:"Research-focused degree across ecology, water, and land systems.",
+   r:["Environmental Sciences"]},
+  {n:"Nutritional Sciences (MS)", d:"Food Science & Human Nutrition", g:"Master's",
+   c:["Health & Nutrition"], desc:"Graduate study of nutrition, metabolism, and health.",
+   r:["Human Nutrition"]}
+];
+
+const DEGREES = ["Major","Minor","Certificate","Master's"];
+
+/* ---------------- state ---------------- */
+const state = {
+  flow:"find", page:"explorer", returnPage:"explorer",
+  cats:new Set(), degs:new Set(), search:"", sort:"name",
+  view:"card", selected:null, marketing:false
+};
+
+/* ---------------- flow definitions ---------------- */
+const FLOWS = {
+  find:{ label:"1 · Find & narrow",
+    title:"Find a program — search, filter, sort, narrow",
+    why:"Proves the card model works for goal-directed users and browsers alike. The result count updates in place as you filter — no page reload (the AJAX behavior, framed here as plain speed).",
+    setup(){ reset(); state.page="explorer"; state.marketing=false; } },
+  sustain:{ label:"2 · Explore Sustainability",
+    title:"Explore by interest → discover a related program in another department",
+    why:"The core thesis flow. Start in Sustainability, open a program, then follow “Similar Majors” to a related program in a different ACES department — a path you’d never find browsing by department.",
+    setup(){ reset(); state.cats=new Set([SUS]); state.page="explorer"; state.marketing=false; } },
+  market:{ label:"3 · Marketing embed",
+    title:"Same Explorer, reconfigured — a majors-only Food Systems campaign page",
+    why:"Reuse at scale. One content source and one component, embedded on a campaign landing page locked to Majors + Food Systems with filters hidden — no rebuild, no developer.",
+    setup(){ reset(); state.page="marketing"; state.marketing=true; } },
+  masters:{ label:"4 · Master’s list",
+    title:"Master’s degrees — a standalone Academics page, not the Explorer",
+    why:"The counter-path. This list lives under Academics for visitors who think in degrees, not interests — no filter column, just the Master’s programs plus general graduate-study info. It shows the Explorer is one surface on the site, not the whole site.",
+    setup(){ reset(); state.page="masters"; state.marketing=false; } },
+  empty:{ label:"5 · Empty state",
+    title:"Over-filtering returns nothing — and offers a way back",
+    why:"Designing the unhappy path. A filter combination with no matches shows a recovery state instead of a dead end: clear the filters or browse everything.",
+    setup(){ reset(); state.cats=new Set(["Animals"]); state.degs=new Set(["Certificate"]); state.page="explorer"; state.marketing=false; } }
+};
+
+function reset(){
+  state.cats=new Set(); state.degs=new Set(); state.search="";
+  state.sort="name"; state.view="card"; state.selected=null;
+}
+
+/* ---------------- filtering ---------------- */
+function filtered(){
+  let list = PROGRAMS.slice();
+  if(state.marketing){
+    list = list.filter(p=>p.g==="Major" && p.c.includes("Food Systems"));
+  }
+  if(state.cats.size) list = list.filter(p=>p.c.some(c=>state.cats.has(c)));
+  if(state.degs.size) list = list.filter(p=>state.degs.has(p.g));
+  if(state.search.trim()){
+    const q = state.search.toLowerCase();
+    list = list.filter(p=>{
+      const hay = (p.n+" "+p.c.join(" ")+" "+p.desc+" "+(p.alias||"")).toLowerCase();
+      return hay.includes(q);
+    });
+  }
+  list.sort((a,b)=>{
+    if(state.sort==="dept") return a.d.localeCompare(b.d)||a.n.localeCompare(b.n);
+    if(state.sort==="degree") return DEGREES.indexOf(a.g)-DEGREES.indexOf(b.g)||a.n.localeCompare(b.n);
+    return a.n.localeCompare(b.n);
+  });
+  return list;
+}
+function byName(n){ return PROGRAMS.find(p=>p.n===n); }
+
+/* ---------------- rendering ---------------- */
+function renderFlows(){
+  const wrap = document.getElementById("flowTabs");
+  wrap.querySelectorAll(".flow-btn").forEach(b=>b.remove());
+  Object.entries(FLOWS).forEach(([key,f])=>{
+    const b=document.createElement("button");
+    b.className="flow-btn"+(state.flow===key?" active":"");
+    b.textContent=f.label;
+    b.onclick=()=>{ state.flow=key; FLOWS[key].setup(); render(); };
+    wrap.appendChild(b);
+  });
+  document.getElementById("annoTitle").textContent = FLOWS[state.flow].title;
+  document.getElementById("annoWhy").textContent = FLOWS[state.flow].why;
+}
+
+function render(){
+  renderFlows();
+  document.getElementById("urlbar").textContent =
+      state.page==="masters" ? "aces.illinois.edu/academics/graduate-degrees" :
+      state.marketing        ? "aces.illinois.edu/prospective-student-days" :
+                               "aces.illinois.edu/academics/program-explorer";
+  const page = document.getElementById("page");
+  if(state.page==="detail")         page.innerHTML = viewDetail();
+  else if(state.page==="marketing") page.innerHTML = viewMarketing();
+  else if(state.page==="masters")   page.innerHTML = viewMasters();
+  else                              page.innerHTML = viewExplorer();
+  bind();
+  updateResults();
+}
+
+function railHtml(){
+  const catOpts = CATS.map(c=>`
+    <label class="opt"><input type="checkbox" data-cat="${c}" ${state.cats.has(c)?"checked":""}> ${c}</label>`).join("");
+  const degOpts = DEGREES.map(d=>`
+    <label class="opt"><input type="checkbox" data-deg="${d}" ${state.degs.has(d)?"checked":""}> ${d}${d==="Master's"?"":""}</label>`).join("");
+  return `
+  <aside class="rail">
+    <h3>Refine</h3>
+    <div class="fgroup" style="border-top:0;padding-top:0">
+      <h3>Interest area</h3>
+      ${catOpts}
+    </div>
+    <div class="fgroup">
+      <h3>Degree type</h3>
+      ${degOpts}
+    </div>
+    <div class="fgroup">
+      <h3>Search</h3>
+      <input class="filtsearch" id="filtSearch" style="margin-bottom:0" placeholder="Search programs" value="${escapeAttr(state.search)}" aria-label="Search programs">
+      <div class="anno callout" style="margin-top:10px;margin-bottom:0"><b>In-Explorer search</b><span>matches program names, categories, and short descriptions — so it doubles as a filter.</span></div>
+    </div>
+    <button class="clearbtn" id="clearAll">Clear all filters</button>
+  </aside>`;
+}
+
+function viewExplorer(){
+  return `
+  <div class="pagehead">
+    <h1>Program Explorer</h1>
+    <p>Find the ACES program that fits what you care about. Start with an interest, or search by name.</p>
+  </div>
+  <div class="explorer">
+    ${railHtml()}
+    <section>
+      <div class="resbar">
+        <div class="count" id="count"></div>
+        <div class="sortwrap">Sort
+          <select id="sort">
+            <option value="name"   ${state.sort==="name"?"selected":""}>Program name (A–Z)</option>
+            <option value="dept"   ${state.sort==="dept"?"selected":""}>Department</option>
+            <option value="degree" ${state.sort==="degree"?"selected":""}>Degree type</option>
+          </select>
+        </div>
+      </div>
+      <div id="results"></div>
+    </section>
+  </div>`;
+}
+
+function cardHtml(p, minimal){
+  const minor = p.official==="Minor";
+  return `
+  <button class="card" data-open="${escapeAttr(p.n)}">
+    <div class="imgph">IMAGE</div>
+    <div class="body">
+      ${minimal?"":`<span class="badge ${minor?"minor":""}">${minor?"Major (officially a minor)":p.g}</span>`}
+      <h4>${p.n}</h4>
+      <div class="dept">${p.d}</div>
+      <div class="desc">${p.desc}</div>
+      ${minimal?"":`<div class="tags">${p.c.map(c=>`<i>${shortCat(c)}</i>`).join("")}</div>`}
+    </div>
+  </button>`;
+}
+
+function updateResults(){
+  const box = document.getElementById("results");
+  if(!box) return;
+  const list = filtered();
+  const total = state.marketing
+    ? PROGRAMS.filter(p=>p.g==="Major"&&p.c.includes("Food Systems")).length
+    : PROGRAMS.length;
+  const c = document.getElementById("count");
+  if(c) c.innerHTML = `Showing <b>${list.length}</b> of ${total} programs`;
+
+  if(list.length===0){
+    box.innerHTML = `
+    <div class="empty">
+      <h3>No programs match these filters</h3>
+      <p>Try removing a filter, or browse everything.</p>
+      <div class="row">
+        <button class="btn" id="clearAll2">Clear all filters</button>
+        <button class="btn ghost" id="browseAll">Browse all programs</button>
+      </div>
+    </div>`;
+    const c1=document.getElementById("clearAll2"), c2=document.getElementById("browseAll");
+    if(c1) c1.onclick=doClear;
+    if(c2) c2.onclick=doClear;
+    return;
+  }
+  box.innerHTML = `<div class="grid">${list.map(p=>cardHtml(p, state.marketing)).join("")}</div>`;
+  attachOpeners(box);
+}
+
+/* wire any [data-open] element (cards, list rows, related programs) to open detail */
+function attachOpeners(root){
+  if(!root) return;
+  root.querySelectorAll("[data-open]").forEach(el=>{
+    el.onclick=()=>{
+      if(state.page!=="detail"){                 // remember where we came from
+        state.returnPage = state.page==="masters" ? "masters"
+                         : state.marketing        ? "marketing" : "explorer";
+      }
+      state.selected=el.getAttribute("data-open");
+      state.page="detail"; render(); scrollTop();
+    };
+  });
+}
+
+function viewDetail(){
+  const p = byName(state.selected); if(!p) return viewExplorer();
+  const minor = p.official==="Minor";
+  const rel = (p.r||[]).map(byName).filter(Boolean);
+  const backLabel = state.marketing ? "Back to campaign" : "Back to results";
+  return `
+  <button class="back" id="back">← ${backLabel}</button>
+  <div class="detail">
+    <div>
+      <div class="imgph hero">IMAGE</div>
+      <div class="dhead">
+        <h1>${p.n}</h1>
+        <span class="badge ${minor?"minor":""}">${minor?"Listed as a major · officially a minor":p.g}</span>
+      </div>
+      <p class="lede">${p.desc} This detail view lives inside the Explorer — no jump to a separate department microsite.</p>
+      <div class="tags">${p.c.map(c=>`<i>${c}</i>`).join("")}</div>
+      ${minor?`<div class="anno callout"><b>Content-accuracy decision</b><span>Officially a minor, surfaced among majors because students, advisors, and recruiters all treat it as one. Reclassification runs through university governance on its own timeline.</span></div>`:""}
+    </div>
+    <aside class="ctacol">
+      <button class="btn">Apply now <span class="cta-note">CTA</span></button>
+      <button class="btn ghost">Contact an advisor</button>
+      <div class="fact"><span>Department</span><b>${p.d}</b></div>
+      <div class="fact"><span>Degree</span><b>${minor?"Minor (shown as major)":p.g}</b></div>
+      <div class="fact"><span>Interest areas</span><b>${p.c.length}</b></div>
+    </aside>
+  </div>
+
+  <div class="related">
+    <h3>Similar Majors</h3>
+    <p class="sub">Related ACES programs — including ones in other departments.</p>
+    <div class="grid">${rel.map(p=>cardHtml(p)).join("")}</div>
+  </div>`;
+}
+
+function viewMasters(){
+  const list = PROGRAMS.filter(p=>p.g==="Master's").sort((a,b)=>a.n.localeCompare(b.n));
+  return `
+  <div class="pagehead">
+    <div class="kicker">Academics · Graduate</div>
+    <h1>Master's Degrees</h1>
+    <p>ACES offers master's degrees across its departments, on campus and online. Browse the programs below, then contact the department or the Graduate College to plan your application.</p>
+  </div>
+  <div class="anno callout"><b>Separate Academics page</b><span>Not the Program Explorer — a standard degree-listing page with no filter column, for visitors browsing by degree level.</span></div>
+  <div class="masters-wrap">
+    <div class="list">
+      ${list.map(p=>`
+        <button class="lrow" data-open="${escapeAttr(p.n)}">
+          <span class="nm">${p.n.replace(" (MS)","")}</span>
+          <span class="dp">${p.d}</span>
+          <span class="arrow">›</span>
+        </button>`).join("")}
+    </div>
+    <aside class="infobox">
+      <h3>Graduate study at ACES</h3>
+      <div class="fact"><span>Degree levels</span><b>MS · online options</b></div>
+      <div class="fact"><span>Typical length</span><b>1–2 years</b></div>
+      <div class="fact"><span>Assistantships</span><b>By department</b></div>
+      <div class="fact"><span>Apply through</span><b>Each department</b></div>
+    </aside>
+  </div>`;
+}
+
+function viewMarketing(){
+  return `
+  <div class="campaign">
+    <div class="chero">
+      <div class="kicker">Prospective Student Days</div>
+      <h1>Explore ACES majors in Food &amp; Food Systems</h1>
+      <p>See the majors you can pursue at ACES. Pick one to learn more or plan your visit.</p>
+    </div>
+    <div class="lockbar anno">
+      <span class="pin">Majors</span><span class="pin">Food Systems</span>
+      <span>Filters pre-set and hidden for this campaign — same Explorer component, no rebuild.</span>
+    </div>
+    <div style="padding:18px">
+      <div class="resbar">
+        <div class="count" id="count"></div>
+        <div class="sortwrap">Sort
+          <select id="sort">
+            <option value="name" ${state.sort==="name"?"selected":""}>Program name (A–Z)</option>
+            <option value="dept" ${state.sort==="dept"?"selected":""}>Department</option>
+          </select>
+        </div>
+      </div>
+      <div id="results"></div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- binding ---------------- */
+function bind(){
+  const back=document.getElementById("back");
+  if(back) back.onclick=()=>{ state.page = state.marketing?"marketing":"explorer"; state.selected=null; render(); scrollTop(); };
+
+  const fs=document.getElementById("filtSearch");
+  if(fs) fs.oninput=e=>{ state.search=e.target.value; updateResults(); };
+
+  const sort=document.getElementById("sort");
+  if(sort) sort.onchange=e=>{ state.sort=e.target.value; updateResults(); };
+
+  document.querySelectorAll("[data-cat]").forEach(el=>{
+    el.onchange=()=>{ el.checked?state.cats.add(el.dataset.cat):state.cats.delete(el.dataset.cat); updateResults(); };
+  });
+  document.querySelectorAll("[data-deg]").forEach(el=>{
+    el.onchange=()=>{ el.checked?state.degs.add(el.dataset.deg):state.degs.delete(el.dataset.deg); updateResults(); };
+  });
+  const clr=document.getElementById("clearAll");
+  if(clr) clr.onclick=doClear;
+}
+function doClear(){ state.cats=new Set(); state.degs=new Set(); state.search=""; render(); }
+
+/* nav search (site-wide) lands into the Explorer */
+document.getElementById("navSearch").addEventListener("keydown",e=>{
+  if(e.key==="Enter"){
+    state.flow="find"; state.marketing=false; reset();
+    state.search=e.target.value; state.page="explorer";
+    render(); scrollTop();
+  }
+});
+document.getElementById("annoToggle").addEventListener("click",()=>{
+  document.body.classList.toggle("hide-anno");
+  const on=document.body.classList.contains("hide-anno");
+  document.getElementById("annoToggle").textContent = on?"Show annotations":"Hide annotations";
+  document.getElementById("annoBar").classList.toggle("slim",on);
+});
+
+/* ---------------- helpers ---------------- */
+function shortCat(c){
+  return c.replace("Environment, Sustainability & Conservation","Sustainability")
+          .replace("Business, Economics, Policy & Law","Business & Policy")
+          .replace("Leadership, Communication and Education","Leadership & Comms")
+          .replace("People, Communities & Families","Communities");
+}
+function escapeAttr(s){ return String(s).replace(/"/g,"&quot;"); }
+function scrollTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
+
+document.getElementById("foot").innerHTML =
+  `Wireframe prototype · low fidelity, structure over pixels. Program names, descriptions, and images are <b>representative placeholders</b> for demonstrating flows — not the shipped catalog. Live reference: <code>aces.illinois.edu/academics/program-explorer</code>.`;
+
+/* boot */
+FLOWS[state.flow].setup();
+render();
+</script>
+</body>
+</html>
