@@ -6,6 +6,16 @@
       "source": "/selected-work/accessibility-risk-prioritization-framework.html",
       "destination": "/selected-work/associate-experience-portfolio-strategy.html",
       "permanent": true
+    },
+    {
+      "source": "/selected-work/aces-program-explorer-cs.html",
+      "destination": "/selected-work/aces-program-explorer/aces-program-explorer-cs.html",
+      "permanent": true
+    },
+    {
+      "source": "/selected-work/aces-major-interest-matrix.html",
+      "destination": "/selected-work/aces-program-explorer/aces-major-interest-matrix.html",
+      "permanent": true
     }
   ]
 }

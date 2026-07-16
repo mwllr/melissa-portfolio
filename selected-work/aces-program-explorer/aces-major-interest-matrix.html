@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ACES majors by interest &mdash; matrix | Melissa Waller</title>
+<meta name="description" content="Matrix of 30 ACES program-discovery entries tagged across 10 interest areas, reverse-engineered from the live ACES Program Explorer.">
+<link rel="icon" href="../../public/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../public/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../../public/apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="../../styles/site.css">
+<style>
+  .mx-back{font-size:.9rem;margin-bottom:.75rem}
+  .mx-title{max-width:none;font-size:var(--text-page-title)}
+  .mx-intro{max-width:72ch;line-height:1.6;color:#3a3a3a}
+  .mx-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .mx-table{border-collapse:separate;border-spacing:3px;width:100%;min-width:640px;table-layout:fixed}
+  .mx-table col.c-name{width:28%}
+  .mx-table col.c-int{width:6.7%}
+  .mx-table col.c-paths{width:3.3%}
+  .mx-table thead th{vertical-align:bottom;padding:0 0 5px}
+  .mx-ch{font-size:.66rem;font-weight:700;line-height:1.12;color:#13294b;text-align:center;hyphens:auto}
+  .mx-corner{text-align:left;font-size:.7rem;font-weight:700;color:#5f564c}
+  .mx-rowh{text-align:left;font-weight:400;font-size:.8rem;color:#232c31;line-height:1.16;padding-right:8px;
+    hyphens:auto;overflow-wrap:break-word;vertical-align:middle}
+  .mx-cell{height:24px;border-radius:5px;background:#ece8e1;text-align:center;vertical-align:middle}
+  .mx-dot{display:inline-block;width:5px;height:5px;border-radius:50%;vertical-align:middle}
+  .mx-dash{display:inline-block;width:9px;height:2px;border-radius:1px;vertical-align:middle}
+  .mx-table-title{max-width:none;font-size:var(--text-2xl);line-height:1.2;color:var(--color-ink);margin:1.75rem 0 .85rem}
+  .mx-cnt{text-align:center;font-weight:700;font-size:.78rem;border-radius:5px}
+  .mx-table tfoot th.mx-totlab{text-align:right;font-weight:700;color:#4f463c;font-size:.78rem;padding-right:8px}
+  .mx-table tfoot td.mx-tt{text-align:center;font-weight:800;color:#13294b;font-size:.82rem;
+    border-top:2px solid #d8d2c8;padding-top:6px}
+  .mx-un .mx-rowh{font-style:italic;color:#6f675b}
+  .mx-un td.mx-cell,.mx-un td.mx-cnt{opacity:.95}
+  .mx-unnote{display:block;font-style:normal;font-size:.66rem;color:#6f675b}
+  .mx-foot{font-size:.78rem;color:#5f564c;margin-top:1.25rem;line-height:1.6}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="../../index.html">Melissa Waller</a>
+    <div class="header-menu">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+        <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="menu-toggle-text">Menu</span>
+      </button>
+      <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../selected-work.html" aria-current="page">Selected Work</a></li>
+          <li><a href="../../resume.html">Resume</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+<main id="main">
+  <article>
+    <section class="content-section">
+      <div class="section-inner">
+        <p class="mx-back"><a href="aces-program-explorer-cs.html">&lsaquo; Back to the ACES case study</a></p>
+        <p class="eyebrow">ACES Program Explorer - Case Study</p>
+        <h1 class="mx-title">Same programs, many interest paths</h1>
+        <p class="mx-intro">30 ACES undergraduate majors, each tagged to several of 10 interest areas. The &ldquo;ACES Undeclared&rdquo; explore-everything entry surfaces under every interest and sits at the bottom as the catch-all. Rows are sorted by how many interest paths lead to each major, so the programs at the top are reachable from the most interests.</p>
+        <h2 class="mx-table-title">Majors mapped to interest areas</h2>
+        <div class="mx-scroll">
+    <table class="mx-table" id="mx"></table>
+  </div>
+        <p class="mx-foot">The average major appears under about 3.7 of the 10 interest areas, with the exception of Undeclared.</p>
+      </div>
+    </section>
+  </article>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+
+<script>
+const INTERESTS=[
+  ["Agriculture","Agri&shy;culture"],
+  ["Animals","Animals"],
+  ["Business","Business"],
+  ["Data & Tech","Data &amp; Tech"],
+  ["Food Systems","Food Systems"],
+  ["Health","Health"],
+  ["Leadership","Leader&shy;ship"],
+  ["People","People"],
+  ["Plants & Crops","Plants &amp; Crops"],
+  ["Sustainability","Sustain&shy;ability"]
+];
+// majors in convergence order (most interest paths first); Undeclared appended last as the catch-all
+const MAJORS=[
+  {n:"Public Policy & Law", i:["Agriculture","Animals","Business","Food Systems","Health","Plants & Crops","Sustainability"]},
+  {n:"Natural Resources & Environmental Sciences", i:["Agriculture","Animals","Data & Tech","Leadership","Plants & Crops","Sustainability"]},
+  {n:"Agribusiness Markets & Management", i:["Agriculture","Business","Food Systems","People","Plants & Crops"]},
+  {n:"Agricultural & Biological Engineering", i:["Agriculture","Data & Tech","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Farm Management", i:["Agriculture","Animals","Business","Plants & Crops","Sustainability"]},
+  {n:"Plant Biotechnology", i:["Agriculture","Data & Tech","Health","Plants & Crops","Sustainability"]},
+  {n:"Agricultural Communications", i:["Agriculture","Food Systems","Leadership","People"]},
+  {n:"Agronomy", i:["Agriculture","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Animal Sciences", i:["Agriculture","Animals","Food Systems","Health"]},
+  {n:"Computer Science + Animal Sciences", i:["Agriculture","Animals","Data & Tech","Health"]},
+  {n:"Computer Science + Crop Sciences", i:["Agriculture","Data & Tech","Plants & Crops","Sustainability"]},
+  {n:"Crop Sciences", i:["Agriculture","Food Systems","Plants & Crops","Sustainability"]},
+  {n:"Engineering Tech & Mgmt for Ag Systems", i:["Agriculture","Data & Tech","Food Systems","Sustainability"]},
+  {n:"Environmental Economics & Policy", i:["Business","Food Systems","Health","Sustainability"]},
+  {n:"Finance in Agribusiness", i:["Agriculture","Animals","Business","Plants & Crops"]},
+  {n:"Policy, International Trade & Development", i:["Business","Food Systems","People","Sustainability"]},
+  {n:"Agricultural Accounting", i:["Agriculture","Business","Food Systems"]},
+  {n:"Agricultural Education", i:["Agriculture","Leadership","People"]},
+  {n:"Dietetics & Nutrition", i:["Food Systems","Health","People"]},
+  {n:"Food Science", i:["Food Systems","Health","People"]},
+  {n:"Hospitality Management", i:["Food Systems","Health","People"]},
+  {n:"Human Development & Family Studies", i:["Business","Health","People"]},
+  {n:"Nutrition & Health", i:["Food Systems","Health","People"]},
+  {n:"Sustainability in Food & Environmental Systems", i:["Agriculture","Food Systems","Plants & Crops"]},
+  {n:"Agricultural & Consumer Economics", i:["Agriculture","Business"]},
+  {n:"Consumer Economics & Finance", i:["Business","People"]},
+  {n:"Financial Planning", i:["Business","People"]},
+  {n:"Organizational & Community Leadership", i:["Leadership","People"]},
+  {n:"Agricultural Leadership, Education & Communications", i:["Leadership"]},
+  {n:"ACES Undeclared", un:true, i:["Agriculture","Animals","Business","Data & Tech","Food Systems","Health","Leadership","People","Plants & Crops","Sustainability"]}
+];
+function tier(p){
+  if(p<=2) return {bg:"#cfe2f6",fg:"#0C447C"};
+  if(p<=4) return {bg:"#85B7EB",fg:"#0C447C"};
+  if(p===5) return {bg:"#2774C3",fg:"#ffffff"};
+  if(p===6) return {bg:"#164E86",fg:"#ffffff"};
+  return {bg:"#0A3A66",fg:"#ffffff"};
+}
+const UN={bg:"#c4c8ce",fg:"#3a3a3a"};
+
+const t=document.getElementById("mx");
+let h="<colgroup><col class='c-name'>";
+INTERESTS.forEach(()=>h+="<col class='c-int'>");
+h+="<col class='c-paths'></colgroup>";
+h+="<thead><tr><th class='mx-corner' scope='col'>Major</th>";
+INTERESTS.forEach(([,label])=>h+=`<th class='mx-ch' scope='col'>${label}</th>`);
+h+="<th class='mx-ch' scope='col'>Paths</th></tr></thead><tbody>";
+MAJORS.forEach(m=>{
+  const p=m.i.length, c=m.un?UN:tier(p);
+  h+=`<tr class='${m.un?"mx-un":""}'><th class='mx-rowh' scope='row'>${m.n}${m.un?"<span class='mx-unnote'>explore-everything entry</span>":""}</th>`;
+  INTERESTS.forEach(([key])=>{
+    const on=m.i.includes(key);
+    const mark = m.un ? `<span class='mx-dash' style='background:${c.fg}'></span>` : `<span class='mx-dot' style='background:${c.fg}'></span>`;
+    h+=on?`<td class='mx-cell' style='background:${c.bg}'>${mark}</td>`:`<td class='mx-cell'></td>`;
+  });
+  h+=`<td class='mx-cnt' style='background:${c.bg};color:${c.fg}'>${p}</td></tr>`;
+});
+h+="</tbody><tfoot><tr><th class='mx-totlab' scope='row'>Options per interest &rarr;</th>";
+INTERESTS.forEach(([key])=>{
+  const tot=MAJORS.filter(m=>m.i.includes(key)).length;
+  h+=`<td class='mx-tt'>${tot}</td>`;
+});
+h+="<td class='mx-tt' style='border-top-color:transparent'></td></tr></tfoot>";
+t.innerHTML=h;
+</script>
+<script src="../../scripts/theme.js?v=image-modal"></script>
+</body>
+</html>
