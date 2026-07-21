@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ACES Program Explorer — Wireframe Prototype</title>
+<title>ACES Program Explorer: Wireframe Prototype</title>
 <style>
   :root{
     --ink:#222; --mute:#666; --faint:#8a8a8a;
@@ -200,7 +200,7 @@
 
 <script>
 /* ============================================================
-   ACES Program Explorer — wireframe prototype
+   ACES Program Explorer: wireframe prototype
    Low-fidelity. Content below is representative for wireframing,
    not the shipped catalog.
    ============================================================ */
@@ -258,7 +258,7 @@ const PROGRAMS = [
    r:["Human Nutrition"]},
   {n:"Agricultural Teacher Education", d:"Agricultural Leadership, Education & Communications", g:"Major",
    official:"Minor", c:["Agriculture","Leadership, Communication and Education"],
-   desc:"Become a licensed agriculture teacher — the program students call “ag teacher.”",
+   desc:"Become a licensed agriculture teacher, the program students call “ag teacher.”",
    alias:"ag teacher agriculture education", r:["Agricultural Communications"]},
 
   {n:"Sustainable Food & Farming", d:"Crop Sciences", g:"Certificate",
@@ -294,25 +294,25 @@ const state = {
 /* ---------------- flow definitions ---------------- */
 const FLOWS = {
   find:{ label:"1 · Find & narrow",
-    title:"Find a program — search, filter, sort, narrow",
-    why:"Proves the card model works for goal-directed users and browsers alike. The result count updates in place as you filter — no page reload (the AJAX behavior, framed here as plain speed).",
+    title:"Find a program: search, filter, sort, narrow",
+    why:"Proves the card model works for goal-directed users and browsers alike. The result count updates in place as you filter, with no page reload. This represents the AJAX behavior as plain speed.",
     setup(){ reset(); state.page="explorer"; state.marketing=false; } },
   sustain:{ label:"2 · Explore Sustainability",
     title:"Explore by interest → discover a related program in another department",
-    why:"The core thesis flow. Start in Sustainability, open a program, then follow “Similar Majors” to a related program in a different ACES department — a path you’d never find browsing by department.",
+    why:"The core thesis flow. Start in Sustainability, open a program, then follow “Similar Majors” to a related program in a different ACES department. You would not find that path by browsing departments.",
     setup(){ reset(); state.cats=new Set([SUS]); state.page="explorer"; state.marketing=false; } },
   market:{ label:"3 · Marketing embed",
-    title:"Same Explorer, reconfigured — a majors-only Food Systems campaign page",
-    why:"Reuse at scale. One content source and one component, embedded on a campaign landing page locked to Majors + Food Systems with filters hidden — no rebuild, no developer.",
+    title:"Same Explorer, reconfigured: a majors-only Food Systems campaign page",
+    why:"Reuse at scale. One content source and one component, embedded on a campaign landing page locked to Majors + Food Systems with filters hidden. No rebuild or developer needed.",
     setup(){ reset(); state.page="marketing"; state.marketing=true; } },
   masters:{ label:"4 · Master’s list",
-    title:"Master’s degrees — a standalone Academics page, not the Explorer",
-    why:"The counter-path. This list lives under Academics for visitors who think in degrees, not interests — no filter column, just the Master’s programs plus general graduate-study info. It shows the Explorer is one surface on the site, not the whole site.",
+    title:"Master’s degrees: a standalone Academics page, not the Explorer",
+    why:"The counter-path. This list lives under Academics for visitors who think in degrees, not interests. There is no filter column, just the Master’s programs and general graduate-study information. It shows the Explorer is one surface on the site, not the whole site.",
     setup(){ reset(); state.page="masters"; state.marketing=false; } },
   empty:{ label:"5 · Empty state",
-    title:"Over-filtering returns nothing — and offers a way back",
-    why:"Designing the unhappy path. A filter combination with no matches shows a recovery state instead of a dead end: clear the filters or browse everything.",
-    setup(){ reset(); state.cats=new Set(["Animals"]); state.degs=new Set(["Certificate"]); state.page="explorer"; state.marketing=false; } }
+    title:"Over-filtering returns nothing: a way back",
+    why:"Designing the unhappy path. Data and Technology plus Certificate returns no matches, so the interface offers a recovery state instead of a dead end: clear the filters or browse everything.",
+    setup(){ reset(); state.cats=new Set(["Data and Technology"]); state.degs=new Set(["Certificate"]); state.page="explorer"; state.marketing=false; } }
 };
 
 function reset(){
@@ -394,7 +394,7 @@ function railHtml(){
     <div class="fgroup">
       <h3>Search</h3>
       <input class="filtsearch" id="filtSearch" style="margin-bottom:0" placeholder="Search programs" value="${escapeAttr(state.search)}" aria-label="Search programs">
-      <div class="anno callout" style="margin-top:10px;margin-bottom:0"><b>In-Explorer search</b><span>matches program names, categories, and short descriptions — so it doubles as a filter.</span></div>
+      <div class="anno callout" style="margin-top:10px;margin-bottom:0"><b>In-Explorer search</b><span>matches program names, categories, and short descriptions, so it doubles as a filter.</span></div>
     </div>
     <button class="clearbtn" id="clearAll">Clear all filters</button>
   </aside>`;
@@ -497,7 +497,7 @@ function viewDetail(){
         <h1>${p.n}</h1>
         <span class="badge ${minor?"minor":""}">${minor?"Listed as a major · officially a minor":p.g}</span>
       </div>
-      <p class="lede">${p.desc} This detail view lives inside the Explorer — no jump to a separate department microsite.</p>
+      <p class="lede">${p.desc} This detail view lives inside the Explorer, with no jump to a separate department microsite.</p>
       <div class="tags">${p.c.map(c=>`<i>${c}</i>`).join("")}</div>
       ${minor?`<div class="anno callout"><b>Content-accuracy decision</b><span>Officially a minor, surfaced among majors because students, advisors, and recruiters all treat it as one. Reclassification runs through university governance on its own timeline.</span></div>`:""}
     </div>
@@ -522,7 +522,7 @@ function viewDetail(){
 
   <div class="related">
     <h3>Similar Majors</h3>
-    <p class="sub">Related ACES programs — including ones in other departments.</p>
+    <p class="sub">Related ACES programs, including ones in other departments.</p>
     <div class="grid">${rel.map(p=>cardHtml(p)).join("")}</div>
   </div>`;
 }
@@ -535,7 +535,7 @@ function viewMasters(){
     <h1>Master's Degrees</h1>
     <p>ACES offers master's degrees across its departments, on campus and online. Browse the programs below, then contact the department or the Graduate College to plan your application.</p>
   </div>
-  <div class="anno callout"><b>Separate Academics page</b><span>Not the Program Explorer — a standard degree-listing page with no filter column, for visitors browsing by degree level.</span></div>
+  <div class="anno callout"><b>Separate Academics page</b><span>Not the Program Explorer: a standard degree-listing page with no filter column, for visitors browsing by degree level.</span></div>
   <div class="masters-wrap">
     <div class="list">
       ${list.map(p=>`
@@ -565,7 +565,7 @@ function viewMarketing(){
     </div>
     <div class="lockbar anno">
       <span class="pin">Majors</span><span class="pin">Food Systems</span>
-      <span>Filters pre-set and hidden for this campaign — same Explorer component, no rebuild.</span>
+      <span>Filters pre-set and hidden for this campaign. Same Explorer component, no rebuild.</span>
     </div>
     <div style="padding:18px">
       <div class="resbar">
@@ -630,7 +630,7 @@ function escapeAttr(s){ return String(s).replace(/"/g,"&quot;"); }
 function scrollTop(){ window.scrollTo({top:0,behavior:"smooth"}); }
 
 document.getElementById("foot").innerHTML =
-  `Wireframe prototype · low fidelity, structure over pixels. Program names, descriptions, and images are <b>representative placeholders</b> for demonstrating flows — not the shipped catalog. Live reference: <code>aces.illinois.edu/academics/program-explorer</code>.`;
+  `Wireframe prototype · low fidelity, structure over pixels. Program names, descriptions, and images are <b>representative placeholders</b> for demonstrating flows, not the shipped catalog. Live reference: <code>aces.illinois.edu/academics/program-explorer</code>.`;
 
 /* boot */
 FLOWS[state.flow].setup();
