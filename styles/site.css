@@ -121,6 +121,7 @@
   --control-height: 2.75rem;
   --component-card-bg: var(--color-card);
   --component-card-border: var(--color-border);
+  --component-interactive-card-border: rgba(1, 32, 66, 0.52);
   --component-card-radius: var(--radius-md);
   --component-card-padding: var(--space-5);
   --component-card-padding-compact: var(--space-4);
@@ -379,6 +380,14 @@ h1 {
   font-size: var(--text-page-title);
 }
 
+.page-hero[aria-labelledby="resume-title"] h1 {
+  max-width: 35rem;
+}
+
+.page-hero[aria-labelledby="contact-title"] h1 {
+  max-width: var(--layout-text-measure);
+}
+
 h2 {
   max-width: 20ch;
   margin-block-end: var(--space-4);
@@ -630,6 +639,11 @@ main {
   color: var(--color-white);
 }
 
+.hero #home-title {
+  width: 90%;
+  max-width: 39.375rem;
+}
+
 .hero .lede,
 .hero .hero-focus,
 .hero .prose p,
@@ -639,6 +653,41 @@ main {
 
 .page-hero {
   background: var(--color-surface-alt);
+}
+
+.breadcrumb {
+  margin: 0 0 var(--space-3);
+  color: var(--color-text);
+  font-size: var(--text-sm);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumb li {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.breadcrumb li + li::before {
+  content: "/";
+  color: var(--color-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-link);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-text);
 }
 
 .page-hero[aria-labelledby="work-title"] {
@@ -856,7 +905,7 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   min-height: var(--control-height);
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-action);
+  border: 1.5px solid var(--color-action);
   border-radius: var(--component-button-radius);
   padding: var(--component-button-padding-block) var(--component-button-padding-inline);
   background: var(--color-action);
@@ -877,19 +926,24 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 }
 
 .button.secondary {
-  border-color: currentColor;
-  background: transparent;
-  color: var(--color-link);
+  border-color: #456482;
+  background: var(--focus-card-2-bg);
+  color: #456482;
 }
 
 .button.secondary:hover,
 .button.secondary:focus-visible {
-  border-color: transparent;
-  background: var(--color-action-hover);
-  color: var(--component-button-hover-text);
+  border-color: #315b82;
+  background: #315b82;
+  color: var(--color-white);
   text-decoration-line: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
+}
+
+.button.secondary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
 .hero .button.secondary {
@@ -900,7 +954,7 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
 
 .hero .button.secondary:hover,
 .hero .button.secondary:focus-visible {
-  border-color: transparent;
+  border-color: var(--color-mist);
   background: var(--color-action-hover);
   color: var(--component-button-hover-text);
   text-decoration-line: underline;
@@ -946,6 +1000,12 @@ main > header.page-hero ~ section.content-section:nth-of-type(even) {
   border: 1px solid var(--component-card-border);
   border-radius: var(--component-card-radius);
   background: var(--component-card-bg);
+}
+
+a.card,
+a.case-card {
+  border-color: var(--component-interactive-card-border);
+  border-width: 1.5px;
 }
 
 .card,

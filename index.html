@@ -17,18 +17,25 @@
       .home-feature-header{display:block}
       .home-feature-content .card-eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--color-secondary-contrast);margin:0}
       .home-feature-description{font-size:14px}
+      .home-feature-card:hover .home-feature-title,.home-feature-card:focus-visible .home-feature-title{text-decoration-line:none}
       .focus-grid .card.people-leadership-card{background:var(--color-page)}
-      .home-strategy-callout{max-width:none;margin-block-start:var(--space-4);background:var(--color-mist)}
+      .home-strategy-callout{max-width:none;margin-block-start:var(--space-4);border-inline-start-color:#456482;background:var(--color-mist)}
+      .home-strategy-callout .card-eyebrow{display:block;margin:0 0 var(--space-2);color:#456482;font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase}
       .home-strategy-callout h3{margin-block-start:0}
-      .home-strategy-callout .action-row{margin-block-start:var(--space-4)}
-      .home-strategy-case-studies{margin-block-start:var(--space-5)}
+      .home-strategy-callout p{margin-block-end:var(--space-3)}
+      .home-strategy-callout .action-row{margin-block-start:var(--space-3)}
+      .button.button--light-blue{border-color:#456482;background:var(--focus-card-2-bg);color:#456482}
+      .button.button--light-blue:hover,.button.button--light-blue:focus-visible{border-color:#315b82;background:#315b82;color:var(--color-white)}
+      .button.button--light-blue:focus-visible,.home-strategy-evidence a:focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
+      .home-strategy-case-studies{margin-block-start:var(--space-4)}
       .home-strategy-case-studies > h4{margin:0 0 var(--space-4);color:var(--color-primary);font-family:var(--font-heading);font-size:var(--type-card-title);font-weight:400;line-height:1.35}
       .home-strategy-case-studies .home-strategy-evidence{margin-block-start:0}
-      .home-strategy-evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);margin:var(--space-5) 0 0;padding:0;list-style:none}
+      .home-strategy-evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);margin:0;padding:0;list-style:none}
       .home-strategy-evidence li + li{margin-block-start:0}
-      .home-strategy-evidence a{display:block;height:100%;padding:var(--space-4);border:1px solid var(--component-card-border);border-radius:var(--component-card-radius);background:var(--color-white);color:var(--color-text);text-decoration:none}
-      .home-strategy-evidence a:hover,.home-strategy-evidence a:focus-visible{border-color:var(--color-secondary-contrast);box-shadow:inset 0 0 0 2px var(--color-secondary-contrast)}
+      .home-strategy-evidence a{display:block;height:100%;padding:var(--space-4);border:1.5px solid var(--component-interactive-card-border);border-radius:var(--component-card-radius);background:var(--color-white);color:var(--color-text);text-decoration:none}
+      .home-strategy-evidence a:hover,.home-strategy-evidence a:focus-visible{border-color:#456482;box-shadow:inset 0 0 0 2px #456482}
       .home-strategy-evidence h5{margin:0;color:var(--color-primary);font-family:var(--font-heading);font-size:var(--type-compact-card-title);font-weight:400;line-height:1.35}
+      .home-strategy-evidence a:hover h5,.home-strategy-evidence a:focus-visible h5{color:var(--color-secondary-contrast)}
       .home-strategy-evidence span{display:block;margin-block-start:var(--space-2);font-size:var(--text-sm);line-height:1.5}
       @media (max-width:560px){.home-strategy-evidence{grid-template-columns:1fr}}
     </style>
@@ -62,10 +69,14 @@
           <img src="public/images/work/mw-system-dots.svg" alt="">
         </figure>
         <div class="section-inner">
-          <p class="eyebrow">UX Design • Experience Quality Strategy • Cross-functional Leadership</p>
-          <h1 id="home-title">I Build the Systems and Teams Behind Better Digital Experiences</h1>
-          <p class="lede">I&rsquo;m a hands-on UX designer and experience-quality strategist. I shape the experience itself, then build the systems, decision paths, and capability that help quality hold up as organizations grow.</p>
-          <p class="hero-focus">I lead through clarity, practical support, shared ownership, and risk-based decisions.</p>
+          <p class="eyebrow">Principal UX Designer · Product Design · Design Systems · Experience Strategy</p>
+          <h1 id="home-title">I Design the Product & Build the Systems around It.</h1>
+          <p class="lede">Most of my favorite work crosses lanes. I jump in where I can be most useful: designing the experience directly, untangling a complex decision with the people closest to the problem, or building a structure people can keep using.</p>
+          <ul class="hero-focus">
+            <li><strong>Product design:</strong> 126-program discovery experience</li>
+            <li><strong>Design quality system:</strong> 3 teams, 16 designers</li>
+            <li><strong>Portfolio strategy:</strong> ~80 touchpoints across 5 teams</li>
+          </ul>
           <div class="action-row">
             <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
             <a class="button secondary" href="resume.html">View Resume</a>
@@ -76,10 +87,10 @@
       <!-- SELECTED WORK: one hands-on product case plus the connected strategy it informed. -->
       <section class="content-section rail-section" aria-labelledby="selected-work-title">
         <div class="section-inner">
-          <h2 id="selected-work-title">Selected Work</h2>
+          <h2 id="selected-work-title">Highlighted Work</h2>
           <div>
             <div class="prose">
-              <p>The work has two connected threads: hands-on product design, and experience-quality strategy that makes better decisions and inclusive practices scalable.</p>
+              <p>I stay close to the product, whether I am shaping an interaction model, testing an information architecture, or helping a team decide what to do next. When the same problems keep surfacing, I build a clearer way to handle them.</p>
             </div>
             <div class="home-feature-grid">
               <a class="card home-feature-card" href="selected-work/aces-program-explorer.html">
@@ -88,22 +99,25 @@
                 </figure>
                 <span class="home-feature-content">
                   <span class="home-feature-header"><span class="card-eyebrow">ACES Program Explorer</span></span>
-                  <span class="home-feature-title">Reframed program discovery around how students choose majors</span>
-                  <span class="home-feature-description">I designed an interest-based information architecture, validated it through lightweight research, and made the model configurable for a focused recruiting view.</span>
+                  <span class="home-feature-title">Reframed program discovery around how prospective students choose</span>
+                  <span class="home-feature-description">I designed an interest-based Program Explorer that let students start with what interested them, not the college's department structure. The same model supported a focused recruiting view without a second build.</span>
                 </span>
               </a>
             </div>
             <article class="callout home-strategy-callout">
-              <h3>Experience Quality Strategy: Building Inclusive Systems at Scale</h3>
-              <p>Across one continuous strategy, I moved quality from specialist intervention to shared capability and clear decision infrastructure&mdash;growing from a 16-designer product group to an organization of 70+ designers and roughly 80 touchpoints.</p>
-              <div class="action-row"><a class="button secondary" href="selected-work/accessibility-strategy.html">View Experience Quality Strategy</a></div>
+              <span class="home-feature-header"><span class="card-eyebrow">Experience Quality Strategy</span></span>
+              <h3>Design Quality at Scale</h3>
+              <p>At Walmart, I built practical ways for teams to make stronger design-quality decisions: risk-based review, training shaped by recurring issues, peer champion support, and portfolio prioritization.</p>
+
+<p>As the organization grew, the work gave leaders a clearer view of where deeper support would matter most. It also gave teams a </p>
+              <div class="action-row"><a class="button button--light-blue" href="selected-work/experience-quality-strategy.html">View Experience Quality Strategy</a></div>
               <section class="home-strategy-case-studies" aria-labelledby="home-strategy-case-studies-title">
-                <h4 id="home-strategy-case-studies-title">Strategy Case Studies</h4>
+                <h4 id="home-strategy-case-studies-title">Dig Deeper into the Case Studies</h4>
                 <ul class="home-strategy-evidence">
-                  <li><a href="selected-work/design-quality-operating-model.html"><h5>Quality operating model</h5><span>Turned a one-specialist queue into a risk-based decision and learning system.</span></a></li>
-                  <li><a href="selected-work/accessibility-champions-program.html"><h5>Team capability</h5><span>Moved first-pass accessibility expertise into the teams through training and peer champions.</span></a></li>
-                  <li><a href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html"><h5>Governed AI support</h5><span>Tested structured review support while keeping people accountable for judgment and acceptance.</span></a></li>
-                  <li><a href="selected-work/associate-experience-portfolio-strategy.html"><h5>Portfolio strategy</h5><span>Made risk visible and directed support where investment could create the most value.</span></a></li>
+                  <li><a href="selected-work/accessibility-champions-program.html"><h5>Portfolio Strategy</h5><span>Made risk visible across roughly 80 touchpoints and created a clearer path to deeper support where it could create the most value.</span></a></li>
+                  <li><a href="selected-work/design-quality-operating-model.html"><h5>Quality Decision System</h5><span>Built a risk-based review and learning model that helped three teams make quality decisions without relying on one person to hold every answer.</span></a></li>
+                  <li><a href="selected-work/associate-experience-portfolio-strategy.html"><h5>Team Capability</h5><span>Created training and peer champion support so designers could catch and address more issues within their own teams.</span></a></li>
+                  <li><a href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html"><h5>Governed AI Support</h5><span>Tested structured AI support for review workflows while keeping people responsible for judgment, ownership, and acceptance.</span></a></li>
                 </ul>
               </section>
             </article>
@@ -117,45 +131,54 @@
       <!-- HOW I LEAD: explicit role-fit signals supported by the case-study evidence. -->
       <section class="content-section section-band rail-section" aria-labelledby="focus-title">
         <div class="section-inner">
-          <h2 id="focus-title">How I Lead</h2>
+          <h2 id="focus-title">How I Work</h2>
           <div class="summary-grid focus-grid">
             <article class="card">
               <i class="ph ph-compass focus-card-icon" aria-hidden="true"></i>
-              <h3>Hands-on Product Design</h3>
-              <p>Turning complex content and needs into clear interaction models, information architecture, and accessible behavior, then partnering with engineering to ship them.</p>
+              <h3>Design the Experience</h3>
+              <p>I turn complex content, needs, and constraints into clear interaction models, information architecture, and accessible behavior.</p>
             </article>
             <article class="card">
-              <i class="ph ph-users-three focus-card-icon" aria-hidden="true"></i>
-              <h3>Experience Quality Strategy</h3>
-              <p>Designing the operating models, governance, and investment logic that help teams make sound quality decisions at scale.</p>
+              <i class="ph ph-sliders-horizontal focus-card-icon" aria-hidden="true"></i>
+              <h3>Make Quality Practical</h3>
+              <p>I build standards, review paths, and decision tools that help teams catch issues earlier and avoid solving the same problem again.</p>
             </article>
             <article class="card people-leadership-card">
-              <i class="ph ph-squares-four focus-card-icon" aria-hidden="true"></i>
-              <h3>Team Capability</h3>
-              <p>Building practical capability through coaching, training, shared standards, and clear escalation paths so expertise can live within the teams doing the work.</p>
+              <i class="ph ph-users-three focus-card-icon" aria-hidden="true"></i>
+              <h3>Build Team Capability</h3>
+              <p>I use coaching, training, shared tools, and clear escalation paths to help people become more capable, not more dependent.</p>
             </article>
             <article class="card">
-              <i class="ph ph-shield-check focus-card-icon" aria-hidden="true"></i>
-              <h3>Cross-functional Leadership</h3>
-              <p>Aligning product, engineering, business, and leadership around shared decisions&mdash;from a program model spanning nine departments to portfolio-level risk strategy.</p>
+              <i class="ph ph-arrows-out-cardinal focus-card-icon" aria-hidden="true"></i>
+              <h3>Make Tradeoffs Visible</h3>
+              <p>I bring product, engineering, business, and design into the same conversation when a decision affects the experience, the team, or both.</p>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- PHILOSOPHY: kept your voice; trimmed the 7-item list to the three that carry weight. -->
       <section class="content-section rail-section" aria-labelledby="why-title">
         <div class="section-inner">
-          <h2 id="why-title">A Point of View on Experience Quality</h2>
+          <h2 id="why-title">The Titles Changed. The Job Didn’t.</h2>
           <div class="prose">
-            <p>High-quality experiences should not depend on a specialist catching every issue or a team reinventing the answer each time.</p>
-            <p>I treat accessibility as experience quality: a product expectation built into everyday decisions, standards, and ways of working. The practical work is making ownership clear, directing expert attention to real risk, and turning recurring problems into better systems and team capability.</p>
-            <p>The best systems make good work easier to do&mdash;and almost invisible when they work well.</p>
+            <p>I have managed a creative team, led a web-development team, and now work as a Principal UX Designer. In each role, I have stayed close to the design work.</p>
+            <p>At Illinois, I led the College of ACES web team while personally designing every wireframe for the Program Explorer. I also co-chaired the roughly 175-person Web Implementation Guidelines Group and served on its five-person steering committee.</p>
           </div>
         </div>
       </section>
 
-      <section class="content-section section-band rail-section" aria-labelledby="about-preview-title">
+      <section class="content-section section-band rail-section" aria-labelledby="focus-title">
+        <div class="section-inner">
+          <h2 id="why-title">A Point of View on Product Quality</h2>
+          <div class="prose">
+            <p>Product quality should not depend on one specialist catching every issue at the end or every team relearning the same lesson.</p>
+            <p>I treat accessibility as part of how I see quality. It helps teams recognize friction, risk, and gaps in the experience early enough to do something useful about them. The practical work is making ownership clear and giving people a way to act on what they find.</p>
+            <p>A good system should make the next right decision easier.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="about-preview-title">
         <div class="section-inner">
           <h2 id="about-preview-title">About Melissa</h2>
           <div class="about-preview">
@@ -168,19 +191,19 @@
                 <p>Over time my work expanded beyond designing interfaces into leading the systems behind them. Today I help organizations strengthen design quality, improve collaboration, build team capability, and create more sustainable ways of working. Accessibility is a major strength in that work, but it isn't the whole story. Whether I'm building training, governance frameworks, or operational processes, I'm motivated by the same goal: helping people do their best work and creating better experiences for the people they serve.</p>
               </div>
               <div class="action-row">
-                <a class="button secondary" href="about.html">Learn More About Me</a>
+                <a class="button secondary" href="about.html">Learn More about Me</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="content-section rail-section" aria-labelledby="resume-preview-title">
+      <section class="content-section section-band rail-section" aria-labelledby="focus-title">
         <div class="section-inner">
           <h2 id="resume-preview-title">Resume</h2>
           <div>
             <div class="prose">
-              <p>View experience, leadership work, certifications, and professional background.</p>
+              <p>See my experience across UX design, design systems, experience strategy, and team enablement.</p>
             </div>
             <div class="action-row">
               <a class="button secondary" href="resume.html">View Resume</a>
