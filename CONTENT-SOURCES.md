@@ -30,6 +30,8 @@ Use this project when the work changes the underlying brand system rather than j
 
 `melissa-portfolio-site/` is the public presentation layer.
 
+`content/site-outline.md` records the site-side positioning, voice, proof-sequence, and public-evidence guidance used to adapt that material. It does not replace the source-of-truth ownership described above.
+
 Use it to:
 
 - adapt source material for concise public pages
