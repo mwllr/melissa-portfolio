@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home V2 Preview | Melissa Waller</title>
+    <meta name="description" content="Preview of revised Home-page copy for Melissa Waller, a Principal UX Designer who designs products and builds the systems around them.">
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="public/favicon-32.png" sizes="32x32">
+    <link rel="apple-touch-icon" href="public/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="styles/site.css">
+    <style>
+      .home-v2 .hero{padding-block:clamp(2.5rem,5vw,3.75rem)}
+      .home-v2 .hero .eyebrow{color:var(--focus-card-1-bg)}
+      .home-v2 .hero .lede{margin-block-end:var(--space-4)}
+      .hero-proof{max-width:var(--layout-text-measure);margin:var(--space-4) 0 0;padding-inline-start:1.2rem;color:var(--color-white)}
+      .hero-proof li{padding-inline-start:var(--space-2);color:var(--color-white);font-size:var(--text-md);font-weight:400;line-height:1.45}
+      .hero-proof li + li{margin-block-start:var(--space-2)}
+      .home-v2 .hero-focus{margin:var(--space-4) 0 0}
+      .home-v2 .hero .action-row{margin-block-start:var(--space-4)}
+      .home-v2 .content-section{padding-block:clamp(2rem,4vw,3.5rem)}
+      .home-v2 .content-section .prose > :last-child{margin-block-end:0}
+      .home-feature-content{gap:.6rem}
+      .home-feature-header{display:block}
+      .home-feature-content .card-eyebrow{display:block;font-size:.72rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--color-secondary-contrast);margin:0}
+      .home-feature-description{font-size:14px}
+      .home-strategy-callout{max-width:none;margin-block-start:var(--space-4);border-inline-start-color:#456482;background:var(--color-mist)}
+      .home-strategy-callout h3{margin-block-start:0}
+      .home-strategy-callout p{margin-block-end:var(--space-3)}
+      .home-strategy-callout .action-row{margin-block-start:var(--space-3)}
+      .home-v2 .button{border-width:1.5px}
+      .button.button--light-blue{border-color:#456482;background:var(--focus-card-2-bg);color:#456482}
+      .button.button--light-blue:hover,.button.button--light-blue:focus-visible{border-color:#315b82;background:#315b82;color:var(--color-white)}
+      .home-v2 .button:focus-visible,.home-strategy-evidence a:focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
+      .home-strategy-case-studies{margin-block-start:var(--space-4)}
+      .home-strategy-case-studies > h4{margin:0 0 var(--space-4);color:var(--color-primary);font-family:var(--font-heading);font-size:var(--type-card-title);font-weight:400;line-height:1.35}
+      .home-strategy-evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-3);margin:0;padding:0;list-style:none}
+      .home-strategy-evidence li + li{margin-block-start:0}
+      .home-strategy-evidence a{display:block;height:100%;padding:var(--space-4);border:1.5px solid var(--component-interactive-card-border);border-radius:var(--component-card-radius);background:var(--color-white);color:var(--color-text);text-decoration:none}
+      .home-strategy-evidence a:hover,.home-strategy-evidence a:focus-visible{border-color:#456482;box-shadow:inset 0 0 0 2px #456482}
+      .home-strategy-evidence h5{margin:0;color:var(--color-primary);font-family:var(--font-heading);font-size:var(--type-compact-card-title);font-weight:400;line-height:1.35}
+      .home-strategy-evidence a:hover h5,.home-strategy-evidence a:focus-visible h5{color:var(--color-secondary-contrast)}
+      .home-strategy-evidence span{display:block;margin-block-start:var(--space-2);font-size:var(--text-sm);line-height:1.5}
+      .career-throughline{max-width:var(--layout-text-measure)}
+      .home-v2 .about-preview .action-row,.home-v2 .section-inner > .prose + .action-row{margin-block-start:var(--space-4)}
+      @media (max-width:680px){.home-strategy-evidence{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body class="home-v2">
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="home-v2.html">Melissa Waller</a>
+        <div class="header-menu">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle>
+            <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+            <span class="menu-toggle-text">Menu</span>
+          </button>
+          <nav id="primary-nav" class="site-nav" aria-label="Primary navigation">
+            <ul>
+              <li><a href="selected-work.html">Selected Work</a></li>
+              <li><a href="resume.html">Resume</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="home-title">
+        <figure class="hero-overlay" aria-hidden="true">
+          <img src="public/images/work/mw-system-dots.svg" alt="">
+        </figure>
+        <div class="section-inner">
+          <p class="eyebrow">Principal UX Designer · Product Design · Design Systems · Experience Strategy</p>
+          <h1 id="home-title">I Design the Product &amp; Build the Systems Around It.</h1>
+          <p class="lede">I work hands-on across interaction design, information architecture, and accessible behavior. I build standards, review paths, and team support that help quality stay visible as the work grows.</p>
+          <ul class="hero-proof" aria-label="Selected evidence">
+            <li>126-program discovery experience</li>
+            <li>Quality system for 3 teams and 16 designers</li>
+            <li>Portfolio strategy for 5 teams and 70+ designers</li>
+          </ul>
+          <p class="hero-focus">Bring me in when the product needs better design now and the team needs a clearer way to make the next decision.</p>
+          <div class="action-row">
+            <a class="button secondary" href="selected-work.html">Explore Selected Work</a>
+            <a class="button secondary" href="resume.html">View Resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="selected-work-title">
+        <div class="section-inner">
+          <h2 id="selected-work-title">Highlighted Work</h2>
+          <div class="prose">
+            <p>I stay close to the product, whether I am shaping an interaction model, testing an information architecture, or helping a team decide what to do next. When the same problems keep surfacing, I build a clearer way to handle them.</p>
+          </div>
+          <div class="home-feature-grid">
+            <a class="card home-feature-card" href="selected-work/aces-program-explorer.html">
+              <figure class="home-feature-artwork" aria-hidden="true">
+                <img src="public/images/work/mw-thumb-aces.svg" alt="">
+              </figure>
+              <span class="home-feature-content">
+                <span class="home-feature-header"><span class="card-eyebrow">ACES Program Explorer</span></span>
+                <span class="home-feature-title">Made program discovery fit how prospective students choose</span>
+                <span class="home-feature-description">I designed an interest-based Program Explorer that let students start with what interested them, not the college's department structure. The same model supported a focused recruiting view without a second build.</span>
+              </span>
+            </a>
+          </div>
+
+          <article class="callout home-strategy-callout">
+            <h3>Design Quality at Scale</h3>
+            <p>At Walmart, I built practical ways for teams to make stronger design-quality decisions: risk-based review, training shaped by recurring issues, peer champion support, and portfolio prioritization.</p>
+            <p>As the organization grew, the work gave leaders a clearer view of where deeper support would matter most. It also gave teams a better starting point than routing every question through one specialist.</p>
+            <div class="action-row"><a class="button button--light-blue" href="selected-work/experience-quality-strategy.html">View Experience Quality Strategy</a></div>
+            <section class="home-strategy-case-studies" aria-labelledby="strategy-case-studies-title">
+              <h4 id="strategy-case-studies-title">Dig Deeper Into the Case Studies</h4>
+              <ul class="home-strategy-evidence">
+                <li><a href="selected-work/associate-experience-portfolio-strategy.html"><h5>Portfolio strategy</h5><span>Made risk visible across roughly 80 touchpoints and created a clearer path to deeper support where it could create the most value.</span></a></li>
+                <li><a href="selected-work/design-quality-operating-model.html"><h5>Quality decision system</h5><span>Built a risk-based review and learning model that helped three teams make quality decisions without relying on one person to hold every answer.</span></a></li>
+                <li><a href="selected-work/accessibility-champions-program.html"><h5>Team capability</h5><span>Created training and peer champion support so designers could catch and address more issues within their own teams.</span></a></li>
+                <li><a href="selected-work/ai-assisted-ux-governance-accessibility-review-system.html"><h5>Governed AI support</h5><span>Tested structured AI support for review workflows while keeping people responsible for judgment, ownership, and acceptance.</span></a></li>
+              </ul>
+            </section>
+          </article>
+          <div class="action-row">
+            <a class="button secondary" href="selected-work.html">Explore All Work</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section section-band rail-section" aria-labelledby="how-title">
+        <div class="section-inner">
+          <h2 id="how-title">How I Work</h2>
+          <div class="summary-grid focus-grid">
+            <article class="card">
+              <i class="ph ph-compass focus-card-icon" aria-hidden="true"></i>
+              <h3>Design the Experience</h3>
+              <p>I turn complex content, needs, and constraints into clear interaction models, information architecture, and accessible behavior.</p>
+            </article>
+            <article class="card">
+              <i class="ph ph-sliders-horizontal focus-card-icon" aria-hidden="true"></i>
+              <h3>Make Quality Practical</h3>
+              <p>I build standards, review paths, and decision tools that help teams catch issues earlier and avoid solving the same problem again.</p>
+            </article>
+            <article class="card">
+              <i class="ph ph-users-three focus-card-icon" aria-hidden="true"></i>
+              <h3>Build Team Capability</h3>
+              <p>I use coaching, training, shared tools, and clear escalation paths to help people become more capable, not more dependent.</p>
+            </article>
+            <article class="card">
+              <i class="ph ph-arrows-out-cardinal focus-card-icon" aria-hidden="true"></i>
+              <h3>Make Tradeoffs Visible</h3>
+              <p>I bring product, engineering, business, and design into the same conversation when a decision affects the experience, the team, or both.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="throughline-title">
+        <div class="section-inner career-throughline prose">
+          <h2 id="throughline-title">The Titles Changed. The Job Didn&rsquo;t.</h2>
+          <p>I have managed a creative team, led a web-development team, and now work as a Principal UX Designer. In each role, I have stayed close to the design work.</p>
+          <p>At Illinois, I led the College of ACES web team while personally designing every wireframe for the Program Explorer. I also co-chaired the roughly 175-person Web Implementation Guidelines Group and served on its five-person steering committee.</p>
+        </div>
+      </section>
+
+      <section class="content-section section-band rail-section" aria-labelledby="quality-title">
+        <div class="section-inner prose">
+          <h2 id="quality-title">A Point of View on Product Quality</h2>
+          <p>Product quality should not depend on one specialist catching every issue at the end or every team relearning the same lesson.</p>
+          <p>I treat accessibility as part of how I see quality. It helps teams recognize friction, risk, and gaps in the experience early enough to do something useful about them. The practical work is making ownership clear and giving people a way to act on what they find.</p>
+          <p>A good system should make the next right decision easier.</p>
+        </div>
+      </section>
+
+      <section class="content-section rail-section" aria-labelledby="about-preview-title">
+        <div class="section-inner">
+          <h2 id="about-preview-title">About Melissa</h2>
+          <div class="about-preview">
+            <div class="prose">
+              <figure class="about-preview-image">
+                <img src="public/images/about/mw-headshot-gray.png" alt="Melissa Waller smiling in a gray-toned professional headshot.">
+              </figure>
+              <p>I started in graphic design, where I learned that visual choices shape what people understand and trust. Over time, my work expanded into UX, design systems, accessibility, and the way teams make decisions together.</p>
+              <p>I like the parts of work most people never see: the structure behind a clear interface, the conversation that changes a decision, and the shared practice that lets a team do better work next time.</p>
+              <div class="action-row"><a class="button secondary" href="about.html">Learn More About Me</a></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section section-band rail-section" aria-labelledby="resume-preview-title">
+        <div class="section-inner">
+          <h2 id="resume-preview-title">Resume</h2>
+          <div class="prose">
+            <p>See my experience across UX design, design systems, experience strategy, and team enablement.</p>
+          </div>
+          <div class="action-row"><a class="button secondary" href="resume.html">View Resume</a></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer data-footer-copy="v2"></footer>
+    <script src="scripts/theme.js?v=responsive-menu"></script>
+  </body>
+</html>

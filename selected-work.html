@@ -21,8 +21,15 @@
       [aria-labelledby="work-areas-title"] .work-card-link{gap:calc(var(--space-3) - 4px)}
       .featured-work-card .featured-work-content{display:grid;align-content:start;gap:calc(var(--space-3) - 4px)}
       .featured-work-card .featured-work-content .card-eyebrow,.featured-work-card .featured-work-content h3,.featured-work-card .featured-work-content p,.featured-work-card .featured-work-content .work-tags{margin:0}
+      .featured-work-card .featured-work-content h3{color:var(--color-primary)}
+      .featured-work-card .featured-work-content p{color:var(--color-text)}
+      .featured-work-card:hover .work-link-title,.featured-work-card:focus-visible .work-link-title{color:var(--color-secondary-contrast);text-decoration-line:none}
       .work-card-link .work-tags,.work-list-link .work-tags{margin-block-start:calc(var(--space-3) - 4px)}
-      .work-strategy-callout{max-width:none;background:var(--color-mist)}
+      .work-strategy-callout{max-width:none;border-inline-start-color:#456482;background:var(--color-mist)}
+      .work-strategy-callout > .card-eyebrow{margin:0 0 var(--space-2);color:#456482}
+      .work-strategy-callout h3{margin-block-start:0}
+      .work-strategy-callout p{margin-block-end:var(--space-3)}
+      .work-strategy-callout .action-row{margin-block-start:var(--space-3)}
       .work-strategy-callout .work-grid .card{background:var(--color-white)}
       .work-strategy-callout .work-grid .card{padding-block-start:calc(var(--space-5) - 4px)}
       .work-strategy-callout .work-grid .card{row-gap:4px}
@@ -76,8 +83,8 @@
             <figure class="work-thumb"><img src="public/images/work/mw-thumb-aces.svg" alt=""></figure>
             <div class="featured-work-content">
               <span class="card-eyebrow">ACES Program Explorer</span>
-              <h3><span class="work-link-title">Reframed program discovery around how students choose majors</span></h3>
-              <p>ACES&rsquo;s catalog was organized by departments, while prospective students explored by interests. I designed an interest-based information architecture, validated it through lightweight research, and made the same model configurable for a majors-only recruiting view.</p>
+              <h3><span class="work-link-title">Reframed program discovery around how prospective students choose</span></h3>
+              <p>I designed an interest-based Program Explorer that let students start with what interested them, not the college&rsquo;s department structure. The same model supported a focused recruiting view without a second build.</p>
               <div class="work-tags" aria-label="Categories">
                 <span class="work-tag tag-ux">UX Design</span>
                 <span class="work-tag tag-strategy">Product Strategy</span>
@@ -87,11 +94,13 @@
             </div>
           </a>
           <article class="callout work-strategy-callout">
-            <h3>Experience Quality Strategy: A Throughline Across the Work</h3>
-            <p>From establishing inclusive design practices for 16 designers to building portfolio-level strategy for 70+ designers and roughly 80 touchpoints, this work shows how I scaled quality through systems, enablement, and risk-based decisions.</p>
-            <div class="action-row"><a class="button secondary" href="selected-work/accessibility-strategy.html">View the Experience Quality Strategy</a></div>
+            <span class="card-eyebrow">Experience Quality Strategy</span>
+            <h3>Design Quality at Scale</h3>
+            <p>At Walmart, I built practical ways for teams to make stronger design-quality decisions: risk-based review, training shaped by recurring issues, peer champion support, and portfolio prioritization.</p>
+            <p>As the organization grew, the work gave leaders a clearer view of where deeper support would matter most. It also gave teams a better starting point than routing every question through one specialist.</p>
+            <div class="action-row"><a class="button secondary" href="selected-work/experience-quality-strategy.html">View Experience Quality Strategy</a></div>
             <section class="strategy-case-studies" aria-labelledby="strategy-case-studies-title">
-              <h4 id="strategy-case-studies-title">Strategy Case Studies</h4>
+              <h4 id="strategy-case-studies-title">Dig Deeper into the Case Studies</h4>
               <div class="work-grid">
                 <a class="card work-card-link" href="selected-work/associate-experience-portfolio-strategy.html">
                   <figure class="work-thumb"><img src="public/images/work/mw-thumb-ax.svg" alt=""></figure>

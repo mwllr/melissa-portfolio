@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ACES program system &mdash; interactive views | Melissa Waller</title>
+<title>ACES program system: interactive views | Melissa Waller</title>
 <meta name="description" content="Four interactive views of the ACES program system: where a flat list favors the biggest department, an interest-to-major relationship map, a department-by-interest structure matrix, and a sortable department catalog. Reverse-engineered from the live ACES Program Explorer.">
 <style>
   :root{
@@ -112,7 +112,7 @@
 <body>
 <main class="wrap">
   <h1>One program system, four ways to read it</h1>
-  <p class="lede">The College of ACES organizes its 30 undergraduate majors by <strong>department</strong>. Prospective students explore by <strong>interest</strong>. These interactive views make that gap visible &mdash; and show how the Program Explorer reframed discovery around students instead of the org chart.</p>
+  <p class="lede">The College of ACES organizes its 30 undergraduate majors by <strong>department</strong>. Prospective students explore by <strong>interest</strong>. These interactive views make that gap visible and show how the Program Explorer reframed discovery around students instead of the org chart.</p>
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" id="t4" aria-selected="true" aria-controls="p4">The list problem</button>
     <button class="tab" role="tab" id="t1" aria-selected="false" aria-controls="p1">Relationship map</button>
@@ -123,7 +123,7 @@
   <!-- VIEW 1 -->
   <section class="panel" id="p1" role="tabpanel" aria-labelledby="t1">
     <h2 class="ph">How interests converge on programs</h2>
-    <p class="psub">Every line is an interest path into a major. Hover or tap an interest to see which majors it reaches; hover a major to see the interests that lead there. Majors are colored by the department that owns them &mdash; watch how a single interest cuts straight across departments.</p>
+    <p class="psub">Every line is an interest path into a major. Hover or tap an interest to see which majors it reaches; hover a major to see the interests that lead there. Majors are colored by the department that owns them. Watch how a single interest cuts straight across departments.</p>
     <div class="rel-hint" id="relHint">Hover to trace a path &middot; click to lock it in place &middot; click empty space to reset</div>
     <div id="relWrap"><svg id="rel" xmlns="http://www.w3.org/2000/svg"></svg></div>
     <div class="legend" id="relLegend"></div>
@@ -132,7 +132,7 @@
   <!-- VIEW 2 -->
   <section class="panel" id="p2" role="tabpanel" aria-labelledby="t2">
     <h2 class="ph">The catalog, sortable and filterable</h2>
-    <p class="psub">The browse-and-rank view: one row per major. Sort by department, interest reach, or name; filter to a single department or interest. This is the structured counterpart to the visual map &mdash; useful when someone already knows what facet they care about.</p>
+    <p class="psub">The browse-and-rank view: one row per major. Sort by department, interest reach, or name; filter to a single department or interest. This is the structured counterpart to the visual map, useful when someone already knows what facet they care about.</p>
     <div class="ctrls">
       <span><label for="fDept">Department</label><select id="fDept"></select></span>
       <span><label for="fInt">Interest</label><select id="fInt"></select></span>
@@ -160,7 +160,7 @@
   <!-- VIEW 4 -->
   <section class="panel" id="p4" role="tabpanel" aria-labelledby="t4" data-active="true">
     <h2 class="ph">Why a flat list favors the biggest department</h2>
-    <p class="psub">Departments are wildly uneven in size &mdash; one holds a third of all majors, others just one. Any list-based experience inherits that imbalance: the large department floods the page while the small ones vanish into a single line. This is the problem interest-first discovery was built to fix.</p>
+    <p class="psub">Departments are wildly uneven in size. One holds a third of all majors; others hold just one. Any list-based experience inherits that imbalance: the large department floods the page while the small ones vanish into a single line. This is the problem interest-first discovery was built to fix.</p>
     <div class="stats" id="listStats"></div>
     <div class="split">
       <div>
@@ -195,7 +195,7 @@ const DEPTS = {
   FSHN:{name:"Food Science & Human Nutrition", color:"#B0348C"},
   HDFS:{name:"Human Development & Family Studies", color:"#6B4EA0"},
   NRES:{name:"Natural Resources & Environmental Sciences", color:"#1C7E77"},
-  ACES:{name:"ACES — interdisciplinary (college-level)", color:"#5E6874"}
+  ACES:{name:"ACES: interdisciplinary (college-level)", color:"#5E6874"}
 };
 const MAJORS = [
   {n:"Public Policy & Law", d:"ACE", i:["Agriculture","Animals","Business","Food Systems","Health","Plants & Crops","Sustainability"]},
@@ -388,7 +388,7 @@ function drawRel(){
   Object.entries(DEPTS).forEach(([k,v])=>{
     const cnt=MAJORS.filter(m=>m.d===k).length;
     const s=document.createElement('span');
-    s.innerHTML=`<i style="background:${v.color}"></i>${v.name.split(' —')[0]} (${cnt})`;
+    s.innerHTML=`<i style="background:${v.color}"></i>${v.name.split(':')[0]} (${cnt})`;
     leg.append(s);
   });
 }
@@ -396,7 +396,7 @@ function drawRel(){
 /* ---------- VIEW 2: sortable catalog ---------- */
 const tbody=document.querySelector('#cat tbody');
 const fDept=document.getElementById('fDept'), fInt=document.getElementById('fInt');
-fDept.innerHTML='<option value="">All departments</option>'+Object.entries(DEPTS).map(([k,v])=>`<option value="${k}">${v.name.split(' —')[0]}</option>`).join('');
+fDept.innerHTML='<option value="">All departments</option>'+Object.entries(DEPTS).map(([k,v])=>`<option value="${k}">${v.name.split(':')[0]}</option>`).join('');
 fInt.innerHTML='<option value="">All interests</option>'+INTERESTS.map(i=>`<option>${i}</option>`).join('');
 let sortK='n', sortDir=1;
 function renderTable(){
@@ -416,7 +416,7 @@ function renderTable(){
     const chips=r.i.map(x=>{const on=fInt.value===x;return `<span class="chip" style="${on?'background:#0C447C;color:#fff':''}">${x}</span>`}).join('');
     const un=r.n==="ACES Undeclared";
     return `<tr${un?' class="un"':''}><td>${r.n}${un?' <span style="font-size:.7rem;color:#6f675b">(explore-everything entry)</span>':''}</td>
-      <td><span class="deptpill" style="background:${dp.color}">${r.d}</span> <span style="font-size:.76rem;color:#5f564c">${dp.name.split(' —')[0]}</span></td>
+      <td><span class="deptpill" style="background:${dp.color}">${r.d}</span> <span style="font-size:.76rem;color:#5f564c">${dp.name.split(':')[0]}</span></td>
       <td><span class="pcount">${r.paths}</span></td>
       <td>${chips}</td></tr>`;
   }).join('');
@@ -468,7 +468,7 @@ function renderMatrix(){
   const widest=realDepts[rSpread.indexOf(Math.max(...rSpread))];
   const agHomes=new Set(MAJORS.filter(m=>m.i.includes('Agriculture')).map(m=>m.d)).size;
   document.getElementById('mxInsight').innerHTML=
-    `<strong>Read across, not down.</strong> The widest-reaching department, ${DEPTS[widest].name.split(' —')[0]}, touches ${Math.max(...rSpread)} of 10 interests; &ldquo;Agriculture&rdquo; alone pulls from ${colTot[0]} majors across ${agHomes} different academic homes. No single department owns an interest &mdash; which is exactly why organizing discovery by department left students stuck.`;
+    `<strong>Read across, not down.</strong> The widest-reaching department, ${DEPTS[widest].name.split(':')[0]}, touches ${Math.max(...rSpread)} of 10 interests; &ldquo;Agriculture&rdquo; alone pulls from ${colTot[0]} majors across ${agHomes} different academic homes. No single department owns an interest, which is exactly why organizing discovery by department left students stuck.`;
 }
 renderMatrix();
 
@@ -481,7 +481,7 @@ function renderList(){
   // bar chart
   document.getElementById('deptBars').innerHTML=counts.map(x=>{
     const col=DEPTS[x.d].color, pct=Math.round(x.c/total*100);
-    return `<div class="barrow" title="${DEPTS[x.d].name.split(' —')[0]}">
+    return `<div class="barrow" title="${DEPTS[x.d].name.split(':')[0]}">
       <span class="barlab"><span class="deptpill" style="background:${col}">${x.d}</span></span>
       <span class="bartrack"><span class="barfill" style="width:${x.c/max*100}%;background:${col}">${x.c}</span></span>
       <span class="barpct">${pct}%</span></div>`;
@@ -493,7 +493,7 @@ function renderList(){
   document.getElementById('listStats').innerHTML=
     `<div class="stat hi"><b>${Math.round(ace/total*100)}%</b><span>of the catalog is one department (ACE, ${ace} of ${total})</span></div>`+
     `<div class="stat"><b>${max} : 1</b><span>largest department vs. the ${singles} single-major homes</span></div>`+
-    `<div class="stat"><b>${agName}</b><span>majors whose name starts &ldquo;Agri&hellip;&rdquo; &mdash; they crowd the top of any A&ndash;Z list</span></div>`;
+    `<div class="stat"><b>${agName}</b><span>majors whose name starts &ldquo;Agri&hellip;&rdquo;; they crowd the top of any A&ndash;Z list</span></div>`;
   // list
   let rows=MAJORS.map(m=>({...m}));
   if(listOrder==='az') rows.sort((a,b)=>a.n.localeCompare(b.n));
@@ -511,7 +511,7 @@ function renderList(){
   }).join('');
   // insight
   document.getElementById('listInsight').innerHTML=
-    `<strong>Same data, same bias, whichever way you sort it.</strong> A&ndash;Z buries the difference between programs &mdash; ${agName} of them open with &ldquo;Agri&hellip;&rdquo; &mdash; while grouping by department hands ACE a block ${max} rows tall and leaves ${singles} departments as a single, easy-to-miss line. A list can only order the catalog; it can&rsquo;t re-weight it around what a student actually came to find. That&rsquo;s what the interest model does.`;
+    `<strong>Same data, same bias, whichever way you sort it.</strong> A&ndash;Z buries the difference between programs: ${agName} of them open with &ldquo;Agri&hellip;&rdquo;. Grouping by department hands ACE a block ${max} rows tall and leaves ${singles} departments as a single, easy-to-miss line. A list can only order the catalog; it can&rsquo;t re-weight it around what a student actually came to find. That&rsquo;s what the interest model does.`;
 }
 document.querySelectorAll('.ord').forEach(b=>b.addEventListener('click',()=>{
   listOrder=b.dataset.o;

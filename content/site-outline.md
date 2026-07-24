@@ -2,7 +2,7 @@
 
 ## Primary Positioning
 
-Melissa Waller is a design leader and experience strategist who turns fragmented design, systems, and quality practices into scalable experience strategy, design systems, and operating models. Accessibility runs through the work as a built-in quality lens — evidence of how she builds durable systems, not the headline.
+Melissa Waller is a design leader and experience strategist who turns fragmented design, systems, and quality practices into scalable experience strategy, design systems, and operating models. Accessibility runs through the work as a built-in quality lens. It is evidence of how she builds durable systems, not the headline.
 
 ## Current Pages
 
